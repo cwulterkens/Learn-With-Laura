@@ -16,6 +16,8 @@
 
   <ItemGroup>
     <Compile Include="../Scripts/Core/AdventureProgress.cs" Link="Core/AdventureProgress.cs" />
+    <Compile Include="../Scripts/Core/JsonRecovery.cs" Link="Core/JsonRecovery.cs" />
+    <Compile Include="../Scripts/Core/ProfileRecovery.cs" Link="Core/ProfileRecovery.cs" />
     <Compile Include="../Scripts/Core/ProfileSelectionRules.cs" Link="Core/ProfileSelectionRules.cs" />
     <Compile Include="../Scripts/Models/GameModels.cs" Link="Models/GameModels.cs" />
   </ItemGroup>
