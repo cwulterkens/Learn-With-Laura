@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Compile Include="../Scripts/Core/AdventureProgress.cs" Link="Core/AdventureProgress.cs" />
+    <Compile Include="../Scripts/Core/ProfileSelectionRules.cs" Link="Core/ProfileSelectionRules.cs" />
     <Compile Include="../Scripts/Models/GameModels.cs" Link="Models/GameModels.cs" />
   </ItemGroup>
 </Project>
