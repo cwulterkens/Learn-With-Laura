@@ -131,11 +131,13 @@ public static class UiHelpers
         {
             bool isAnswerButton = button.Name.ToString().StartsWith("Option");
             bool isFooterButton = button.GetParent()?.Name.ToString() == "Footer";
-            float minimumWidth = isAnswerButton ? 760 : isFooterButton ? 280 : 560;
+            float minimumWidth = isAnswerButton ? 0 : isFooterButton ? 280 : 560;
             button.CustomMinimumSize = new Vector2(
                 Mathf.Max(button.CustomMinimumSize.X, minimumWidth),
                 Mathf.Max(button.CustomMinimumSize.Y, isAnswerButton ? 76 : 64));
-            button.SizeFlagsHorizontal = Control.SizeFlags.ShrinkCenter;
+            button.SizeFlagsHorizontal = isAnswerButton
+                ? Control.SizeFlags.Fill | Control.SizeFlags.Expand
+                : Control.SizeFlags.ShrinkCenter;
             button.Alignment = HorizontalAlignment.Center;
             button.AutowrapMode = TextServer.AutowrapMode.WordSmart;
             button.TextOverrunBehavior = TextServer.OverrunBehavior.NoTrimming;

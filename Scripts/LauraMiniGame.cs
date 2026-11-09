@@ -60,20 +60,20 @@ public partial class LauraMiniGame : Control
         }
 
         _background = GetNode<TextureRect>("Background");
-        _introLabel = GetNode<Label>("Panel/VBox/IntroLabel");
-        _areaLabel = GetNode<Label>("Panel/VBox/QuizBox/AreaLabel");
-        _questionLabel = GetNode<Label>("Panel/VBox/QuizBox/QuestionLabel");
-        _feedbackLabel = GetNode<Label>("Panel/VBox/QuizBox/FeedbackLabel");
-        _progressLabel = GetNode<Label>("Panel/VBox/QuizBox/ProgressLabel");
-        _areaButtons = GetNode<VBoxContainer>("Panel/VBox/AreaButtons");
-        _quizBox = GetNode<VBoxContainer>("Panel/VBox/QuizBox");
-        _optionsGrid = GetNode<GridContainer>("Panel/VBox/QuizBox/OptionsGrid");
-        _continueButton = GetNode<Button>("Panel/VBox/QuizBox/ContinueButton");
+        _introLabel = GetNode<Label>("Panel/Scroll/VBox/IntroLabel");
+        _areaLabel = GetNode<Label>("Panel/Scroll/VBox/QuizBox/AreaLabel");
+        _questionLabel = GetNode<Label>("Panel/Scroll/VBox/QuizBox/QuestionLabel");
+        _feedbackLabel = GetNode<Label>("Panel/Scroll/VBox/QuizBox/FeedbackLabel");
+        _progressLabel = GetNode<Label>("Panel/Scroll/VBox/QuizBox/ProgressLabel");
+        _areaButtons = GetNode<VBoxContainer>("Panel/Scroll/VBox/AreaButtons");
+        _quizBox = GetNode<VBoxContainer>("Panel/Scroll/VBox/QuizBox");
+        _optionsGrid = GetNode<GridContainer>("Panel/Scroll/VBox/QuizBox/OptionsGrid");
+        _continueButton = GetNode<Button>("Panel/Scroll/VBox/QuizBox/ContinueButton");
 
-        _optionButtons[0] = GetNode<Button>("Panel/VBox/QuizBox/OptionsGrid/OptionA");
-        _optionButtons[1] = GetNode<Button>("Panel/VBox/QuizBox/OptionsGrid/OptionB");
-        _optionButtons[2] = GetNode<Button>("Panel/VBox/QuizBox/OptionsGrid/OptionC");
-        _optionButtons[3] = GetNode<Button>("Panel/VBox/QuizBox/OptionsGrid/OptionD");
+        _optionButtons[0] = GetNode<Button>("Panel/Scroll/VBox/QuizBox/OptionsGrid/OptionA");
+        _optionButtons[1] = GetNode<Button>("Panel/Scroll/VBox/QuizBox/OptionsGrid/OptionB");
+        _optionButtons[2] = GetNode<Button>("Panel/Scroll/VBox/QuizBox/OptionsGrid/OptionC");
+        _optionButtons[3] = GetNode<Button>("Panel/Scroll/VBox/QuizBox/OptionsGrid/OptionD");
 
         for (int index = 0; index < _optionButtons.Length; index++)
         {
@@ -82,9 +82,9 @@ public partial class LauraMiniGame : Control
         }
 
         _continueButton.Pressed += ContinueAdventure;
-        _returnButton = GetNode<Button>("Panel/VBox/Footer/ReturnButton");
+        _returnButton = GetNode<Button>("Panel/Scroll/VBox/Footer/ReturnButton");
         _returnButton.Pressed += ReturnFromAdventure;
-        GetNode<Button>("Panel/VBox/Footer/HomeButton").Pressed += GoHome;
+        GetNode<Button>("Panel/Scroll/VBox/Footer/HomeButton").Pressed += GoHome;
 
         _freePlayEntry = AppState.PendingLauraFreePlay
             || AppState.ActiveProfile.SavedSession.LauraFreePlay;
@@ -138,8 +138,8 @@ public partial class LauraMiniGame : Control
                         ? $"✓ {area.Name} · Mastered · Revisit"
                         : $"Visit {area.Name}"
                     : $"{area.Name} · unlocks at {requiredMiles} trail miles",
-                CustomMinimumSize = new Vector2(640, 70),
-                SizeFlagsHorizontal = Control.SizeFlags.ShrinkCenter,
+                CustomMinimumSize = new Vector2(0, 70),
+                SizeFlagsHorizontal = Control.SizeFlags.Fill | Control.SizeFlags.Expand,
                 Alignment = HorizontalAlignment.Center,
                 Disabled = !unlocked
             };
