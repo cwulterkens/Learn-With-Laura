@@ -1,16 +1,18 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://t7yq4qrxvl3t"]
 
-[ext_resource type="Script" path="res://Scripts/OptionsMenu.cs" id="1"]
-[ext_resource type="Texture2D" path="res://assets/menu_wallpaper.png" id="2"]
+[ext_resource type="Script" uid="uid://dcet217yjw4k1" path="res://Scripts/OptionsMenu.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://dsqx7hexy67o" path="res://assets/menu_wallpaper.png" id="2"]
 
-[node name="OptionsMenu" type="Control"]
+[node name="OptionsMenu" type="Control" unique_id=1303234985]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1489428601]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +23,7 @@ texture = ExtResource("2")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="SafeArea" type="MarginContainer" parent="."]
+[node name="SafeArea" type="MarginContainer" parent="." unique_id=1258245299]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,14 +35,14 @@ theme_override_constants/margin_top = 72
 theme_override_constants/margin_right = 72
 theme_override_constants/margin_bottom = 72
 
-[node name="Center" type="CenterContainer" parent="SafeArea"]
+[node name="Center" type="CenterContainer" parent="SafeArea" unique_id=2029529227]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="SafeArea/Center"]
+[node name="Panel" type="Panel" parent="SafeArea/Center" unique_id=179289562]
 custom_minimum_size = Vector2(760, 960)
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel"]
+[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel" unique_id=1339993551]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,71 +56,71 @@ grow_vertical = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox"]
+[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=1468854488]
 layout_mode = 2
-horizontal_alignment = 1
-autowrap_mode = 3
 theme_override_font_sizes/font_size = 38
 text = "Options"
-
-[node name="MusicLabel" type="Label" parent="SafeArea/Center/Panel/VBox"]
-layout_mode = 2
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="MusicLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=265187723]
+layout_mode = 2
 text = "Music Volume"
-
-[node name="MusicSlider" type="HSlider" parent="SafeArea/Center/Panel/VBox"]
-custom_minimum_size = Vector2(560, 48)
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-
-[node name="SfxLabel" type="Label" parent="SafeArea/Center/Panel/VBox"]
-layout_mode = 2
 horizontal_alignment = 1
 autowrap_mode = 3
-text = "Effects Volume"
 
-[node name="SfxSlider" type="HSlider" parent="SafeArea/Center/Panel/VBox"]
+[node name="MusicSlider" type="HSlider" parent="SafeArea/Center/Panel/VBox" unique_id=2084055758]
 custom_minimum_size = Vector2(560, 48)
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 
-[node name="MuteToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox"]
+[node name="SfxLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=638257066]
+layout_mode = 2
+text = "Effects Volume"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="SfxSlider" type="HSlider" parent="SafeArea/Center/Panel/VBox" unique_id=1880569227]
+custom_minimum_size = Vector2(560, 48)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="MuteToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox" unique_id=1935470665]
 layout_mode = 2
 text = "Mute All Audio"
 
-[node name="LargeTextToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox"]
+[node name="LargeTextToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox" unique_id=1788966955]
 layout_mode = 2
 text = "Larger Text"
 
-[node name="HighContrastToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox"]
+[node name="HighContrastToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox" unique_id=756788172]
 layout_mode = 2
 text = "Higher Contrast"
 
-[node name="ReducedMotionToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox"]
+[node name="ReducedMotionToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox" unique_id=1660224613]
 layout_mode = 2
 text = "Reduce Motion and Splash Delays"
 
-[node name="ResolutionLabel" type="Label" parent="SafeArea/Center/Panel/VBox"]
+[node name="ResolutionLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=501900416]
 layout_mode = 2
-horizontal_alignment = 1
-autowrap_mode = 3
 text = "Resolution"
-
-[node name="ResolutionSelect" type="OptionButton" parent="SafeArea/Center/Panel/VBox"]
-layout_mode = 2
-
-[node name="DisplayModeLabel" type="Label" parent="SafeArea/Center/Panel/VBox"]
-layout_mode = 2
 horizontal_alignment = 1
 autowrap_mode = 3
-text = "Display Mode"
 
-[node name="DisplayModeSelect" type="OptionButton" parent="SafeArea/Center/Panel/VBox"]
+[node name="ResolutionSelect" type="OptionButton" parent="SafeArea/Center/Panel/VBox" unique_id=1430933023]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/VBox"]
+[node name="DisplayModeLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=1912095967]
+layout_mode = 2
+text = "Display Mode"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="DisplayModeSelect" type="OptionButton" parent="SafeArea/Center/Panel/VBox" unique_id=685661111]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1094473513]
 layout_mode = 2
 text = "Back"

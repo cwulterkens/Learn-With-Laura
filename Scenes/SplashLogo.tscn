@@ -1,16 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhe81ks5b7y14"]
+[gd_scene format=3 uid="uid://bhe81ks5b7y14"]
 
 [ext_resource type="Script" uid="uid://2f17ikwy77gv" path="res://Scripts/SplashLogo.cs" id="1"]
 [ext_resource type="Texture2D" uid="uid://7nsu0bwjvdo7" path="res://assets/logo.png" id="2"]
 
-[node name="SplashLogo" type="Control"]
+[node name="SplashLogo" type="Control" unique_id=636473613]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
-[node name="LogoImage" type="TextureRect" parent="."]
+[node name="LogoImage" type="TextureRect" parent="." unique_id=711865451]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

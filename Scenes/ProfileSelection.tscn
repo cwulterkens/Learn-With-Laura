@@ -1,16 +1,18 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://r327ghs160n5"]
 
-[ext_resource type="Script" path="res://Scripts/ProfileSelection.cs" id="1"]
-[ext_resource type="Texture2D" path="res://assets/menu_wallpaper.png" id="2"]
+[ext_resource type="Script" uid="uid://ci87dghu5pqof" path="res://Scripts/ProfileSelection.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://dsqx7hexy67o" path="res://assets/menu_wallpaper.png" id="2"]
 
-[node name="ProfileSelection" type="Control"]
+[node name="ProfileSelection" type="Control" unique_id=1234504848]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1535567137]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +23,7 @@ texture = ExtResource("2")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="SafeArea" type="MarginContainer" parent="."]
+[node name="SafeArea" type="MarginContainer" parent="." unique_id=546178786]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,14 +35,14 @@ theme_override_constants/margin_top = 72
 theme_override_constants/margin_right = 72
 theme_override_constants/margin_bottom = 72
 
-[node name="Center" type="CenterContainer" parent="SafeArea"]
+[node name="Center" type="CenterContainer" parent="SafeArea" unique_id=91179475]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="SafeArea/Center"]
+[node name="Panel" type="Panel" parent="SafeArea/Center" unique_id=1227277475]
 custom_minimum_size = Vector2(720, 860)
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel"]
+[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel" unique_id=2053552773]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,41 +56,40 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox"]
+[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=201980732]
 layout_mode = 2
-horizontal_alignment = 1
-autowrap_mode = 3
 theme_override_font_sizes/font_size = 38
 text = "Profiles"
+horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="Profiles" type="ItemList" parent="SafeArea/Center/Panel/VBox"]
+[node name="Profiles" type="ItemList" parent="SafeArea/Center/Panel/VBox" unique_id=142502127]
 custom_minimum_size = Vector2(560, 240)
 layout_mode = 2
 
-[node name="NewNameInput" type="LineEdit" parent="SafeArea/Center/Panel/VBox"]
+[node name="NewNameInput" type="LineEdit" parent="SafeArea/Center/Panel/VBox" unique_id=391137451]
 custom_minimum_size = Vector2(560, 64)
 layout_mode = 2
 placeholder_text = "Enter first name"
 
-[node name="CreateButton" type="Button" parent="SafeArea/Center/Panel/VBox"]
+[node name="CreateButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=112919387]
 layout_mode = 2
 text = "Create Profile"
 
-[node name="SelectButton" type="Button" parent="SafeArea/Center/Panel/VBox"]
+[node name="SelectButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1807680390]
 layout_mode = 2
 text = "Use Selected Profile"
 
-[node name="DeleteButton" type="Button" parent="SafeArea/Center/Panel/VBox"]
+[node name="DeleteButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=2035084721]
 layout_mode = 2
 text = "Delete Selected Profile"
 
-[node name="StatusLabel" type="Label" parent="SafeArea/Center/Panel/VBox"]
+[node name="StatusLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=1787987832]
 layout_mode = 2
+text = "Current: none"
 horizontal_alignment = 1
 autowrap_mode = 3
-text = "Current: none"
 
-[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/VBox"]
+[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=2125994481]
 layout_mode = 2
 text = "Back"
-
