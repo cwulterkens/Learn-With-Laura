@@ -20,6 +20,7 @@ Requirements: Godot 4.6.x Mono and the .NET 8 SDK.
 ```sh
 dotnet restore "Learn With Laura.sln"
 dotnet build --no-restore "Learn With Laura.sln"
+dotnet test --no-build "Tests/LearnWithLaura.Tests.csproj"
 godot --path .
 ```
 

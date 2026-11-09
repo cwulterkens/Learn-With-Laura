@@ -130,10 +130,13 @@ public partial class LauraMiniGame : Control
         {
             int requiredMiles = index * 40;
             bool unlocked = miles >= requiredMiles;
+            bool mastered = AdventureProgress.IsMastered(AppState.ActiveProfile, area.Id);
             var button = new Button
             {
                 Text = unlocked
-                    ? $"Visit {area.Name}"
+                    ? mastered
+                        ? $"✓ {area.Name} · Mastered · Revisit"
+                        : $"Visit {area.Name}"
                     : $"{area.Name} · unlocks at {requiredMiles} trail miles",
                 CustomMinimumSize = new Vector2(640, 70),
                 SizeFlagsHorizontal = Control.SizeFlags.ShrinkCenter,
@@ -155,8 +158,10 @@ public partial class LauraMiniGame : Control
         _quizBox.Visible = false;
         _introLabel.Visible = true;
         _returnButton.Visible = !_freePlayEntry;
+        int masteredCount = AppState.ActiveProfile!.MasteredLauraAreas.Count;
+        int chapterCount = AppState.LauraMiniGameContent.Areas.Count;
         _introLabel.Text = BuildStatusLine(
-            "Choose a chapter from Laura's world. Knowledge stops and interactive memory mini-games move the journey forward.");
+            $"Choose a chapter from Laura's world. Chapters mastered: {masteredCount}/{chapterCount}. Knowledge stops and interactive memory mini-games move the journey forward.");
     }
 
     private void StartArea(string areaId, bool resetProgress)
@@ -582,6 +587,7 @@ public partial class LauraMiniGame : Control
         var profile = AppState.ActiveProfile;
         int correct = profile.SavedSession.LauraCorrectAnswers;
         _completionMastered = correct >= MasteryCorrect;
+        bool firstMastery = false;
         _completionShown = true;
         _familyActivityActive = false;
         _acceptPatternInput = false;
@@ -590,10 +596,20 @@ public partial class LauraMiniGame : Control
         int awardCountBefore = profile.UnlockedAwards.Count;
         if (_completionMastered)
         {
-            profile.MiniGamesCompleted += 1;
-            profile.GameScore += 250;
-            profile.PrairieStars += 10;
-            profile.Journey.Miles += 20;
+            ChapterMasteryResult masteryResult = AdventureProgress.RecordMasteredRun(profile, _activeAreaId);
+            firstMastery = masteryResult == ChapterMasteryResult.FirstMastery;
+            if (firstMastery)
+            {
+                profile.GameScore += 250;
+                profile.PrairieStars += 10;
+                profile.Journey.Miles += 20;
+            }
+            else
+            {
+                profile.GameScore += 100;
+                profile.PrairieStars += 4;
+                profile.Journey.Miles += 8;
+            }
             profile.Journey.Health = Math.Min(10, profile.Journey.Health + 1);
         }
         else
@@ -624,12 +640,16 @@ public partial class LauraMiniGame : Control
         AppState.SaveProfile();
 
         _optionsGrid.Visible = false;
-        _areaLabel.Text = _completionMastered ? "Adventure Mastered!" : "Almost There";
+        _areaLabel.Text = _completionMastered
+            ? firstMastery ? "Adventure Mastered!" : "Chapter Revisited!"
+            : "Almost There";
         _questionLabel.Text = _completionMastered
             ? $"You mastered {correct}/{KnowledgeGoal} knowledge stops and completed both memory mini-games."
             : $"You completed both memory mini-games and mastered {correct}/{KnowledgeGoal} knowledge stops. Master {MasteryCorrect} to finish this chapter.";
         _feedbackLabel.Text = _completionMastered
-            ? "+10 Prairie Stars, a 250-point trail bonus, and 20 journey miles!"
+            ? firstMastery
+                ? "+10 Prairie Stars, a 250-point first-mastery bonus, and 20 journey miles!"
+                : "+4 Prairie Stars, a 100-point revisit bonus, and 8 journey miles!"
             : "+2 Prairie Stars for your effort. Review the explanations, then try this chapter once more.";
         _progressLabel.Text = BuildStatusLine(_completionMastered ? "Chapter complete." : "Practice makes progress.");
         _continueButton.Text = _completionMastered
@@ -726,7 +746,9 @@ public partial class LauraMiniGame : Control
     private string BuildStatusLine(string prefix)
     {
         JourneyProgress journey = AppState.ActiveProfile!.Journey;
-        return $"{prefix}\nDay {journey.Day} · Miles {journey.Miles} · Food {journey.Food} · Wood {journey.Wood}\nHealth {journey.Health}/10 · Morale {journey.Morale}/10 · Stars {AppState.ActiveProfile.PrairieStars} · Badges {AppState.ActiveProfile.UnlockedAwards.Count}";
+        int masteredCount = AppState.ActiveProfile.MasteredLauraAreas.Count;
+        int chapterCount = AppState.LauraMiniGameContent.Areas.Count;
+        return $"{prefix}\nDay {journey.Day} · Miles {journey.Miles} · Food {journey.Food} · Wood {journey.Wood}\nHealth {journey.Health}/10 · Morale {journey.Morale}/10 · Chapters {masteredCount}/{chapterCount} · Stars {AppState.ActiveProfile.PrairieStars} · Badges {AppState.ActiveProfile.UnlockedAwards.Count}";
     }
 
     private string RandomTrailEvent()

@@ -318,6 +318,7 @@ public static class AppState
         profile.SubjectProgress ??= new Dictionary<string, SubjectProgress>();
         profile.UnlockedBadges ??= new List<string>();
         profile.UnlockedAwards ??= new List<string>();
+        AdventureProgress.Normalize(profile);
         profile.Journey ??= new JourneyProgress();
         EnsureOperationKeys(profile);
         EnsureSubjectKeys(profile);
@@ -396,6 +397,7 @@ public static class AppState
                 "sessions_completed" => ActiveProfile.SessionsCompleted,
                 "game_score" => ActiveProfile.GameScore,
                 "mini_games_completed" => ActiveProfile.MiniGamesCompleted,
+                "unique_chapters_mastered" => ActiveProfile.MasteredLauraAreas?.Count ?? 0,
                 "journey_miles" => ActiveProfile.Journey?.Miles ?? 0,
                 "family_activities" => ActiveProfile.Journey?.FamilyActivitiesCompleted ?? 0,
                 "prairie_stars" => ActiveProfile.PrairieStars,
