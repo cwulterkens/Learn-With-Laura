@@ -1,5 +1,5 @@
 {
-  "ContentVersion": 2,
+  "ContentVersion": 3,
   "Badges": [
     {
       "Id": "first_correct",
@@ -54,7 +54,7 @@
       "Id": "chapter_explorer",
       "Name": "Chapter Explorer",
       "Description": "Master three Laura adventure chapters.",
-      "Metric": "mini_games_completed",
+      "Metric": "unique_chapters_mastered",
       "Threshold": 3
     }
   ]

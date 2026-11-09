@@ -120,6 +120,8 @@ public class ProfileData
     public int SessionsCompleted { get; set; }
     public int CorrectSinceMiniGame { get; set; }
     public int MiniGamesCompleted { get; set; }
+    public int LauraChapterReplays { get; set; }
+    public List<string> MasteredLauraAreas { get; set; } = new();
     public int PrairieStars { get; set; }
     public int CurrentStreak { get; set; }
     public int BestStreak { get; set; }
