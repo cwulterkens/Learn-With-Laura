@@ -1,0 +1,68 @@
+{
+  "Grades": {
+    "1": {
+      "Operations": {
+        "addition": { "Enabled": true, "MaxValuesByTier": [10, 20, 50, 100], "WholeNumberOnly": true },
+        "subtraction": { "Enabled": true, "MaxValuesByTier": [10, 20, 50, 100], "WholeNumberOnly": true },
+        "multiplication": { "Enabled": false, "MaxValuesByTier": [5, 10, 12, 20], "WholeNumberOnly": true },
+        "division": { "Enabled": false, "MaxValuesByTier": [5, 10, 12, 20], "WholeNumberOnly": true }
+      }
+    },
+    "2": {
+      "Operations": {
+        "addition": { "Enabled": true, "MaxValuesByTier": [20, 50, 100, 200], "WholeNumberOnly": true },
+        "subtraction": { "Enabled": true, "MaxValuesByTier": [20, 50, 100, 200], "WholeNumberOnly": true },
+        "multiplication": { "Enabled": true, "MaxValuesByTier": [5, 10, 12, 20], "WholeNumberOnly": true },
+        "division": { "Enabled": false, "MaxValuesByTier": [5, 10, 12, 20], "WholeNumberOnly": true }
+      }
+    },
+    "3": {
+      "Operations": {
+        "addition": { "Enabled": true, "MaxValuesByTier": [50, 100, 200, 500], "WholeNumberOnly": true },
+        "subtraction": { "Enabled": true, "MaxValuesByTier": [50, 100, 200, 500], "WholeNumberOnly": true },
+        "multiplication": { "Enabled": true, "MaxValuesByTier": [10, 12, 20, 30], "WholeNumberOnly": true },
+        "division": { "Enabled": true, "MaxValuesByTier": [5, 10, 12, 20], "WholeNumberOnly": true }
+      }
+    },
+    "4": {
+      "Operations": {
+        "addition": { "Enabled": true, "MaxValuesByTier": [100, 200, 500, 1000], "WholeNumberOnly": true },
+        "subtraction": { "Enabled": true, "MaxValuesByTier": [100, 200, 500, 1000], "WholeNumberOnly": true },
+        "multiplication": { "Enabled": true, "MaxValuesByTier": [12, 20, 30, 50], "WholeNumberOnly": true },
+        "division": { "Enabled": true, "MaxValuesByTier": [10, 12, 20, 30], "WholeNumberOnly": true }
+      }
+    },
+    "5": {
+      "Operations": {
+        "addition": { "Enabled": true, "MaxValuesByTier": [200, 500, 1000, 5000], "WholeNumberOnly": true },
+        "subtraction": { "Enabled": true, "MaxValuesByTier": [200, 500, 1000, 5000], "WholeNumberOnly": true },
+        "multiplication": { "Enabled": true, "MaxValuesByTier": [20, 30, 50, 100], "WholeNumberOnly": true },
+        "division": { "Enabled": true, "MaxValuesByTier": [12, 20, 30, 50], "WholeNumberOnly": true }
+      }
+    },
+    "6": {
+      "Operations": {
+        "addition": { "Enabled": true, "MaxValuesByTier": [500, 1000, 5000, 10000], "WholeNumberOnly": true },
+        "subtraction": { "Enabled": true, "MaxValuesByTier": [500, 1000, 5000, 10000], "WholeNumberOnly": true },
+        "multiplication": { "Enabled": true, "MaxValuesByTier": [30, 50, 100, 200], "WholeNumberOnly": true },
+        "division": { "Enabled": true, "MaxValuesByTier": [20, 30, 50, 100], "WholeNumberOnly": true }
+      }
+    },
+    "7": {
+      "Operations": {
+        "addition": { "Enabled": true, "MaxValuesByTier": [1000, 5000, 10000, 50000], "WholeNumberOnly": true },
+        "subtraction": { "Enabled": true, "MaxValuesByTier": [1000, 5000, 10000, 50000], "WholeNumberOnly": true },
+        "multiplication": { "Enabled": true, "MaxValuesByTier": [50, 100, 200, 500], "WholeNumberOnly": true },
+        "division": { "Enabled": true, "MaxValuesByTier": [30, 50, 100, 200], "WholeNumberOnly": true }
+      }
+    },
+    "8": {
+      "Operations": {
+        "addition": { "Enabled": true, "MaxValuesByTier": [5000, 10000, 50000, 100000], "WholeNumberOnly": true },
+        "subtraction": { "Enabled": true, "MaxValuesByTier": [5000, 10000, 50000, 100000], "WholeNumberOnly": true },
+        "multiplication": { "Enabled": true, "MaxValuesByTier": [100, 200, 500, 1000], "WholeNumberOnly": true },
+        "division": { "Enabled": true, "MaxValuesByTier": [50, 100, 200, 500], "WholeNumberOnly": true }
+      }
+    }
+  }
+}

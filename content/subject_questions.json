@@ -1,0 +1,873 @@
+{
+  "ContentVersion": 3,
+  "Subjects": {
+    "science": {
+      "1": [
+        {"Id":"science_g1_light_source","GradeMin":1,"GradeMax":2,"SkillId":"light_sources","Canon":"general","Prompt":"Which object makes its own light?","Options":["The Sun","The Moon","A mirror","A window"],"CorrectIndex":0,"Hint":"Some objects produce light; others only reflect or let it pass.","SuccessText":"The Sun produces light. The Moon and a mirror look bright because they reflect light.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_sound_vibration","GradeMin":1,"GradeMax":2,"SkillId":"sound_and_vibration","Canon":"general","Prompt":"What happens when a drum makes a sound?","Options":["Its color changes","Its surface vibrates","Its mass disappears","Its shape becomes a liquid"],"CorrectIndex":1,"Hint":"Watch the drumhead closely after it is tapped.","SuccessText":"A tapped drumhead vibrates. Those vibrations make the surrounding air vibrate and carry sound.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_plant_roots","GradeMin":1,"GradeMax":2,"SkillId":"plant_structures","Canon":"general","Prompt":"Which plant part usually takes in water from the soil?","Options":["Flower","Fruit","Roots","Seeds"],"CorrectIndex":2,"Hint":"This part grows mostly below the ground.","SuccessText":"Roots absorb water and help anchor a plant. Other plant parts have different jobs.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_habitat_needs","GradeMin":1,"GradeMax":2,"SkillId":"habitats","Canon":"general","Prompt":"What does a suitable habitat provide for an animal?","Options":["The same weather every day","Only one kind of food","A place with no other living things","Food, water, shelter, and space"],"CorrectIndex":3,"Hint":"Think about everything an animal needs to survive in a place.","SuccessText":"A suitable habitat provides resources such as food, water, shelter, and enough space.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_sun_pattern","GradeMin":1,"GradeMax":2,"SkillId":"sky_patterns","Canon":"general","Prompt":"Which pattern can you observe on many clear days?","Options":["The Sun appears in different parts of the sky as the day passes","The Sun stays directly overhead all day","The Moon blocks the Sun every afternoon","Every day has exactly the same length"],"CorrectIndex":0,"Hint":"Compare where the Sun appears in the morning and late afternoon.","SuccessText":"The Sun appears to move across the sky in a daily pattern. Its path and the length of daylight also change with season.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_season_daylight","GradeMin":1,"GradeMax":2,"SkillId":"seasonal_patterns","Canon":"general","Prompt":"In Wisconsin, which season usually has the fewest hours of daylight?","Options":["Spring","Winter","Summer","Early autumn"],"CorrectIndex":1,"Hint":"Think about how early darkness comes during the coldest part of the year.","SuccessText":"Winter days usually have fewer daylight hours than summer days in Wisconsin.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_thermometer","GradeMin":1,"GradeMax":2,"SkillId":"weather_measurement","Canon":"general","Prompt":"Which tool measures how hot or cold the air is?","Options":["Rain gauge","Wind vane","Thermometer","Ruler"],"CorrectIndex":2,"Hint":"The measurement is called temperature.","SuccessText":"A thermometer measures temperature. A rain gauge and wind vane measure different parts of weather.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_inspired_roof_test","GradeMin":1,"GradeMax":2,"SkillId":"engineering_fair_comparison","Canon":"inspired","Prompt":"Imagined cabin test: Which plan best compares two roof materials?","Options":["Build roofs of different sizes and use different amounts of water","Test one roof in rain and the other indoors","Choose the winner before testing","Make equal roofs and change only the roof material"],"CorrectIndex":3,"Hint":"A fair comparison keeps most conditions alike.","SuccessText":"Equal roofs with only one material changed make the comparison fair. This is an imagined engineering test.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_pollinator_job","GradeMin":1,"GradeMax":2,"SkillId":"plant_pollination","Canon":"general","Prompt":"How can a bee help a flowering plant?","Options":["It carries pollen between flowers","It turns roots into rocks","It blocks every seed from forming","It makes sunlight"],"CorrectIndex":0,"Hint":"Pollen must sometimes move from one flower to another.","SuccessText":"A bee can carry pollen between flowers, helping many plants make seeds and fruit.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_solid_shape","GradeMin":1,"GradeMax":2,"SkillId":"states_of_matter","Canon":"general","Prompt":"Which kind of matter keeps its own shape when you place it on a table?","Options":["A gas","A solid","A liquid","Water vapor"],"CorrectIndex":1,"Hint":"Think about a wooden block compared with water in a cup.","SuccessText":"A solid keeps its own shape. A liquid takes the shape of its container, and a gas spreads out.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_fast_earth_change","GradeMin":1,"GradeMax":2,"SkillId":"earth_surface_change","Canon":"general","Prompt":"Which event can change the shape of a creek bank quickly?","Options":["A pebble slowly wearing down","A tree growing one ring","A sudden flood","A shadow moving"],"CorrectIndex":2,"Hint":"Choose the event that can move much soil in a short time.","SuccessText":"A sudden flood can erode and move soil quickly. Other Earth changes may happen very slowly.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g1_inspired_cooling_data","GradeMin":1,"GradeMax":2,"SkillId":"interpreting_simple_data","Canon":"inspired","Prompt":"Imagined winter test: Cup A cools by 3 degrees under a wool cover. Cup B cools by 7 degrees with no cover. What does the evidence show?","Options":["Cup B began warmer","Both cups changed by the same amount","No comparison is possible","The wool cover slowed Cup A's cooling"],"CorrectIndex":3,"Hint":"The smaller temperature drop means less heat was lost.","SuccessText":"Cup A cooled less, so the wool cover slowed cooling in this imagined test.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"}
+      ],
+      "3": [
+        {"Id":"science_g3_food_chain_energy","GradeMin":3,"GradeMax":5,"SkillId":"energy_in_food_chains","Canon":"general","Prompt":"In a prairie food chain, where does the energy stored by grasses begin?","Options":["Sunlight","Soil alone","A hawk","Wind"],"CorrectIndex":0,"Hint":"Plants capture energy to make sugars.","SuccessText":"Prairie grasses capture energy from sunlight through photosynthesis. That energy can move through a food web.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g3_decomposer_role","GradeMin":3,"GradeMax":5,"SkillId":"ecosystem_matter_cycles","Canon":"general","Prompt":"What is an important job of decomposers in an ecosystem?","Options":["They stop all plant growth","They break down dead material and return nutrients","They create sunlight for producers","They remove all water from soil"],"CorrectIndex":1,"Hint":"Fungi and many bacteria help recycle matter.","SuccessText":"Decomposers break down dead organisms and waste, returning nutrients that can be used again.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g3_melting_mass","GradeMin":3,"GradeMax":5,"SkillId":"matter_conservation","Canon":"general","Prompt":"A sealed bag holds 100 grams of ice. After the ice melts, what should the water in the sealed bag weigh?","Options":["0 grams","50 grams","About 100 grams","More than 200 grams"],"CorrectIndex":2,"Hint":"Melting changes state, but matter does not leave the sealed bag.","SuccessText":"The water should still have about 100 grams of mass. A phase change does not destroy the matter.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g3_force_motion","GradeMin":3,"GradeMax":5,"SkillId":"forces_and_motion","Canon":"general","Prompt":"Two equal carts start at rest. Cart B receives a stronger push in the same direction. What is the best prediction?","Options":["Both carts must remain still","Cart A must move faster","The stronger push removes Cart B's mass","Cart B will have a greater change in motion"],"CorrectIndex":3,"Hint":"Compare the size of the forces on equal objects.","SuccessText":"A stronger unbalanced force produces a greater change in an object's motion when other conditions are alike.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g3_weather_climate","GradeMin":3,"GradeMax":5,"SkillId":"weather_and_climate","Canon":"general","Prompt":"Which statement describes climate rather than weather?","Options":["Minnesota winters are usually colder than its summers","Snow began at noon today","Tomorrow may be windy","The temperature is 40 degrees now"],"CorrectIndex":0,"Hint":"Climate describes patterns over many years.","SuccessText":"A usual seasonal pattern over many years describes climate. Today's or tomorrow's conditions are weather.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g3_deposition","GradeMin":3,"GradeMax":5,"SkillId":"erosion_and_deposition","Canon":"general","Prompt":"A fast creek carries soil, then drops it where the water slows. What is the dropping of sediment called?","Options":["Evaporation","Deposition","Condensation","Germination"],"CorrectIndex":1,"Hint":"Erosion moves sediment; this process puts it down.","SuccessText":"Deposition occurs when moving water, wind, or ice loses energy and drops transported sediment.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g3_prairie_roots","GradeMin":3,"GradeMax":5,"SkillId":"plant_adaptations","Canon":"general","Prompt":"How can deep roots help prairie grasses survive?","Options":["They prevent the plant from using water","They make every fire impossible","They reach water and help the plant regrow","They keep pollinators away"],"CorrectIndex":2,"Hint":"Consider both drought and damage above the ground.","SuccessText":"Deep roots can reach moisture, store energy, hold soil, and help many prairie plants regrow after drought or fire.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g3_sound_pitch","GradeMin":3,"GradeMax":5,"SkillId":"waves_and_sound","Canon":"general","Prompt":"A tightly stretched string vibrates faster than a loose string. How will its sound usually change?","Options":["It becomes silent because it moves","It always becomes louder","Its sound travels only downward","Its pitch becomes higher"],"CorrectIndex":3,"Hint":"Pitch is related to how quickly something vibrates.","SuccessText":"Faster vibration usually produces a higher pitch. Loudness and pitch describe different properties of sound.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g3_closed_circuit","GradeMin":3,"GradeMax":5,"SkillId":"electric_circuits","Canon":"general","Prompt":"What does a bulb need in a simple battery circuit to light?","Options":["A closed conducting path","A gap in both wires","A wooden loop only","Two disconnected batteries"],"CorrectIndex":0,"Hint":"Electric current needs a complete route.","SuccessText":"A closed conducting path lets electric current travel through the bulb and back to the battery.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g3_inspired_wagon_test","GradeMin":3,"GradeMax":5,"SkillId":"engineering_controlled_test","Canon":"inspired","Prompt":"Imagined wagon-wheel test: Which investigation best tests how wheel size affects travel distance?","Options":["Change wheel size and cart weight together","Change wheel size while keeping cart, push, and surface alike","Use a different hill for every wheel","Test only one wheel size"],"CorrectIndex":1,"Hint":"Change the variable named in the question and control the others.","SuccessText":"Changing only wheel size makes it possible to connect differences in distance to that variable. The wagon test is imagined.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g3_actual_grasshopper_effect","GradeMin":3,"GradeMax":5,"SkillId":"ecosystem_disturbance","Canon":"actual_life","Prompt":"Actual life: Why did the 1870s grasshopper plagues cause severe hardship for many Minnesota farm families, including the Ingalls family?","Options":["The insects increased every crop yield","The insects turned soil into stone","Large swarms consumed crops families depended on","The insects prevented winter snowfall"],"CorrectIndex":2,"Hint":"Think about what happens when a farm loses much of its harvest.","SuccessText":"Large grasshopper swarms consumed crops, reducing food and income and contributing to serious debt and relocation.","SourceTitle":"Grasshopper Plagues, 1873–1877 — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/event/grasshopper-plagues-1873-1877"},
+        {"Id":"science_g3_inspired_crop_data","GradeMin":3,"GradeMax":5,"SkillId":"data_claims","Canon":"inspired","Prompt":"Imagined farm data: Rainfall and crop yield both fall for three years. Which claim is supported without overreaching?","Options":["Low rainfall was certainly the only cause","The data prove insects were absent","Crop yield can never rise again","Rainfall and yield changed together, but more evidence is needed about causes"],"CorrectIndex":3,"Hint":"A pattern between two measurements does not prove one complete cause.","SuccessText":"The data show an association, not proof that rainfall alone caused the yield change. Other evidence is needed.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"}
+      ],
+      "6": [
+        {"Id":"science_g6_photosynthesis_matter","GradeMin":6,"GradeMax":8,"SkillId":"photosynthesis_matter_energy","Canon":"general","Prompt":"Which statement best describes matter and energy in photosynthesis?","Options":["Plants use light energy to rearrange carbon dioxide and water into sugars and oxygen","Plants turn sunlight directly into new atoms","Plants obtain all of their mass from soil minerals","Plants destroy carbon dioxide without making other matter"],"CorrectIndex":0,"Hint":"Atoms are rearranged while light supplies energy.","SuccessText":"Photosynthesis uses light energy to rearrange atoms from carbon dioxide and water into energy-rich sugars and oxygen.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_cellular_respiration","GradeMin":6,"GradeMax":8,"SkillId":"cellular_energy","Canon":"general","Prompt":"Why do cells carry out cellular respiration?","Options":["To make all matter disappear","To release usable energy from food molecules","To convert every cell into a plant cell","To stop atoms from moving"],"CorrectIndex":1,"Hint":"Organisms need a usable form of energy for cell processes.","SuccessText":"Cellular respiration transfers energy from food molecules into forms cells can use, while matter is rearranged into products.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_traits_genes_environment","GradeMin":6,"GradeMax":8,"SkillId":"inheritance_and_environment","Canon":"general","Prompt":"Which statement best explains why two plants with similar genes can grow to different heights?","Options":["Genes never influence traits","Only chance determines every trait","Genes and environmental conditions can both influence traits","The shorter plant must be a different species"],"CorrectIndex":2,"Hint":"Compare inherited information with water, light, nutrients, and other conditions.","SuccessText":"Many traits result from interactions between genetic information and environmental conditions.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_natural_selection","GradeMin":6,"GradeMax":8,"SkillId":"natural_selection","Canon":"general","Prompt":"Over many generations, drought becomes common and plants with deeper roots leave more offspring. What population change is most likely?","Options":["Every individual chooses to grow new genes","All variation disappears immediately","The drought gives each plant identical roots","Deep-root traits become more common in the population"],"CorrectIndex":3,"Hint":"Heritable traits linked to reproductive success can change in frequency.","SuccessText":"If deeper roots are heritable and improve reproductive success, those traits can become more common through natural selection.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_inspired_wagon_friction","GradeMin":6,"GradeMax":8,"SkillId":"forces_friction","Canon":"inspired","Prompt":"Imagined wagon investigation: The same loaded cart needs more force to start moving on mud than on dry boards. Which explanation fits the evidence?","Options":["The muddy surface provides greater resisting friction","The cart loses its mass on boards","Gravity exists only on mud","The wheels stop exerting forces on boards"],"CorrectIndex":0,"Hint":"Compare the force opposing motion on each surface.","SuccessText":"The evidence is consistent with greater resistance from the muddy surface. This is an imagined mechanics investigation.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_insulation_transfer","GradeMin":6,"GradeMax":8,"SkillId":"thermal_energy_transfer","Canon":"general","Prompt":"Why does an insulating layer slow the cooling of a warm cabin?","Options":["It creates unlimited thermal energy","It reduces the rate of thermal energy transfer","It lowers the outside temperature","It prevents particles from existing"],"CorrectIndex":1,"Hint":"Insulation changes the rate of transfer, not the total amount of matter.","SuccessText":"Insulation reduces the rate at which thermal energy transfers from the warmer interior to colder surroundings.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_climate_evidence","GradeMin":6,"GradeMax":8,"SkillId":"climate_data","Canon":"general","Prompt":"Which evidence is most useful for describing a region's climate?","Options":["One unusually cold afternoon","A single storm photograph","Temperature and precipitation records from many years","One person's memory of last week"],"CorrectIndex":2,"Hint":"Climate is a long-term pattern.","SuccessText":"Multi-year records reveal ranges, averages, and patterns. A single event describes weather, not climate by itself.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_biodiversity_resilience","GradeMin":6,"GradeMax":8,"SkillId":"ecosystem_resilience","Canon":"general","Prompt":"Why can greater biodiversity sometimes make a prairie food web more resilient after a disturbance?","Options":["Every species has exactly the same role","Disturbances cannot affect diverse systems","Biodiversity prevents all population changes","Multiple species and connections can preserve functions when one population declines"],"CorrectIndex":3,"Hint":"Think about whether one lost connection must collapse the entire web.","SuccessText":"Diverse systems may have overlapping roles and alternative food-web paths, although severe disturbances can still cause major harm.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_condensation","GradeMin":6,"GradeMax":8,"SkillId":"water_cycle_energy","Canon":"general","Prompt":"What happens during condensation in the water cycle?","Options":["Water vapor loses energy and forms liquid droplets","Liquid water gains energy and becomes vapor","Ice changes directly into vapor only","Water molecules split into hydrogen and oxygen"],"CorrectIndex":0,"Hint":"Think about droplets forming on a cool surface.","SuccessText":"During condensation, water vapor transfers energy to its surroundings and changes into liquid droplets.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_rusting_change","GradeMin":6,"GradeMax":8,"SkillId":"chemical_reactions","Canon":"general","Prompt":"Why is rusting considered a chemical reaction?","Options":["The iron only changes shape","Iron reacts with substances such as oxygen to form new material","The iron melts and refreezes","No atoms are rearranged"],"CorrectIndex":1,"Hint":"Look for evidence that new substances form.","SuccessText":"Rusting rearranges atoms as iron reacts with oxygen and moisture, producing iron oxides with different properties.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_model_limitation","GradeMin":6,"GradeMax":8,"SkillId":"scientific_models","Canon":"general","Prompt":"A model shows wind moving over a flat prairie but leaves out trees and hills. What is the best evaluation?","Options":["The model is useless because it is simplified","The model proves real wind never changes","The model may answer some questions, but its omissions limit others","The model becomes a primary historical source"],"CorrectIndex":2,"Hint":"Scientific models are purposeful simplifications.","SuccessText":"A model can be useful within its assumptions. Omitting terrain or vegetation limits conclusions about those factors.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"science_g6_book_long_winter_evidence","GradeMin":6,"GradeMax":8,"SkillId":"science_historical_weather_evidence","Canon":"book","Prompt":"Book-and-history study: The Long Winter describes severe blizzards. What would best test a scientific claim about that winter's weather?","Options":["Use the novel alone as a complete data set","Assume every later adaptation is identical","Ignore dates because weather repeats","Compare the narrative with dated weather observations and other records"],"CorrectIndex":3,"Hint":"A novel can guide questions, while measurements and corroborating records test claims.","SuccessText":"Comparing the narrative with dated observations and independent records separates literary evidence from meteorological evidence.","SourceTitle":"The Little House Series — Library of Congress NLS","SourceUrl":"https://www.loc.gov/nls/new-materials/book-lists/little-house-series-laura-ingalls-wilder/"}
+      ]
+    },
+    "history": {
+      "1": [
+        {"Id":"history_g1_past_evidence","GradeMin":1,"GradeMax":2,"SkillId":"past_and_present","Canon":"general","Prompt":"Which item can give evidence about how people lived long ago?","Options":["A photograph made at that time","A guess with no source","A story invented today but labeled as fact","A prediction about next year"],"CorrectIndex":0,"Hint":"Evidence comes from something connected to the time being studied.","SuccessText":"A photograph from the time can show clothing, buildings, tools, and other details, though historians still ask who made it and why.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"history_g1_timeline_order","GradeMin":1,"GradeMax":2,"SkillId":"chronology","Canon":"general","Prompt":"A timeline lists 1867, 1874, and 1932. Which year comes last?","Options":["1867","1932","1874","All three are the same"],"CorrectIndex":1,"Hint":"The greatest year number is latest.","SuccessText":"1932 comes after 1867 and 1874. Timelines place events in chronological order.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"history_g1_actual_laura_birth","GradeMin":1,"GradeMax":2,"SkillId":"biographical_fact","Canon":"actual_life","Prompt":"Actual life: Where was Laura Ingalls Wilder born?","Options":["Near De Smet, South Dakota","Near Mansfield, Missouri","Near Pepin, Wisconsin","Near Los Angeles, California"],"CorrectIndex":2,"Hint":"Her first home was in the Big Woods region.","SuccessText":"Laura was born near Pepin, Wisconsin, in 1867. She lived in several other places as she grew up.","SourceTitle":"Laura Ingalls Wilder — Homestead National Historical Park","SourceUrl":"https://www.nps.gov/home/learn/historyculture/laura-ingalls-wilder.htm"},
+        {"Id":"history_g1_actual_family_moves","GradeMin":1,"GradeMax":2,"SkillId":"change_over_time","Canon":"actual_life","Prompt":"Actual life: Which statement is true about Laura's childhood?","Options":["Her family lived in only one house","Her family never left Wisconsin","Her family traveled only for vacations","Her family moved among several states and territories"],"CorrectIndex":3,"Hint":"Her life story includes Wisconsin, Kansas, Minnesota, Iowa, and Dakota Territory.","SuccessText":"Laura's family moved many times. A map and timeline help show that her life was not one single wagon trip.","SourceTitle":"Laura Ingalls Wilder — Homestead National Historical Park","SourceUrl":"https://www.nps.gov/home/learn/historyculture/laura-ingalls-wilder.htm"},
+        {"Id":"history_g1_book_or_record","GradeMin":1,"GradeMax":2,"SkillId":"source_types","Canon":"book","Prompt":"Book study: The Little House books use parts of Laura's life to tell crafted stories. What kind of source are they?","Options":["Stories based partly on real experiences","Unchanged birth certificates","Daily weather measurements","Television news filmed in the 1800s"],"CorrectIndex":0,"Hint":"A novel can connect to history without recording every detail exactly.","SuccessText":"The books are autobiographical fiction: stories shaped from life experience rather than unchanged records.","SourceTitle":"Pioneer Girl: The Path into Fiction","SourceUrl":"https://pioneergirlproject.org/order/pioneer-girl-the-path-into-fiction/"},
+        {"Id":"history_g1_fiddle_artifact","GradeMin":1,"GradeMax":2,"SkillId":"artifacts","Canon":"actual_life","Prompt":"Actual life: Pa's fiddle still exists in a museum. Why is it useful to historians?","Options":["It tells every story by itself","It is an object connected to the family and time","It proves every book scene happened exactly","It predicts future music"],"CorrectIndex":1,"Hint":"Objects from the past are called artifacts.","SuccessText":"The fiddle is a historical artifact. It gives physical evidence, but historians combine it with other sources.","SourceTitle":"New Facilities for the Cather and Wilder Sites — National Park Service","SourceUrl":"https://www.nps.gov/articles/new-facilities-for-the-cather-and-wilder-sites.htm"},
+        {"Id":"history_g1_osage_land","GradeMin":1,"GradeMax":2,"SkillId":"native_homelands","Canon":"actual_life","Prompt":"Actual life: Before the Ingalls family built a home in Kansas, which Native nation had reserved rights to that land?","Options":["The Ingalls family","The Town of Walnut Grove","The Osage Nation","The television studio"],"CorrectIndex":2,"Hint":"The Kansas setting is part of an Osage homeland.","SuccessText":"The home stood within the Osage Diminished Reserve. The prairie was a Native homeland, not empty land.","SourceTitle":"The Little House Series — Library of Congress NLS","SourceUrl":"https://www.loc.gov/nls/new-materials/book-lists/little-house-series-laura-ingalls-wilder/"},
+        {"Id":"history_g1_homestead_two_views","GradeMin":1,"GradeMax":2,"SkillId":"multiple_perspectives","Canon":"general","Prompt":"Why should a history of homesteading include more than the settlers' point of view?","Options":["Only one family ever lived in the West","Different maps always have the same purpose","Native nations existed only in television stories","Settlement opportunities also affected Native peoples and their homelands"],"CorrectIndex":3,"Hint":"The same policy can affect groups in different ways.","SuccessText":"Homesteading created opportunities for some settlers while contributing to displacement and land loss for Native peoples.","SourceTitle":"Native Americans and the Homestead Act — National Park Service","SourceUrl":"https://www.nps.gov/home/learn/historyculture/native-americans-and-the-homestead-act.htm"},
+        {"Id":"history_g1_school_then_now","GradeMin":1,"GradeMax":2,"SkillId":"continuity_and_change","Canon":"general","Prompt":"Which question helps compare a schoolhouse long ago with a school today?","Options":["What tools did learners use in each school?","Which school is automatically better?","Can we ignore who attended?","Did every school follow one identical plan?"],"CorrectIndex":0,"Hint":"A useful comparison looks for evidence of change and continuity.","SuccessText":"Comparing tools, lessons, access, schedules, and experiences can show what changed and what stayed similar.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"history_g1_actual_teacher","GradeMin":1,"GradeMax":2,"SkillId":"biographical_sequence","Canon":"actual_life","Prompt":"Actual life: What job did Laura begin while she was still a teenager?","Options":["Television director","Schoolteacher","Airline pilot","Museum curator"],"CorrectIndex":1,"Hint":"She studied and earned a teaching certificate.","SuccessText":"Laura began teaching at about age 15 in Dakota Territory.","SourceTitle":"Laura Ingalls Wilder — Homestead National Historical Park","SourceUrl":"https://www.nps.gov/home/learn/historyculture/laura-ingalls-wilder.htm"},
+        {"Id":"history_g1_actual_late_author","GradeMin":1,"GradeMax":2,"SkillId":"life_stages","Canon":"actual_life","Prompt":"Actual life: Which happened when Laura was an older adult?","Options":["She was born in Wisconsin","She attended her first school","She published the Little House books","She traveled to Kansas as a small child"],"CorrectIndex":2,"Hint":"Her first Little House book appeared in 1932.","SuccessText":"Laura published Little House in the Big Woods at age 65, showing that major creative work can begin later in life.","SourceTitle":"Wilder, Laura Ingalls — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/person/wilder-laura-ingalls-1867-1957"},
+        {"Id":"history_g1_tv_cast_laura","GradeMin":1,"GradeMax":2,"SkillId":"television_cast","Canon":"tv_1974","Prompt":"Classic TV adaptation: Melissa Gilbert is best known in the series for playing which character?","Options":["Caroline Ingalls","Mary Ingalls","Nellie Oleson","Laura Ingalls"],"CorrectIndex":3,"Hint":"The character is the young storyteller at the center of the series.","SuccessText":"Melissa Gilbert played Laura Ingalls. PBS's American Masters identifies her as Laura for the classic show's nine-season run.","SourceTitle":"Laura Ingalls Wilder: Prairie to Page — PBS American Masters","SourceUrl":"https://www.pbs.org/video/laura-ingalls-wilder-prairie-to-page-pqnclr/"}
+      ],
+      "3": [
+        {"Id":"history_g3_actual_route_order","GradeMin":3,"GradeMax":5,"SkillId":"chronology_and_migration","Canon":"actual_life","Prompt":"Which sequence correctly shows part of the Ingalls family's actual movements?","Options":["Wisconsin, Kansas, back to Wisconsin, then Minnesota","Minnesota, Missouri, Wisconsin, then Kansas","Dakota Territory, California, Kansas, then Wisconsin","Missouri, De Smet, Kansas, then Pepin"],"CorrectIndex":0,"Hint":"The books simplify and rearrange the early moves.","SuccessText":"The family left Wisconsin for Kansas, returned to Wisconsin, and later moved to Minnesota. Their full route also included Iowa and Dakota Territory.","SourceTitle":"Wilder, Laura Ingalls — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/person/wilder-laura-ingalls-1867-1957"},
+        {"Id":"history_g3_primary_artifact","GradeMin":3,"GradeMax":5,"SkillId":"primary_sources","Canon":"general","Prompt":"Which item is a primary source for studying Laura's writing process?","Options":["A modern novel about a different family","One of Laura's original manuscripts","A fan's unsourced summary","A newly invented game scene"],"CorrectIndex":1,"Hint":"A primary source comes directly from the person or time being studied.","SuccessText":"An original manuscript is direct evidence of Laura's writing and revision process.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"history_g3_osage_reserve","GradeMin":3,"GradeMax":5,"SkillId":"land_policy_and_sovereignty","Canon":"actual_life","Prompt":"Why was the Ingalls family's Kansas settlement historically complicated?","Options":["Kansas had no people or government","The family owned the entire territory","They settled within the Osage Diminished Reserve before it opened to non-Native settlement","The family arrived after the land became a national park"],"CorrectIndex":2,"Hint":"Ask who held rights to the land when the family arrived.","SuccessText":"The family settled on reserved Osage land before legal opening to non-Native settlers. Osage sovereignty belongs at the center of this history.","SourceTitle":"It Began With Grazing — Osage Nation","SourceUrl":"https://www.osagenation-nsn.gov/news-events/news/it-began-grazing"},
+        {"Id":"history_g3_homestead_effects","GradeMin":3,"GradeMax":5,"SkillId":"policy_multiple_effects","Canon":"general","Prompt":"Which statement best describes the Homestead Act's effects?","Options":["It affected every place and group in exactly the same way","It only changed city transportation","It returned all western land to Native nations","It offered land opportunities to settlers while contributing to Native displacement in some regions"],"CorrectIndex":3,"Hint":"A policy can create opportunity for one group and harm another.","SuccessText":"Homesteading had varied regional effects, including settler opportunity and significant Native land dispossession, especially in some areas.","SourceTitle":"Native Americans and the Homestead Act — National Park Service","SourceUrl":"https://www.nps.gov/home/learn/historyculture/native-americans-and-the-homestead-act.htm"},
+        {"Id":"history_g3_teacher_timeline","GradeMin":3,"GradeMax":5,"SkillId":"timeline_calculation","Canon":"actual_life","Prompt":"Laura was born in 1867 and began teaching at about age 15. Which year is the best estimate for the start of her teaching?","Options":["1882","1872","1897","1915"],"CorrectIndex":0,"Hint":"Add 15 to 1867.","SuccessText":"1867 + 15 = 1882, matching the period when Laura began teaching in Dakota Territory.","SourceTitle":"Laura Ingalls Wilder — Homestead National Historical Park","SourceUrl":"https://www.nps.gov/home/learn/historyculture/laura-ingalls-wilder.htm"},
+        {"Id":"history_g3_publication_timeline","GradeMin":3,"GradeMax":5,"SkillId":"biographical_timeline","Canon":"actual_life","Prompt":"What does Laura's publication timeline show?","Options":["She wrote the TV series before the books","She became a successful children's author in her sixties","She published every book as a teenager","She stopped writing before moving to Missouri"],"CorrectIndex":1,"Hint":"Little House in the Big Woods appeared in 1932, when she was 65.","SuccessText":"Laura's book career blossomed later in life, after years of farming and writing for periodicals.","SourceTitle":"Wilder, Laura Ingalls — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/person/wilder-laura-ingalls-1867-1957"},
+        {"Id":"history_g3_burr_oak_omission","GradeMin":3,"GradeMax":5,"SkillId":"historical_omissions","Canon":"actual_life","Prompt":"Historical records include the family's stay in Burr Oak, Iowa, but the main Little House sequence leaves it out. What does this show?","Options":["Records about Burr Oak must be false","The family never lived outside a novel","Authors can select and omit real experiences when shaping fiction","Every television episode must cover Burr Oak"],"CorrectIndex":2,"Hint":"A life contains more events than one story series can include.","SuccessText":"Wilder selected, rearranged, and omitted experiences while shaping fiction. Omission is one reason to compare books with records.","SourceTitle":"Wilder, Laura Ingalls — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/person/wilder-laura-ingalls-1867-1957"},
+        {"Id":"history_g3_grasshopper_cause","GradeMin":3,"GradeMax":5,"SkillId":"historical_cause_and_effect","Canon":"actual_life","Prompt":"Which cause-and-effect statement is supported by the Ingalls family's Minnesota history?","Options":["A new railroad caused all grasshoppers to vanish","A school schedule created a blizzard","A book publication forced the family to Kansas","Grasshopper crop destruction contributed to hardship and another move"],"CorrectIndex":3,"Hint":"Connect the loss of crops with the family's ability to remain on a farm.","SuccessText":"Repeated crop destruction caused severe hardship and contributed to the family's departure from the Walnut Grove area.","SourceTitle":"Grasshopper Plagues, 1873–1877 — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/event/grasshopper-plagues-1873-1877"},
+        {"Id":"history_g3_autobiographical_fiction","GradeMin":3,"GradeMax":5,"SkillId":"source_classification","Canon":"book","Prompt":"Why is 'autobiographical fiction' a useful label for the Little House books?","Options":["They connect to Laura's life but were shaped as novels","They contain no connection to any real person","They are government reports with invented covers","They were filmed before they were written"],"CorrectIndex":0,"Hint":"Combine the meanings of autobiography and fiction.","SuccessText":"The books draw on Laura's experiences while using literary selection, dialogue, pacing, and altered chronology.","SourceTitle":"Pioneer Girl: The Path into Fiction","SourceUrl":"https://pioneergirlproject.org/order/pioneer-girl-the-path-into-fiction/"},
+        {"Id":"history_g3_book_timeline_change","GradeMin":3,"GradeMax":5,"SkillId":"compare_timeline_sources","Canon":"book","Prompt":"The books make Laura older during some early events than she was in actual life. What should a historian do with that difference?","Options":["Erase the actual-life timeline","Record the difference and use each timeline for its proper purpose","Assume dates never matter in history","Treat the TV timeline as the only answer"],"CorrectIndex":1,"Hint":"A book timeline and a biographical timeline answer different questions.","SuccessText":"A careful historian labels both timelines, explains the difference, and avoids turning a literary choice into an actual-life fact.","SourceTitle":"Wilder, Laura Ingalls — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/person/wilder-laura-ingalls-1867-1957"},
+        {"Id":"history_g3_tv_series_length","GradeMin":3,"GradeMax":5,"SkillId":"media_timeline","Canon":"tv_1974","Prompt":"Classic TV adaptation: Peacock lists the complete series. How many original seasons did it have?","Options":["Three","Six","Nine","Fifteen"],"CorrectIndex":2,"Hint":"The run was longer than five seasons but shorter than ten.","SuccessText":"The classic series had nine seasons. Its long run helped this adaptation become familiar to generations of viewers.","SourceTitle":"Peacock: Original Little House Cast and Series","SourceUrl":"https://www.peacocktv.com/blog/where-to-stream-every-episode-of-little-house-on-the-prairie"},
+        {"Id":"history_g3_corroboration","GradeMin":3,"GradeMax":5,"SkillId":"corroborating_sources","Canon":"general","Prompt":"Two sources disagree about where an event happened. What should a historian do next?","Options":["Choose the shorter source","Choose the source with the brightest picture","Declare that places do not matter","Compare each source's maker, date, evidence, and purpose with more sources"],"CorrectIndex":3,"Hint":"Disagreement is a reason to investigate, not guess.","SuccessText":"Corroboration compares independent evidence and the context in which each source was made.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"}
+      ],
+      "6": [
+        {"Id":"history_g6_primary_secondary","GradeMin":6,"GradeMax":8,"SkillId":"primary_secondary_sources","Canon":"general","Prompt":"Which pairing correctly classifies a source about Laura Ingalls Wilder?","Options":["Her original manuscript is primary; a later scholarly biography is secondary","Her manuscript is secondary; every television episode is primary to the 1870s","A modern game is primary; a land record is fictional","All sources are primary if they mention her name"],"CorrectIndex":0,"Hint":"Ask how directly the source connects to the person or period under study.","SuccessText":"Laura's manuscript is direct evidence of her work. A later biography interprets evidence and is secondary for studying her life.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"history_g6_sourcing_questions","GradeMin":6,"GradeMax":8,"SkillId":"source_context","Canon":"general","Prompt":"Which set of questions best begins a historical source evaluation?","Options":["Is it long, colorful, and popular?","Who made it, when, for whom, and for what purpose?","Does it agree with my first opinion?","Can I use it without citation?"],"CorrectIndex":1,"Hint":"Sourcing places evidence in context before drawing conclusions.","SuccessText":"Maker, date, audience, purpose, and place of origin help historians judge relevance, perspective, and limitations.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"history_g6_omission_analysis","GradeMin":6,"GradeMax":8,"SkillId":"historical_silences","Canon":"general","Prompt":"A settler account describes 'empty prairie' but never names Native communities or treaties. What limitation should a historian identify?","Options":["The account contains too many Native perspectives","The prairie had no prior history","The account's omission can hide Native presence and land rights","Treaties are relevant only to weather"],"CorrectIndex":2,"Hint":"Historical silence can shape the story a source tells.","SuccessText":"Calling land empty can erase Native homelands and sovereignty. Historians seek Native-authored sources and treaty evidence to address that limitation.","SourceTitle":"Native Knowledge 360° Essential Understandings","SourceUrl":"https://americanindian.si.edu/nk360/about/essential-understandings"},
+        {"Id":"history_g6_osage_sovereignty","GradeMin":6,"GradeMax":8,"SkillId":"native_sovereignty","Canon":"actual_life","Prompt":"Which interpretation best respects the historical context of the Ingalls family's Kansas home?","Options":["Settlement automatically erased every prior claim","The land mattered only after a novel described it","Osage history ended when settlers arrived","The site was within an Osage reserve, so settler and Osage histories must be studied together"],"CorrectIndex":3,"Hint":"Place the family story inside the land's political history.","SuccessText":"The site was on the Osage Diminished Reserve before legal opening to non-Native settlement. Osage sovereignty and continuing history are essential context.","SourceTitle":"It Began With Grazing — Osage Nation","SourceUrl":"https://www.osagenation-nsn.gov/news-events/news/it-began-grazing"},
+        {"Id":"history_g6_settlement_policy","GradeMin":6,"GradeMax":8,"SkillId":"settlement_and_displacement","Canon":"general","Prompt":"How did United States settlement policy often affect Native peoples in the nineteenth century?","Options":["It increased pressure on Native homelands and contributed to dispossession","It guaranteed every treaty would be honored","It made all Native nations culturally identical","It ended conflict before homesteading began"],"CorrectIndex":0,"Hint":"Connect land policy, migration, reservations, and removal.","SuccessText":"Settlement policies interacted with treaties, removal, allotment, railroads, and other forces that reduced Native control of homelands.","SourceTitle":"Native Americans and the Homestead Act — National Park Service","SourceUrl":"https://www.nps.gov/home/learn/historyculture/native-americans-and-the-homestead-act.htm"},
+        {"Id":"history_g6_homestead_regional_complexity","GradeMin":6,"GradeMax":8,"SkillId":"regional_historical_causation","Canon":"general","Prompt":"Why should historians avoid saying the Homestead Act caused Native dispossession in exactly the same way everywhere?","Options":["No Native lands were affected","Regional evidence shows different policies and industries had different levels of impact","The Act applied only inside cities","Causation cannot be studied with evidence"],"CorrectIndex":1,"Hint":"Compare the Dakotas with regions where mining, railroads, or ranching drove earlier loss.","SuccessText":"The relative role of homesteading varied by region. Accurate causation identifies interacting policies, industries, dates, and Native experiences.","SourceTitle":"Native Americans and the Homestead Act — National Park Service","SourceUrl":"https://www.nps.gov/home/learn/historyculture/native-americans-and-the-homestead-act.htm"},
+        {"Id":"history_g6_pioneer_girl_to_fiction","GradeMin":6,"GradeMax":8,"SkillId":"textual_transformation","Canon":"book","Prompt":"What does comparing Pioneer Girl drafts with Little House in the Big Woods help scholars study?","Options":["Whether television cameras existed in 1867","Whether all memories are legal documents","How memoir material was revised into children's fiction","How to avoid reading any primary source"],"CorrectIndex":2,"Hint":"Study what changed between versions of the same life material.","SuccessText":"The drafts reveal selection, restructuring, tone changes, and other steps in transforming autobiography into fiction.","SourceTitle":"Pioneer Girl: The Path into Fiction","SourceUrl":"https://pioneergirlproject.org/order/pioneer-girl-the-path-into-fiction/"},
+        {"Id":"history_g6_rose_collaboration","GradeMin":6,"GradeMax":8,"SkillId":"authorship_and_evidence","Canon":"actual_life","Prompt":"What is the most responsible statement about Rose Wilder Lane's role in the Little House books?","Options":["Rose had no connection to Laura's writing","Rose alone experienced Laura's childhood","Every editorial decision is fully known and undisputed","Evidence shows editorial assistance and encouragement, while scholars examine the extent of collaboration"],"CorrectIndex":3,"Hint":"Avoid both erasing collaboration and claiming more certainty than sources support.","SuccessText":"Rose was an experienced writer who encouraged and edited Laura's work. Manuscripts and correspondence support continued scholarly study of their collaboration.","SourceTitle":"Today in History: February 7 — Library of Congress","SourceUrl":"https://www.loc.gov/item/today-in-history/february-07/"},
+        {"Id":"history_g6_tv_producer_role","GradeMin":6,"GradeMax":8,"SkillId":"television_production_roles","Canon":"tv_1974","Prompt":"Classic TV adaptation: Besides portraying Charles 'Pa' Ingalls, what major production role did Michael Landon have on the series?","Options":["Producer","Museum curator","Historical eyewitness","Costume archivist"],"CorrectIndex":0,"Hint":"This role helps guide how a television program is made.","SuccessText":"Michael Landon starred as Charles Ingalls and also served as a producer, giving him influence both on screen and behind the scenes.","SourceTitle":"Peacock: Original Little House Cast and Series","SourceUrl":"https://www.peacocktv.com/blog/where-to-stream-every-episode-of-little-house-on-the-prairie"},
+        {"Id":"history_g6_narrative_weather_data","GradeMin":6,"GradeMax":8,"SkillId":"cross_source_evidence","Canon":"book","Prompt":"A novel describes months of blizzards. Which method best evaluates the event historically?","Options":["Count only dramatic adjectives","Compare the narrative with newspapers, dated observations, and transportation records","Reject every literary source without reading it","Use one television scene as the final authority"],"CorrectIndex":1,"Hint":"Different records can corroborate duration, severity, and consequences.","SuccessText":"Combining narrative evidence with independent dated records can confirm details and reveal where storytelling shapes the account.","SourceTitle":"The Little House Series — Library of Congress NLS","SourceUrl":"https://www.loc.gov/nls/new-materials/book-lists/little-house-series-laura-ingalls-wilder/"},
+        {"Id":"history_g6_mary_access_history","GradeMin":6,"GradeMax":8,"SkillId":"disability_history","Canon":"actual_life","Prompt":"Which evidence challenges a deficit-only view of Mary Ingalls after she became blind?","Options":["A fictional claim that she stopped learning","An assumption that disability erased her interests","Records of college education, writing, music, and tactile literacy","A television costume with no documentation"],"CorrectIndex":2,"Hint":"Look for evidence of education, agency, and achievement.","SuccessText":"Mary attended college, wrote, studied music, and used several tactile reading systems. Disability history should center access and agency.","SourceTitle":"Museum to Host Birthday Party in Honor of Mary Ingalls — American Printing House for the Blind","SourceUrl":"https://sites.aph.org/pr/20141223-museum-to-host-birthday-party-in-honor-of-mary-ingalls/"},
+        {"Id":"history_g6_claim_evidence_reasoning","GradeMin":6,"GradeMax":8,"SkillId":"historical_argument","Canon":"general","Prompt":"Which structure makes the strongest historical argument?","Options":["A claim repeated many times","A vivid opinion without sources","A list of dates with no explanation","A precise claim supported by cited evidence and reasoning that addresses limitations"],"CorrectIndex":3,"Hint":"Evidence must be connected to the claim, not merely collected.","SuccessText":"Historical arguments explain how evidence supports a claim, acknowledge source limits, and consider competing interpretations.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"}
+      ]
+    },
+    "social_studies": {
+      "1": [
+          {"Id":"social_g1_shared_place","GradeMin":1,"GradeMax":2,"SkillId":"community_places","Canon":"general","Prompt":"Which place is usually shared by many people in a community?","Options":["A public library","One child's bedroom","A family's kitchen drawer","A private toy box"],"CorrectIndex":0,"Hint":"Look for a place meant for everyone to use.","SuccessText":"A public library is a community place where people can read, learn, and use shared resources.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g1_rule_purpose","GradeMin":1,"GradeMax":2,"SkillId":"rules_and_safety","Canon":"general","Prompt":"Why might a one-room school have a rule to walk near the hot stove?","Options":["To make lessons longer","To help keep people safe","To stop children from reading","To make the stove colder"],"CorrectIndex":1,"Hint":"Think about what could happen if someone ran into a hot stove.","SuccessText":"Safety rules help people avoid harm. A rule should have a clear purpose and apply fairly.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g1_need_or_want","GradeMin":1,"GradeMax":2,"SkillId":"needs_and_wants","Canon":"general","Prompt":"Which item is a basic need for a child during a cold Minnesota winter?","Options":["A second toy wagon","A fancy ribbon","Warm shelter","A party invitation"],"CorrectIndex":2,"Hint":"A need helps a person stay healthy and safe.","SuccessText":"Warm shelter is a basic need in cold weather. Toys and decorations can be enjoyable wants.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g1_public_service","GradeMin":1,"GradeMax":2,"SkillId":"public_services","Canon":"general","Prompt":"Which worker provides a service that helps protect a whole town?","Options":["A child arranging a private shelf","A customer choosing cloth","A person polishing a family spoon","A firefighter responding to a fire"],"CorrectIndex":3,"Hint":"Choose the job that serves people across the community.","SuccessText":"Firefighters provide a public safety service for the community.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g1_library_responsibility","GradeMin":1,"GradeMax":2,"SkillId":"rights_and_responsibilities","Canon":"general","Prompt":"Everyone may borrow from a classroom library. Which responsibility helps that system work?","Options":["Return books so others can use them","Hide the books you like","Write on every page","Keep all books forever"],"CorrectIndex":0,"Hint":"A shared resource must remain available to other people.","SuccessText":"Returning borrowed books on time respects other learners' chance to use them.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g1_fair_compromise","GradeMin":1,"GradeMax":2,"SkillId":"conflict_resolution","Canon":"inspired","Prompt":"Imagined schoolyard choice: One group wants tag and another wants a hoop game. What is a fair compromise?","Options":["Let the loudest person decide every day","Take turns choosing the game","Cancel recess forever","Hide both sets of equipment"],"CorrectIndex":1,"Hint":"A compromise gives each group part of what it wants.","SuccessText":"Taking turns is one fair compromise because both groups get a chance to choose. This schoolyard is imagined.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g1_goods_services","GradeMin":1,"GradeMax":2,"SkillId":"goods_and_services","Canon":"general","Prompt":"Which choice correctly matches a good and a service?","Options":["Teaching is a good; a pencil is a service","Both a haircut and a loaf are services","A loaf of bread is a good; teaching is a service","Both a loaf and teaching are goods"],"CorrectIndex":2,"Hint":"A good is an object; a service is work someone does.","SuccessText":"Bread is a physical good. Teaching is a service provided through someone's work.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g1_class_vote","GradeMin":1,"GradeMax":2,"SkillId":"collective_decisions","Canon":"general","Prompt":"A class votes between two read-aloud books. What should happen after every learner gets one vote?","Options":["Count only the teacher's vote","Change votes until everyone agrees","Let the first voter choose","Count all votes using the same rule"],"CorrectIndex":3,"Hint":"A fair vote treats each ballot in the same way.","SuccessText":"Counting every vote by the same rule makes the class decision transparent and fair.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g1_osage_nation","GradeMin":1,"GradeMax":2,"SkillId":"native_nations_present","Canon":"actual_life","Prompt":"Actual-life context: Who were the Osage when the Ingalls family entered their Kansas homeland?","Options":["Members of a Native nation with its own community and leaders","Characters invented for a television episode","Settlers who arrived with the Ingalls family","People with no connection to the land"],"CorrectIndex":0,"Hint":"Native nations existed before settlers arrived and continue today.","SuccessText":"The Osage are a Native nation with their own government, history, culture, and continuing community.","SourceTitle":"Native Knowledge 360° Essential Understandings","SourceUrl":"https://americanindian.si.edu/nk360/about/essential-understandings"},
+          {"Id":"social_g1_inspired_town_choice","GradeMin":1,"GradeMax":2,"SkillId":"community_choices","Canon":"inspired","Prompt":"Imagined town choice: There is enough money to repair either a broken well or a decorative sign. Which should leaders consider first?","Options":["Which choice has the brightest paint","Which choice protects an important community need","Which choice helps only one leader","Which choice takes the longest"],"CorrectIndex":1,"Hint":"Clean water is important for health and safety.","SuccessText":"Leaders should consider needs, safety, costs, and who is affected. Repairing the well protects a basic need in this imagined town.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g1_roles_for_everyone","GradeMin":1,"GradeMax":2,"SkillId":"community_roles","Canon":"general","Prompt":"Which statement about family and community jobs is fairest?","Options":["Only boys can repair things","Only girls can prepare food","People of any gender can learn and share needed work","One person should always do every job"],"CorrectIndex":2,"Hint":"Skills can be learned and responsibilities can be shared.","SuccessText":"People of any gender can learn practical skills and share responsibilities according to ability, interest, and need.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g1_book_tv_labels","GradeMin":1,"GradeMax":2,"SkillId":"media_labels","Canon":"tv_1974","Prompt":"How should a game label a scene that appears in the classic 1974 TV adaptation but is not confirmed in Laura's life records?","Options":["Actual diary entry","Government fact","Eyewitness memory","Classic TV adaptation"],"CorrectIndex":3,"Hint":"Tell learners what kind of source the scene comes from.","SuccessText":"Calling it a classic TV adaptation keeps entertainment and actual-life evidence clearly separated.","SourceTitle":"Laura Ingalls Wilder: Prairie to Page — PBS American Masters","SourceUrl":"https://www.pbs.org/video/laura-ingalls-wilder-prairie-to-page-pqnclr/"}
+        ],
+        "3": [
+          {"Id":"social_g3_government_levels","GradeMin":3,"GradeMax":5,"SkillId":"levels_of_government","Canon":"general","Prompt":"Which example best shows different levels of government working on different responsibilities?","Options":["A town maintains a local street while a state manages state highways","A family chooses both the mayor and every judge alone","A store writes all national laws","A classroom replaces every government office"],"CorrectIndex":0,"Hint":"Local and state governments often manage different public systems.","SuccessText":"Local governments often maintain local streets, while state governments manage state highways and statewide rules.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g3_taxes_services","GradeMin":3,"GradeMax":5,"SkillId":"taxes_and_services","Canon":"general","Prompt":"Why do governments collect taxes?","Options":["To make every product cost the same","To help pay for shared services such as roads, schools, and emergency response","To prevent citizens from asking questions","To replace all volunteer work"],"CorrectIndex":1,"Hint":"Many public services are used by a whole community.","SuccessText":"Tax revenue helps fund shared public goods and services, though communities debate priorities and spending.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g3_scarcity_choice","GradeMin":3,"GradeMax":5,"SkillId":"scarcity_and_choice","Canon":"inspired","Prompt":"Imagined winter pantry: A family has limited flour and cannot bake everything it wants. What economic idea does this show?","Options":["Unlimited supply","A public election","Scarcity requires choices","Money has no value"],"CorrectIndex":2,"Hint":"Scarcity exists when resources are limited compared with wants.","SuccessText":"Limited flour creates scarcity, so the family must choose how to use it. This pantry scenario is imagined.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g3_producer_consumer","GradeMin":3,"GradeMax":5,"SkillId":"producers_and_consumers","Canon":"general","Prompt":"A farmer sells wheat to a mill, and a household buys flour. Which description is correct?","Options":["The household produces the wheat","The mill is not part of an economy","Only the farmer is a consumer","The farmer is a producer and the household is a consumer in this exchange"],"CorrectIndex":3,"Hint":"Producers offer goods or services; consumers obtain and use them.","SuccessText":"The farmer produces wheat, while the household consumes flour. People can be producers in one exchange and consumers in another.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g3_rule_law","GradeMin":3,"GradeMax":5,"SkillId":"rules_and_laws","Canon":"general","Prompt":"Which statement best distinguishes a classroom rule from a law?","Options":["A classroom rule is set for that learning space; a law is made through government and applies within its jurisdiction","A law is always optional","A classroom rule can send anyone to prison","Rules and laws have no purposes"],"CorrectIndex":0,"Hint":"Think about who creates each rule and where it applies.","SuccessText":"Classroom rules guide a particular group. Laws are created through public institutions and apply within defined jurisdictions.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g3_civic_participation","GradeMin":3,"GradeMax":5,"SkillId":"civic_participation","Canon":"general","Prompt":"A dangerous crossing near school needs attention. Which action is a constructive form of civic participation?","Options":["Spread a rumor about the problem","Gather evidence and respectfully contact the responsible local officials","Damage the crossing sign","Assume no one may ask questions"],"CorrectIndex":1,"Hint":"Constructive participation combines evidence with communication.","SuccessText":"Residents can document a concern, learn who has authority, and respectfully advocate for a safer crossing.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g3_verify_media_claim","GradeMin":3,"GradeMax":5,"SkillId":"media_literacy","Canon":"tv_1974","Prompt":"A fan page says every classic TV episode happened exactly as shown in Laura's life. What should a careful learner do?","Options":["Believe it because it is online","Reject all television as useless","Compare the claim with biographies, records, and clearly labeled adaptation sources","Repeat the claim without naming the page"],"CorrectIndex":2,"Hint":"Entertainment adaptations and historical records answer different questions.","SuccessText":"A learner should verify the claim using reliable, independent sources and keep dramatized TV material labeled as adaptation.","SourceTitle":"Laura Ingalls Wilder: Prairie to Page — PBS American Masters","SourceUrl":"https://www.pbs.org/video/laura-ingalls-wilder-prairie-to-page-pqnclr/"},
+          {"Id":"social_g3_native_sovereignty","GradeMin":3,"GradeMax":5,"SkillId":"tribal_sovereignty","Canon":"general","Prompt":"What does it mean to say the Osage Nation is sovereign?","Options":["It exists only in nineteenth-century books","It has no relationship with other governments","It is another name for a settler town","It has inherent authority to govern its citizens and affairs"],"CorrectIndex":3,"Hint":"Sovereignty concerns a nation's authority to govern.","SuccessText":"Tribal sovereignty means Native nations have inherent governmental authority. Their relationships with the United States are government-to-government.","SourceTitle":"Native Knowledge 360° Essential Understandings","SourceUrl":"https://americanindian.si.edu/nk360/about/essential-understandings"},
+          {"Id":"social_g3_homestead_tradeoffs","GradeMin":3,"GradeMax":5,"SkillId":"policy_stakeholders","Canon":"general","Prompt":"Which summary considers more than one group's experience of nineteenth-century homesteading?","Options":["It offered some settlers land opportunities while also contributing to Native land loss and displacement","It benefited everyone equally","It affected only fictional characters","It ended every land disagreement"],"CorrectIndex":0,"Hint":"A public policy can affect groups in different ways.","SuccessText":"A complete account includes settler opportunities and harms to Native peoples, while recognizing that effects varied by region and nation.","SourceTitle":"Native Americans and the Homestead Act — National Park Service","SourceUrl":"https://www.nps.gov/home/learn/historyculture/native-americans-and-the-homestead-act.htm"},
+          {"Id":"social_g3_inspired_store_budget","GradeMin":3,"GradeMax":5,"SkillId":"budgeting","Canon":"inspired","Prompt":"Imagined general store: A learner has 30 cents. A notebook costs 18 cents and a pencil costs 5 cents. Which plan stays within the budget?","Options":["Buy two notebooks","Buy one notebook and two pencils","Buy four notebooks","Buy seven pencils"],"CorrectIndex":1,"Hint":"Add each plan's costs and compare the total with 30 cents.","SuccessText":"One notebook and two pencils cost 28 cents, leaving 2 cents. The store and prices are imagined.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g3_work_gender_evidence","GradeMin":3,"GradeMax":5,"SkillId":"social_roles_over_time","Canon":"actual_life","Prompt":"Actual-life study: Laura worked as a teacher and later as a farmer and author. What conclusion is best supported?","Options":["Everyone in her era had identical opportunities","A person's work never changes over a lifetime","Women's work included varied paid and unpaid roles, even when laws and expectations limited choices","Only television characters did farm work"],"CorrectIndex":2,"Hint":"Use Laura's different roles without claiming every woman's experience was the same.","SuccessText":"Laura's life provides evidence of varied work. Broader claims require sources about other women, communities, laws, race, class, and access.","SourceTitle":"Laura Ingalls Wilder — Homestead National Historical Park","SourceUrl":"https://www.nps.gov/home/learn/historyculture/laura-ingalls-wilder.htm"},
+          {"Id":"social_g3_respectful_disagreement","GradeMin":3,"GradeMax":5,"SkillId":"civil_discourse","Canon":"general","Prompt":"Two learners disagree about which town project matters most. What is the best next step?","Options":["Interrupt until one gives up","Attack the other person's character","Hide evidence that weakens your view","State reasons, listen, ask questions, and compare evidence"],"CorrectIndex":3,"Hint":"Good civic discussion focuses on ideas and evidence.","SuccessText":"Respectful disagreement includes listening, explaining reasons, checking evidence, and looking for areas of agreement.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"}
+        ],
+        "6": [
+          {"Id":"social_g6_federalism","GradeMin":6,"GradeMax":8,"SkillId":"federalism","Canon":"general","Prompt":"Which statement best describes federalism in the United States?","Options":["Power is divided between national and state governments","Every town is an independent country","Courts make all laws without limits","Only the national government may provide services"],"CorrectIndex":0,"Hint":"Federalism assigns authority across more than one level of government.","SuccessText":"Federalism divides and shares powers between national and state governments; local governments receive authority under state law.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g6_checks_balances","GradeMin":6,"GradeMax":8,"SkillId":"checks_and_balances","Canon":"general","Prompt":"What is the main purpose of checks and balances?","Options":["To let one branch control every decision","To let government branches limit one another's power","To prevent courts from interpreting laws","To remove elections from government"],"CorrectIndex":1,"Hint":"The branches have distinct powers and ways to check other branches.","SuccessText":"Checks and balances distribute power and allow each branch to limit particular actions of the others.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g6_citizenship_membership","GradeMin":6,"GradeMax":8,"SkillId":"citizenship_concepts","Canon":"general","Prompt":"Which statement uses the word citizenship most precisely?","Options":["Citizenship means agreeing with every policy","Anyone who visits a community automatically holds its legal citizenship","Citizenship is legal membership in a political community, with associated rights and responsibilities","Citizenship and kindness mean exactly the same thing"],"CorrectIndex":2,"Hint":"Separate legal status from broader ideas such as belonging or good conduct.","SuccessText":"Citizenship is a legal and political status. Civic identity, residence, community belonging, and ethical behavior overlap with it but are not identical.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g6_due_process","GradeMin":6,"GradeMax":8,"SkillId":"rule_of_law_due_process","Canon":"general","Prompt":"Which practice best reflects due process and the rule of law?","Options":["Officials punish people under secret rules","A leader ignores laws when inconvenient","Different procedures apply based on popularity","Government follows known fair procedures before taking away protected rights"],"CorrectIndex":3,"Hint":"Fair notice and procedures limit arbitrary government action.","SuccessText":"Due process requires lawful, fair procedures, and the rule of law means government officials as well as citizens are subject to law.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g6_policy_stakeholders","GradeMin":6,"GradeMax":8,"SkillId":"policy_analysis","Canon":"general","Prompt":"A proposed rail line would lower shipping costs but cross farms and sensitive habitat. What is the strongest first analysis?","Options":["Identify stakeholders, likely benefits and harms, evidence, and possible alternatives","Count only the company owner's preference","Assume every effect will be positive","Reject all evidence about costs"],"CorrectIndex":0,"Hint":"Policy analysis considers multiple affected groups and consequences.","SuccessText":"A sound analysis identifies who is affected, weighs evidence about benefits and costs, and compares alternatives or mitigations.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g6_opportunity_cost","GradeMin":6,"GradeMax":8,"SkillId":"opportunity_cost","Canon":"inspired","Prompt":"Imagined town budget: Leaders spend the final $500 on roof repair instead of new festival banners. What is the opportunity cost?","Options":["The repaired roof","The festival banners they gave up","Every past repair","The town's entire tax base"],"CorrectIndex":1,"Hint":"Opportunity cost is the next-best alternative not chosen.","SuccessText":"The forgone banners are the opportunity cost of choosing roof repair. The town budget is imagined.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g6_externality","GradeMin":6,"GradeMax":8,"SkillId":"economic_externalities","Canon":"general","Prompt":"A mill earns income but releases waste that raises downstream water-cleaning costs. What economic concept does the added downstream cost illustrate?","Options":["Comparative chronology","Direct democracy","A negative externality","Unlimited resources"],"CorrectIndex":2,"Hint":"The cost falls partly on people outside the original transaction.","SuccessText":"A negative externality is a cost imposed on others that may not be included in the market price.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g6_treaty_sovereignty","GradeMin":6,"GradeMax":8,"SkillId":"treaties_and_sovereignty","Canon":"general","Prompt":"Why should treaties be included when studying United States settlement on Native homelands?","Options":["Treaties are fictional scenery","Treaties concern only private shopping","Treaties automatically ended Native nationhood","Treaties are government-to-government agreements connected to land, rights, and continuing sovereignty"],"CorrectIndex":3,"Hint":"Native nations are political entities, not only cultural groups.","SuccessText":"Treaties establish binding political relationships and rights. They must be studied alongside Native perspectives and the history of compliance or violation.","SourceTitle":"Native Knowledge 360° Essential Understandings","SourceUrl":"https://americanindian.si.edu/nk360/about/essential-understandings"},
+          {"Id":"social_g6_homestead_distribution","GradeMin":6,"GradeMax":8,"SkillId":"policy_distributional_effects","Canon":"general","Prompt":"Which question best examines the distributional effects of the Homestead Act?","Options":["Which groups gained land access, which experienced dispossession, and how did effects vary by region?","Was every homestead cabin the same color?","Did one fictional character enjoy farming?","Can all consequences be reduced to one sentence?"],"CorrectIndex":0,"Hint":"Distributional analysis asks who gained, who bore costs, and where.","SuccessText":"Public policy can distribute benefits and burdens unevenly. Regional and Native-nation-specific evidence prevents overgeneralization.","SourceTitle":"Native Americans and the Homestead Act — National Park Service","SourceUrl":"https://www.nps.gov/home/learn/historyculture/native-americans-and-the-homestead-act.htm"},
+          {"Id":"social_g6_tv_adaptation_purpose","GradeMin":6,"GradeMax":8,"SkillId":"media_purpose_and_audience","Canon":"tv_1974","Prompt":"When the classic 1974 TV adaptation changes or invents a plot, which question best supports media analysis?","Options":["How can the episode replace every biography?","How might audience, format, production era, and dramatic purpose explain the choice?","Why must the invented plot be an actual-life event?","How can citations be avoided?"],"CorrectIndex":1,"Hint":"Adaptations are created for a medium, audience, and time.","SuccessText":"Analyzing audience, television format, 1970s context, and storytelling goals explains adaptation choices without mistaking them for biography.","SourceTitle":"Laura Ingalls Wilder: Prairie to Page — PBS American Masters","SourceUrl":"https://www.pbs.org/video/laura-ingalls-wilder-prairie-to-page-pqnclr/"},
+          {"Id":"social_g6_civic_claim_evidence","GradeMin":6,"GradeMax":8,"SkillId":"civic_argument","Canon":"general","Prompt":"Which evidence would best support a claim that a proposed library schedule fails to serve many residents?","Options":["One speaker says the building looks old","A poster uses large letters","Usage and survey data show major groups cannot visit during the proposed hours","The claim is repeated four times"],"CorrectIndex":2,"Hint":"Choose evidence directly connected to access and affected residents.","SuccessText":"Relevant usage and survey evidence can show who would be unable to access the library; source quality and sample limits should also be examined.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+          {"Id":"social_g6_informed_action","GradeMin":6,"GradeMax":8,"SkillId":"informed_civic_action","Canon":"general","Prompt":"After investigating an accessibility barrier at a historic site, what is the most responsible civic action?","Options":["Post visitors' private information","Invent data to make the case stronger","Assume one solution works for every disability","Consult affected people, identify the responsible authority, propose evidence-based options, and assess results"],"CorrectIndex":3,"Hint":"Effective civic action is informed, inclusive, targeted, and evaluated.","SuccessText":"Responsible action centers people affected by the barrier, directs a supported proposal to those with authority, and checks whether the change works.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"}
+        ]
+    },
+    "geography": {
+      "1": [
+        {"Id":"geography_g1_map_purpose","GradeMin":1,"GradeMax":2,"SkillId":"map_purpose","Canon":"general","Prompt":"What can a map help you understand?","Options":["Where places are located","How a fiddle sounds","How bread tastes","How soft a blanket feels"],"CorrectIndex":0,"Hint":"A map is a picture or model of places and their locations.","SuccessText":"Maps show where places and features are located and how they relate in space.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g1_cardinal_direction","GradeMin":1,"GradeMax":2,"SkillId":"cardinal_directions","Canon":"general","Prompt":"On a map with north at the top, which direction is to the right?","Options":["West","East","South","North"],"CorrectIndex":1,"Hint":"Remember the four main directions: north, east, south, and west.","SuccessText":"East is to the right when north is at the top of a standard map.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g1_map_key","GradeMin":1,"GradeMax":2,"SkillId":"map_symbols_and_keys","Canon":"general","Prompt":"A map key says a blue wavy line means a creek. What does a blue wavy line on that map show?","Options":["A road","A school","A creek","A hill"],"CorrectIndex":2,"Hint":"Use the key to match the symbol with its meaning.","SuccessText":"The key explains that the blue wavy symbol represents a creek.","SourceTitle":"USGS Topographic Maps","SourceUrl":"https://www.usgs.gov/programs/national-geospatial-program/topographic-maps"},
+        {"Id":"geography_g1_physical_human_feature","GradeMin":1,"GradeMax":2,"SkillId":"physical_and_human_features","Canon":"general","Prompt":"Which pair has one physical feature followed by one human-made feature?","Options":["Barn, road","School, creek","Prairie, river","River, bridge"],"CorrectIndex":3,"Hint":"Nature forms the first feature; people build the second.","SuccessText":"A river is a physical feature, while a bridge is built by people.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g1_globe_land_water","GradeMin":1,"GradeMax":2,"SkillId":"land_and_water","Canon":"general","Prompt":"What does the large blue area between North America and Europe represent on a globe?","Options":["The Atlantic Ocean","A wheat field","A state border","A town street"],"CorrectIndex":0,"Hint":"Globes often use blue to show large bodies of water.","SuccessText":"The Atlantic Ocean is the large body of water between North America and Europe.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g1_wisconsin_minnesota","GradeMin":1,"GradeMax":2,"SkillId":"relative_location","Canon":"actual_life","Prompt":"Actual-life map study: Laura was born in Wisconsin and later lived near Walnut Grove. Which state is Walnut Grove in, west of Wisconsin?","Options":["Maine","Minnesota","Florida","Oregon"],"CorrectIndex":1,"Hint":"Look immediately west of Wisconsin on a United States map.","SuccessText":"Walnut Grove is in Minnesota, the state just west of Wisconsin.","SourceTitle":"Wilder, Laura Ingalls — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/person/wilder-laura-ingalls-1867-1957"},
+        {"Id":"geography_g1_woodland_prairie","GradeMin":1,"GradeMax":2,"SkillId":"regions_and_landscapes","Canon":"book","Prompt":"Book geography: Which landscape best matches the setting named in Little House in the Big Woods?","Options":["A coral reef","A desert of sand dunes","A wooded region","A city of skyscrapers"],"CorrectIndex":2,"Hint":"The title names the main kind of landscape.","SuccessText":"The book's Wisconsin setting is a wooded region. Later books feature prairie landscapes.","SourceTitle":"The Little House Series — Library of Congress NLS","SourceUrl":"https://www.loc.gov/nls/new-materials/book-lists/little-house-series-laura-ingalls-wilder/"},
+        {"Id":"geography_g1_weather_climate","GradeMin":1,"GradeMax":2,"SkillId":"weather_and_place","Canon":"general","Prompt":"Which sentence describes today's weather instead of a usual seasonal pattern?","Options":["Winters are often colder than summers","This region usually receives spring rain","Prairies have grasses","Snow is falling this morning"],"CorrectIndex":3,"Hint":"Weather tells what the air and sky are like now or soon.","SuccessText":"Snow falling this morning is current weather. Climate describes usual patterns over a long time.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"geography_g1_human_environment","GradeMin":1,"GradeMax":2,"SkillId":"human_environment_interaction","Canon":"inspired","Prompt":"Imagined prairie home: Why might a family plant shade trees near a house?","Options":["To change the environment around the home for shade and wind protection","To move the house into another state","To turn every field into an ocean","To make north point south"],"CorrectIndex":0,"Hint":"People can change places to meet needs.","SuccessText":"Planting trees can provide shade and reduce wind. This is an imagined example of people adapting a place.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g1_simple_scale","GradeMin":1,"GradeMax":2,"SkillId":"simple_map_scale","Canon":"inspired","Prompt":"Imagined town map: One block on the map stands for one real town block. The school is three map blocks from the store. How far apart are they?","Options":["One block","Three blocks","Six blocks","Ten blocks"],"CorrectIndex":1,"Hint":"Each map block represents one real block.","SuccessText":"Three map blocks represent three real town blocks. The town map is imagined.","SourceTitle":"USGS Topographic Maps","SourceUrl":"https://www.usgs.gov/programs/national-geospatial-program/topographic-maps"},
+        {"Id":"geography_g1_many_moves","GradeMin":1,"GradeMax":2,"SkillId":"routes_and_places","Canon":"actual_life","Prompt":"Actual life: Laura's family lived in several places, including Wisconsin, Kansas, Minnesota, Iowa, and Dakota Territory. What would best show these moves?","Options":["One dot with no label","A picture of only a cabin","A map with labeled places and route arrows","A list of food with no locations"],"CorrectIndex":2,"Hint":"Choose a tool that shows both places and movement.","SuccessText":"A labeled route map can show multiple homes and the order or direction of moves without pretending they were one simple trail.","SourceTitle":"Wilder, Laura Ingalls — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/person/wilder-laura-ingalls-1867-1957"},
+        {"Id":"geography_g1_osage_homeland","GradeMin":1,"GradeMax":2,"SkillId":"place_and_native_homelands","Canon":"actual_life","Prompt":"Actual-life Kansas context: What should a map of the Ingalls cabin area also help learners remember?","Options":["The land had no history before the cabin","A state line erased every earlier connection","Only a television setting matters","The place was within the Osage homeland and reserved land"],"CorrectIndex":3,"Hint":"Maps should show whose homeland and rights are connected to a place.","SuccessText":"The cabin site was within Osage reserved land. Mapping the Osage context prevents the false idea that the prairie was empty.","SourceTitle":"It Began With Grazing — Osage Nation","SourceUrl":"https://www.osagenation-nsn.gov/news-events/news/it-began-grazing"}
+      ],
+      "3": [
+        {"Id":"geography_g3_scale_distance","GradeMin":3,"GradeMax":5,"SkillId":"map_scale_distance","Canon":"inspired","Prompt":"Imagined county map: One centimeter represents 5 miles. Two towns are 4 centimeters apart. About how far apart are they?","Options":["20 miles","9 miles","5 miles","40 miles"],"CorrectIndex":0,"Hint":"Multiply the map distance by the miles represented by each centimeter.","SuccessText":"Four centimeters times 5 miles per centimeter equals 20 miles. The map is imagined.","SourceTitle":"USGS Topographic Maps","SourceUrl":"https://www.usgs.gov/programs/national-geospatial-program/topographic-maps"},
+        {"Id":"geography_g3_grid_coordinates","GradeMin":3,"GradeMax":5,"SkillId":"map_grid_coordinates","Canon":"inspired","Prompt":"Imagined town grid: Columns are A–D and rows are 1–4. The school is in column C, row 2. What is its grid location?","Options":["2C","C2","B3","D4"],"CorrectIndex":1,"Hint":"Write the column letter followed by the row number.","SuccessText":"The school is at C2. Grid references help locate features efficiently on this imagined map.","SourceTitle":"USGS Topographic Maps","SourceUrl":"https://www.usgs.gov/programs/national-geospatial-program/topographic-maps"},
+        {"Id":"geography_g3_latitude_longitude","GradeMin":3,"GradeMax":5,"SkillId":"latitude_longitude","Canon":"general","Prompt":"Which statement correctly describes latitude and longitude?","Options":["Both measure elevation above sea level","Longitude measures rainfall only","Latitude measures north–south position, and longitude measures east–west position","Latitude applies only inside the United States"],"CorrectIndex":2,"Hint":"The equator is the starting line for one coordinate; the prime meridian is for the other.","SuccessText":"Latitude gives position north or south of the equator; longitude gives position east or west of the prime meridian.","SourceTitle":"USGS Topographic Maps","SourceUrl":"https://www.usgs.gov/programs/national-geospatial-program/topographic-maps"},
+        {"Id":"geography_g3_region_definition","GradeMin":3,"GradeMax":5,"SkillId":"regions","Canon":"general","Prompt":"Why might geographers place Wisconsin's northern woods and the Great Plains in different regions?","Options":["Every region must follow a state border","Regions can never include more than one landscape","Only town names define regions","The areas have different combinations of vegetation, landforms, and climate"],"CorrectIndex":3,"Hint":"A region groups places that share selected characteristics.","SuccessText":"Geographers define regions using characteristics such as vegetation, landforms, climate, culture, or economy, depending on the question.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g3_climate_records","GradeMin":3,"GradeMax":5,"SkillId":"climate_patterns","Canon":"general","Prompt":"Which evidence best supports a comparison of Minnesota and Missouri climate?","Options":["Many years of monthly temperature and precipitation records from both places","One snowy photograph from Minnesota","One hot afternoon in Missouri","A fictional character's favorite season"],"CorrectIndex":0,"Hint":"Climate is a long-term pattern, not one day's weather.","SuccessText":"Multi-year temperature and precipitation records support a fair comparison of climate patterns.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"geography_g3_watershed","GradeMin":3,"GradeMax":5,"SkillId":"watersheds","Canon":"general","Prompt":"What is a watershed?","Options":["A building that stores maps","An area of land where water drains to a common outlet","A border between two school districts","A measurement of wind speed"],"CorrectIndex":1,"Hint":"Rain and melting snow flow downhill into connected streams and rivers.","SuccessText":"A watershed is the land area that drains water to a shared outlet such as a creek, river, lake, or ocean.","SourceTitle":"USGS Watersheds and Drainage Basins","SourceUrl":"https://www.usgs.gov/water-science-school/science/watersheds-and-drainage-basins"},
+        {"Id":"geography_g3_settlement_site","GradeMin":3,"GradeMax":5,"SkillId":"settlement_location_factors","Canon":"general","Prompt":"Why have many settlements developed near rivers?","Options":["Rivers make every flood impossible","Rivers remove the need for roads everywhere","Rivers can provide water, transportation, fertile land, or power","Rivers always mark national borders"],"CorrectIndex":2,"Hint":"Think about resources and movement, along with possible flood risk.","SuccessText":"Rivers can support water supply, farming, transportation, and industry, though river locations may also face flooding.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g3_resource_use","GradeMin":3,"GradeMax":5,"SkillId":"natural_resources_and_land_use","Canon":"general","Prompt":"Which choice best connects a natural resource with a likely land use?","Options":["Deep forest with ocean fishing","Dry grassland with coral farming","Coal seam with orange orchards in every climate","Fertile soil with crop farming"],"CorrectIndex":3,"Hint":"The resource should directly support the activity.","SuccessText":"Fertile soil can support crop farming. Geography influences land use, but technology, culture, markets, and policy matter too.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g3_actual_route_sequence","GradeMin":3,"GradeMax":5,"SkillId":"migration_route_sequence","Canon":"actual_life","Prompt":"Which sequence correctly begins the Ingalls family's actual moves after Laura's Wisconsin birth?","Options":["Wisconsin to Kansas, back to Wisconsin, then Minnesota","Minnesota to California, then Maine","Missouri to Dakota Territory, then Kansas","Wisconsin to Oregon with no return east"],"CorrectIndex":0,"Hint":"The early moves were more complicated than a single westward line.","SuccessText":"The family moved from Wisconsin to Kansas, returned to Wisconsin, and then moved to Minnesota; later homes included Iowa and Dakota Territory.","SourceTitle":"Wilder, Laura Ingalls — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/person/wilder-laura-ingalls-1867-1957"},
+        {"Id":"geography_g3_thematic_map","GradeMin":3,"GradeMax":5,"SkillId":"thematic_maps","Canon":"general","Prompt":"Which map would best answer, 'Where were grasshopper crop losses most severe in Minnesota from 1873 to 1877?'","Options":["A road map with no dates","A thematic map shading reported crop losses by place and year","A world time-zone map","A cabin floor plan"],"CorrectIndex":1,"Hint":"The map should display the topic, location, and historical period in the question.","SuccessText":"A thematic map can show the spatial pattern and change over time in reported crop losses.","SourceTitle":"Grasshopper Plagues, 1873–1877 — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/event/grasshopper-plagues-1873-1877"},
+        {"Id":"geography_g3_human_land_change","GradeMin":3,"GradeMax":5,"SkillId":"land_use_change","Canon":"general","Prompt":"What change would satellite images likely show when prairie is converted to a growing town?","Options":["Every river disappears at once","The latitude changes","More roads and buildings and less continuous grassland","North moves to the bottom of Earth"],"CorrectIndex":2,"Hint":"Compare natural cover with constructed surfaces.","SuccessText":"Town growth usually adds buildings and roads while breaking up or replacing some continuous vegetation.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g3_changing_boundaries","GradeMin":3,"GradeMax":5,"SkillId":"historical_boundaries","Canon":"actual_life","Prompt":"Why might an 1869 map and a present-day map show different political boundaries around the Ingalls family's Kansas site?","Options":["Maps cannot show real locations","The site's latitude changed","Modern borders prove Native homelands never existed","Territorial, reservation, state, and jurisdictional boundaries changed over time"],"CorrectIndex":3,"Hint":"Political boundaries are made and changed by people and governments.","SuccessText":"Boundaries can change through state formation, treaties, laws, and other political actions. The Osage Nation and its history continue beyond any one map date.","SourceTitle":"Native Knowledge 360° Essential Understandings","SourceUrl":"https://americanindian.si.edu/nk360/about/essential-understandings"}
+      ],
+      "6": [
+        {"Id":"geography_g6_gis_layers","GradeMin":6,"GradeMax":8,"SkillId":"gis_layers","Canon":"general","Prompt":"A planner wants to find sites near roads but outside flood zones. Which GIS method is most useful?","Options":["Overlay road, parcel, elevation, and flood-risk layers","Use only a decorative map border","Delete all location data","Average unrelated town names"],"CorrectIndex":0,"Hint":"GIS can align different kinds of spatial data for comparison.","SuccessText":"Overlaying relevant layers helps identify locations that meet several spatial conditions at once.","SourceTitle":"USGS Topographic Maps","SourceUrl":"https://www.usgs.gov/programs/national-geospatial-program/topographic-maps"},
+        {"Id":"geography_g6_population_density","GradeMin":6,"GradeMax":8,"SkillId":"population_density","Canon":"inspired","Prompt":"Imagined counties: County A has 12,000 people in 600 square miles. County B has 9,000 people in 300 square miles. Which is denser?","Options":["County A, at 120 people per square mile","County B, at 30 people per square mile","They have equal density","Density cannot be calculated"],"CorrectIndex":1,"Hint":"Divide population by land area for each county.","SuccessText":"County A has 20 people per square mile; County B has 30, so County B is denser. The counties are imagined.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g6_push_pull","GradeMin":6,"GradeMax":8,"SkillId":"migration_push_pull_factors","Canon":"actual_life","Prompt":"Actual-life analysis: Crop failures contributed to Ingalls family moves, while reports of land or work drew families toward other places. How are these factors classified?","Options":["Both are map projections","Both are latitude measures","Crop failure can be a push factor; opportunity elsewhere can be a pull factor","A push factor always makes people stay"],"CorrectIndex":2,"Hint":"Push factors make leaving more likely; pull factors attract people to a destination.","SuccessText":"Economic or environmental hardship can push migration, while perceived opportunity can pull it. Individual decisions may involve several factors.","SourceTitle":"Wilder, Laura Ingalls — Minnesota Historical Society","SourceUrl":"https://www.mnhs.org/mnopedia/search/index/person/wilder-laura-ingalls-1867-1957"},
+        {"Id":"geography_g6_land_use_time_series","GradeMin":6,"GradeMax":8,"SkillId":"spatial_change_over_time","Canon":"general","Prompt":"Which evidence best measures how land use near Walnut Grove changed over 100 years?","Options":["One present-day photograph","A list of state capitals","One person's guess","Georeferenced maps or images from several dates classified by land-cover type"],"CorrectIndex":3,"Hint":"To measure change, compare aligned spatial evidence from multiple times.","SuccessText":"A dated, georeferenced time series can quantify changes in cropland, grassland, roads, water, and developed land.","SourceTitle":"USGS Topographic Maps","SourceUrl":"https://www.usgs.gov/programs/national-geospatial-program/topographic-maps"},
+        {"Id":"geography_g6_climate_normals","GradeMin":6,"GradeMax":8,"SkillId":"climate_data_analysis","Canon":"general","Prompt":"Which comparison gives the strongest evidence that two regions have different winter climates?","Options":["Multi-decade distributions of winter temperature and precipitation for both regions","The coldest day ever remembered in one town","Two photographs without dates","One forecast from each place"],"CorrectIndex":0,"Hint":"Climate comparisons require comparable long-term records.","SuccessText":"Multi-decade distributions reveal typical conditions, variability, and extremes while reducing the influence of one unusual event.","SourceTitle":"Next Generation Science Standards Topic Arrangements","SourceUrl":"https://www.nextgenscience.org/overview-topics"},
+        {"Id":"geography_g6_projection_distortion","GradeMin":6,"GradeMax":8,"SkillId":"map_projection_distortion","Canon":"general","Prompt":"Why can no flat world map preserve every geographic property perfectly?","Options":["Earth has no measurable shape","Projecting a curved surface onto a plane creates distortion","All maps must place north at the bottom","Map scales never use ratios"],"CorrectIndex":1,"Hint":"Imagine flattening an orange peel without stretching or tearing it.","SuccessText":"Every flat projection distorts some combination of area, shape, distance, or direction, so geographers choose projections for particular purposes.","SourceTitle":"USGS Topographic Maps","SourceUrl":"https://www.usgs.gov/programs/national-geospatial-program/topographic-maps"},
+        {"Id":"geography_g6_sovereignty_boundaries","GradeMin":6,"GradeMax":8,"SkillId":"political_geography_sovereignty","Canon":"general","Prompt":"What is a key limitation of a map that shows only United States state borders when discussing Native nations?","Options":["State borders show every treaty right automatically","Native nations exist only outside the United States","It can hide tribal jurisdictions, homelands, treaty areas, and sovereign political relationships","Physical geography becomes impossible to study"],"CorrectIndex":2,"Hint":"Different political geographies can overlap the same space.","SuccessText":"A state-only map can erase important Native political geographies. Appropriate tribal, treaty, and historical layers add needed context.","SourceTitle":"Native Knowledge 360° Essential Understandings","SourceUrl":"https://americanindian.si.edu/nk360/about/essential-understandings"},
+        {"Id":"geography_g6_upstream_downstream","GradeMin":6,"GradeMax":8,"SkillId":"watershed_systems","Canon":"general","Prompt":"Why can land use upstream affect communities far downstream?","Options":["Water always remains inside one property","Watersheds follow only state borders","Upstream places have no gravity","Runoff can carry sediment or pollutants through connected drainage networks"],"CorrectIndex":3,"Hint":"Trace where water flows across a watershed.","SuccessText":"Connected streams transport water and materials, so upstream erosion, nutrients, or pollutants can affect downstream ecosystems and water users.","SourceTitle":"USGS Watersheds and Drainage Basins","SourceUrl":"https://www.usgs.gov/water-science-school/science/watersheds-and-drainage-basins"},
+        {"Id":"geography_g6_historical_map_limits","GradeMin":6,"GradeMax":8,"SkillId":"historical_map_source_analysis","Canon":"actual_life","Prompt":"An old settler map labels cabins and rail lines but omits Osage communities. What is the best interpretation?","Options":["The omissions reveal the mapmaker's purpose and limits; compare Native-authored and treaty sources","The omission proves no Osage people existed","Every unlabeled place was legally empty","The map is useless for all questions"],"CorrectIndex":0,"Hint":"Maps are selected representations made for audiences and purposes.","SuccessText":"The map may document some features while silencing others. Source context and additional perspectives are necessary before drawing conclusions.","SourceTitle":"Native Knowledge 360° Essential Understandings","SourceUrl":"https://americanindian.si.edu/nk360/about/essential-understandings"},
+        {"Id":"geography_g6_ratio_scale","GradeMin":6,"GradeMax":8,"SkillId":"ratio_map_scale","Canon":"inspired","Prompt":"Imagined survey map: The scale is 1:50,000. A road measures 6 centimeters on the map. What real distance does that represent?","Options":["300 meters","3 kilometers","30 kilometers","300 kilometers"],"CorrectIndex":1,"Hint":"Six map centimeters represent 300,000 real centimeters; convert to kilometers.","SuccessText":"300,000 centimeters equals 3,000 meters, or 3 kilometers. The survey map is imagined.","SourceTitle":"USGS Topographic Maps","SourceUrl":"https://www.usgs.gov/programs/national-geospatial-program/topographic-maps"},
+        {"Id":"geography_g6_region_construct","GradeMin":6,"GradeMax":8,"SkillId":"regionalization","Canon":"general","Prompt":"Why might two valid maps draw the boundary of the Great Plains differently?","Options":["At least one map must be dishonest","Regions can use different criteria such as landforms, vegetation, climate, or culture","A region must match a single state","Geographers cannot use evidence"],"CorrectIndex":2,"Hint":"A region depends on the characteristics chosen for the study.","SuccessText":"Regional boundaries are analytical choices. Maps can differ legitimately when they state and consistently apply different criteria.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"},
+        {"Id":"geography_g6_spatial_correlation","GradeMin":6,"GradeMax":8,"SkillId":"spatial_correlation_causation","Canon":"general","Prompt":"A map shows towns near rail lines. What can the pattern establish by itself?","Options":["Railroads caused every town for the same reason","Towns built all railroads before settlement","No other variable could matter","Town and rail locations are associated, but causal claims need historical and comparative evidence"],"CorrectIndex":3,"Hint":"A spatial pattern can suggest a question without proving a cause.","SuccessText":"Co-location shows association. Causation requires chronology, mechanisms, alternative explanations, and evidence from additional sources.","SourceTitle":"C3 Framework for Social Studies","SourceUrl":"https://www.socialstudies.org/sites/default/files/c3/c3-framework-for-social-studies-rev0617.pdf"}
+      ]
+    },
+    "english": {
+      "1": [
+          {
+            "Id": "english_g1_short_a",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "phonics.short_vowels",
+            "Canon": "general",
+            "Prompt": "Which word has the same short a sound as the first vowel sound in cabin?",
+            "Options": [
+              "apple",
+              "table",
+              "rain",
+              "seed"
+            ],
+            "CorrectIndex": 0,
+            "Hint": "Say each word slowly. Listen for the vowel sound in cab-.",
+            "SuccessText": "Apple and cabin begin with the short a sound /a/, as in cat. Listening to the sound matters more than just spotting the letter a.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_syllables_lantern",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "phonological_awareness.syllables",
+            "Canon": "general",
+            "Prompt": "How many syllables are in the word lantern?",
+            "Options": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "CorrectIndex": 1,
+            "Hint": "Clap the word: lan-tern.",
+            "SuccessText": "Lantern has two syllables: lan and tern. A syllable is a spoken word part with one vowel sound.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_noun_horse",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "language.nouns",
+            "Canon": "inspired",
+            "Prompt": "Imagined original sentence: ‘The brown horse trotted.’ Which word names an animal?",
+            "Options": [
+              "brown",
+              "trotted",
+              "horse",
+              "the"
+            ],
+            "CorrectIndex": 2,
+            "Hint": "A noun can name a person, place, animal, or thing.",
+            "SuccessText": "Horse is a noun because it names an animal. Brown describes the horse, and trotted tells what it did.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_action_verb",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "language.verbs",
+            "Canon": "inspired",
+            "Prompt": "Imagined original sentence: ‘The bell rings loudly.’ Which word shows the action?",
+            "Options": [
+              "bell",
+              "the",
+              "loudly",
+              "rings"
+            ],
+            "CorrectIndex": 3,
+            "Hint": "Look for the word that tells what the bell does.",
+            "SuccessText": "Rings is the verb. A verb can show an action or tell what something does.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_capitalization",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "conventions.capitalization",
+            "Canon": "general",
+            "Prompt": "Which sentence uses capital letters correctly?",
+            "Options": [
+              "Laura opened the book.",
+              "laura opened the book.",
+              "Laura Opened the book.",
+              "laura Opened the Book."
+            ],
+            "CorrectIndex": 0,
+            "Hint": "A sentence and a person's name both begin with capital letters.",
+            "SuccessText": "‘Laura opened the book.’ correctly capitalizes the first word and the name Laura. Common words in the middle stay lowercase unless they are proper nouns.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_question_mark",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "conventions.end_punctuation",
+            "Canon": "inspired",
+            "Prompt": "Which mark should end this imagined question: ‘Where is the schoolhouse__’",
+            "Options": [
+              "Period (.)",
+              "Question mark (?)",
+              "Comma (,)",
+              "Exclamation mark (!)"
+            ],
+            "CorrectIndex": 1,
+            "Hint": "The sentence asks for information.",
+            "SuccessText": "A question mark ends a direct question. The finished sentence is ‘Where is the schoolhouse?’",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_sequence",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "reading.sequence",
+            "Canon": "inspired",
+            "Prompt": "Imagined original passage: ‘First, Laura filled a pail. Next, she watered the garden. Last, she put the pail away.’ What happened after she filled the pail?",
+            "Options": [
+              "She planted a tree.",
+              "She put the pail away.",
+              "She watered the garden.",
+              "She went to school."
+            ],
+            "CorrectIndex": 2,
+            "Hint": "The word next tells the second event.",
+            "SuccessText": "She watered the garden next. Sequence words such as first, next, and last show the order of events.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_main_idea",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "reading.main_idea",
+            "Canon": "inspired",
+            "Prompt": "Imagined original passage: ‘Everyone carried a piece of wood. They stacked it beside the cabin so there would be fuel for the stove.’ What is the passage mostly about?",
+            "Options": [
+              "How to make a stove",
+              "Why wood is brown",
+              "A trip through the forest",
+              "A family gathering firewood"
+            ],
+            "CorrectIndex": 3,
+            "Hint": "Choose the idea that covers both sentences.",
+            "SuccessText": "The passage is mostly about a family gathering firewood. A main idea tells what the whole passage is mainly about, not just one detail.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_inference_cold",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "reading.inference",
+            "Canon": "inspired",
+            "Prompt": "Imagined original passage: ‘Snow covered the path. Laura pulled on mittens and buttoned her coat.’ What can you infer about the weather?",
+            "Options": [
+              "It is cold.",
+              "It is hot.",
+              "It is windy but warm.",
+              "It is dry and dusty."
+            ],
+            "CorrectIndex": 0,
+            "Hint": "Think about why someone would need mittens and a coat when there is snow.",
+            "SuccessText": "The snow, mittens, and coat are clues that it is cold. An inference combines text clues with what you already know.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_context_dim",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "vocabulary.context_clues",
+            "Canon": "inspired",
+            "Prompt": "Imagined original sentence: ‘The lantern was dim, so the words were hard to see.’ What does dim mean here?",
+            "Options": [
+              "very noisy",
+              "not bright",
+              "easy to carry",
+              "painted blue"
+            ],
+            "CorrectIndex": 1,
+            "Hint": "Use the clue ‘words were hard to see.’",
+            "SuccessText": "Dim means not bright. The result—words being hard to see—helps explain the unfamiliar word.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_plural_quilts",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "language.regular_plurals",
+            "Canon": "general",
+            "Prompt": "Which word means more than one quilt?",
+            "Options": [
+              "quilt's",
+              "quilted",
+              "quilts",
+              "quilting"
+            ],
+            "CorrectIndex": 2,
+            "Hint": "Most nouns become plural by adding s.",
+            "SuccessText": "Quilts is the regular plural of quilt. The apostrophe in quilt's usually shows possession, not more than one.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g1_complete_sentence",
+            "GradeMin": 1,
+            "GradeMax": 2,
+            "SkillId": "writing.complete_sentences",
+            "Canon": "inspired",
+            "Prompt": "Imagined sentence practice: Which choice is a complete sentence?",
+            "Options": [
+              "Beside the warm stove.",
+              "When the sun came up.",
+              "The family in the cabin.",
+              "The family cooked supper."
+            ],
+            "CorrectIndex": 3,
+            "Hint": "A complete sentence tells who or what and what happened.",
+            "SuccessText": "‘The family cooked supper.’ has a subject and a complete predicate. The other choices leave the reader waiting for more information.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          }
+        ],
+        "3": [
+          {
+            "Id": "english_g3_biography_main_idea",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "informational_text.main_idea",
+            "Canon": "actual_life",
+            "Prompt": "Actual life: Laura Ingalls Wilder was born in Wisconsin, lived in several frontier communities, and later wrote stories shaped by childhood memories. What is the main idea?",
+            "Options": [
+              "Wilder's life experiences helped shape her later writing.",
+              "Wilder spent her whole life in Wisconsin.",
+              "Wilder wrote her books while she was a child.",
+              "Wilder's stories contain no connection to her life."
+            ],
+            "CorrectIndex": 0,
+            "Hint": "Find the choice that connects all three facts rather than repeating one detail.",
+            "SuccessText": "The details connect Wilder's childhood experiences with her later writing. A main idea is broad enough to cover the important details without adding a false claim.",
+            "SourceTitle": "National Park Service: Laura Ingalls Wilder",
+            "SourceUrl": "https://www.nps.gov/home/learn/historyculture/laura-ingalls-wilder.htm"
+          },
+          {
+            "Id": "english_g3_supporting_detail",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "reading.supporting_details",
+            "Canon": "inspired",
+            "Prompt": "Imagined original passage: ‘The family checked the roof, brought wood inside, and filled water pails before the storm.’ Which detail best supports the idea that they prepared ahead?",
+            "Options": [
+              "The storm was outside.",
+              "They brought wood inside before the storm.",
+              "The family lived together.",
+              "Water can fill a pail."
+            ],
+            "CorrectIndex": 1,
+            "Hint": "Look for an action completed before the storm arrived.",
+            "SuccessText": "Bringing wood inside before the storm is direct evidence of preparing ahead. Strong supporting details clearly connect to the stated idea.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g3_theme_cooperation",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "literature.theme",
+            "Canon": "inspired",
+            "Prompt": "Imagined original story: After hail damaged one garden, several neighbors shared seeds and worked together to replant it. Which theme fits best?",
+            "Options": [
+              "Gardens should never be planted twice.",
+              "Storms always solve problems.",
+              "Cooperation can help a community recover.",
+              "Only one person should make every decision."
+            ],
+            "CorrectIndex": 2,
+            "Hint": "A theme is a message supported by the characters' choices and results.",
+            "SuccessText": "The neighbors' shared work shows that cooperation can help a community recover. A theme is a general message, not merely the story's topic.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g3_first_person",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "literature.point_of_view",
+            "Canon": "inspired",
+            "Prompt": "Imagined original diary sentence: ‘I hurried to the schoolhouse because I did not want to miss the spelling lesson.’ Which point of view is used?",
+            "Options": [
+              "Second person",
+              "Third-person limited",
+              "Third-person omniscient",
+              "First person"
+            ],
+            "CorrectIndex": 3,
+            "Hint": "Notice the pronoun the narrator uses for themself.",
+            "SuccessText": "The pronoun I signals first-person point of view. A first-person narrator tells events from their own perspective.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g3_compare_sources",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "research.compare_sources",
+            "Canon": "actual_life",
+            "Prompt": "A student compares a National Park Service biography of Wilder with a Library of Congress list of her Little House books. What can the student learn most reliably by using both?",
+            "Options": [
+              "How events in Wilder's life relate to the titles and order of the books",
+              "The exact dialogue spoken at every event in Wilder's childhood",
+              "That every television scene happened exactly as shown",
+              "That one source makes all other sources unnecessary"
+            ],
+            "CorrectIndex": 0,
+            "Hint": "Each source answers a different kind of factual question.",
+            "SuccessText": "The biography supplies life context, while the book list supplies publication and series information. Comparing complementary sources can build a fuller, checkable understanding.",
+            "SourceTitle": "Library of Congress: Little House Series by Laura Ingalls Wilder",
+            "SourceUrl": "https://www.loc.gov/nls/new-materials/book-lists/little-house-series-laura-ingalls-wilder/"
+          },
+          {
+            "Id": "english_g3_topic_sentence",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "writing.paragraph_organization",
+            "Canon": "inspired",
+            "Prompt": "An imagined paragraph will explain several routines in a one-room schoolhouse. Which is the best topic sentence?",
+            "Options": [
+              "One student sharpened a pencil.",
+              "A one-room schoolhouse had routines that helped different ages learn together.",
+              "My favorite color is green.",
+              "That is why the lesson ended."
+            ],
+            "CorrectIndex": 1,
+            "Hint": "Choose a sentence broad enough to introduce several details about routines.",
+            "SuccessText": "The sentence about routines introduces the paragraph's full focus. A topic sentence should guide all the supporting details that follow.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g3_subject_verb_agreement",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "conventions.subject_verb_agreement",
+            "Canon": "inspired",
+            "Prompt": "Choose the verb that completes this imagined present-tense sentence: ‘The students ___ their spelling words every morning.’",
+            "Options": [
+              "writes",
+              "is write",
+              "write",
+              "has wrote"
+            ],
+            "CorrectIndex": 2,
+            "Hint": "Students is a plural subject.",
+            "SuccessText": "The plural subject students agrees with write: ‘The students write.’ Subject and verb forms must agree in number.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g3_past_tense",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "conventions.verb_tense",
+            "Canon": "inspired",
+            "Prompt": "Which verb correctly completes this imagined sentence: ‘Yesterday, Laura ___ to the creek.’",
+            "Options": [
+              "walks",
+              "walking",
+              "will walk",
+              "walked"
+            ],
+            "CorrectIndex": 3,
+            "Hint": "Yesterday tells you the action happened in the past.",
+            "SuccessText": "Walked is the regular past-tense form that matches yesterday. Time words help readers choose a consistent verb tense.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g3_prefix_un",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "vocabulary.affixes",
+            "Canon": "general",
+            "Prompt": "In the word unhappy, what does the prefix un- mean?",
+            "Options": [
+              "not",
+              "again",
+              "before",
+              "full of"
+            ],
+            "CorrectIndex": 0,
+            "Hint": "Think about how happy and unhappy have opposite meanings.",
+            "SuccessText": "The prefix un- means not in unhappy, so unhappy means not happy. Prefixes can change a base word's meaning.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g3_context_overflowed",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "vocabulary.context_clues",
+            "Canon": "inspired",
+            "Prompt": "Imagined original sentence: ‘After days of rain, the creek overflowed, spreading water beyond its banks.’ What does overflowed mean?",
+            "Options": [
+              "became completely dry",
+              "rose beyond its usual edges",
+              "froze into solid ice",
+              "changed direction underground"
+            ],
+            "CorrectIndex": 1,
+            "Hint": "The words ‘beyond its banks’ explain the result.",
+            "SuccessText": "Overflowed means the water rose beyond its usual edges. The phrase after the comma acts as a context clue.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g3_pronoun_clarity",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "writing.revision_clarity",
+            "Canon": "inspired",
+            "Prompt": "Imagined draft: ‘Laura handed Mary the slate because she was finished with it.’ Which revision makes it clear that Laura was finished?",
+            "Options": [
+              "Laura handed her the slate because she was finished.",
+              "Because she was finished, Laura handed Mary it.",
+              "Because Laura was finished with the slate, she handed it to Mary.",
+              "Laura and Mary had a slate, and she was finished."
+            ],
+            "CorrectIndex": 2,
+            "Hint": "Replace the unclear pronoun with the person's name.",
+            "SuccessText": "Naming Laura removes the ambiguity, and it clearly identifies both the action and the object. Good revision helps readers know exactly whom each pronoun refers to.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g3_tv_adaptation",
+            "GradeMin": 3,
+            "GradeMax": 5,
+            "SkillId": "media.compare_adaptations",
+            "Canon": "tv_1974",
+            "Prompt": "Classic TV adaptation: A television episode differs from a National Park Service biography of Wilder. Which explanation is most accurate?",
+            "Options": [
+              "A biography is always fictional.",
+              "Every TV scene is a word-for-word historical record.",
+              "The difference proves that no facts about Wilder can be known.",
+              "An adaptation may invent, combine, or rearrange events for storytelling."
+            ],
+            "CorrectIndex": 3,
+            "Hint": "Think about the different purposes of historical sources and entertainment adaptations.",
+            "SuccessText": "Television adaptations may change events and characters to tell a dramatic story. Use reliable historical sources for factual claims and analyze the show as an adaptation.",
+            "SourceTitle": "PBS American Masters: Laura Ingalls Wilder—Prairie to Page",
+            "SourceUrl": "https://www.pbs.org/video/laura-ingalls-wilder-prairie-to-page-pqnclr/"
+          }
+        ],
+        "6": [
+          {
+            "Id": "english_g6_textual_evidence",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "reading.cite_textual_evidence",
+            "Canon": "inspired",
+            "Prompt": "Imagined original passage: ‘Flour was running low. At breakfast, each person measured a smaller portion and saved the rest for later in the week.’ Which quotation best supports the inference that the family is conserving food?",
+            "Options": [
+              "‘each person measured a smaller portion’",
+              "‘At breakfast’",
+              "‘later in the week’",
+              "‘each person’"
+            ],
+            "CorrectIndex": 0,
+            "Hint": "Choose the words that show an action taken to use less food.",
+            "SuccessText": "Measuring a smaller portion directly supports the conservation inference. Strong textual evidence is specific and clearly connected to the claim.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g6_theme_not_topic",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "literature.theme_analysis",
+            "Canon": "inspired",
+            "Prompt": "An imagined story shows families planning together before a blizzard and sharing supplies afterward. Which choice states a theme rather than only a topic?",
+            "Options": [
+              "Winter weather",
+              "Preparation and cooperation help communities endure hardship.",
+              "A list of storm supplies",
+              "A blizzard on the prairie"
+            ],
+            "CorrectIndex": 1,
+            "Hint": "A theme expresses an idea about life that the story develops.",
+            "SuccessText": "The statement about preparation and cooperation is a complete message developed by the events. ‘Winter weather’ and ‘a blizzard’ are topics, not themes.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g6_narrator_limitation",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "literature.point_of_view_effect",
+            "Canon": "inspired",
+            "Prompt": "Imagined original narration: ‘From the next room, I heard two adults disagree, but I could not hear every word.’ How does first-person point of view limit the account?",
+            "Options": [
+              "It reveals every character's private thoughts.",
+              "It proves the narrator understands the whole disagreement.",
+              "It gives only what the narrator heard and understood.",
+              "It removes the narrator from the event entirely."
+            ],
+            "CorrectIndex": 2,
+            "Hint": "Consider what the narrator could and could not directly observe.",
+            "SuccessText": "The first-person narrator can report only their own limited perception. Point of view shapes which information readers receive and how confidently they can interpret it.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g6_claim_evidence_wilder",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "informational_text.claim_evidence",
+            "Canon": "actual_life",
+            "Prompt": "Which evidence would best support the claim that Wilder drew on lived experience when developing her writing?",
+            "Options": [
+              "An unlabeled fan-made picture of a cabin",
+              "A dramatic scene found only in the classic TV adaptation",
+              "A book cover with no publication information",
+              "A National Park Service account connecting her life history with her later work"
+            ],
+            "CorrectIndex": 3,
+            "Hint": "Prefer an accountable historical source that directly addresses both her life and writing.",
+            "SuccessText": "The National Park Service account is relevant, traceable evidence connecting Wilder's experiences and work. Good evidence must support the exact claim, not merely share its subject.",
+            "SourceTitle": "National Park Service: Laura Ingalls Wilder",
+            "SourceUrl": "https://www.nps.gov/home/learn/historyculture/laura-ingalls-wilder.htm"
+          },
+          {
+            "Id": "english_g6_source_credibility_mary",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "research.source_credibility",
+            "Canon": "actual_life",
+            "Prompt": "A student is researching Mary Ingalls's education and blindness. Which source is the strongest starting point?",
+            "Options": [
+              "An American Printing House for the Blind museum article that identifies its historical focus and evidence",
+              "An anonymous post with no citations",
+              "A fictional character summary with no source list",
+              "A short video comment based on memory"
+            ],
+            "CorrectIndex": 0,
+            "Hint": "Look for relevant expertise, identifiable authorship or institution, and evidence that can be checked.",
+            "SuccessText": "A museum article from an institution specializing in blindness history is the strongest starting point. Researchers should still compare it with other primary and reliable secondary sources.",
+            "SourceTitle": "American Printing House for the Blind: Mary Ingalls",
+            "SourceUrl": "https://sites.aph.org/pr/20141223-museum-to-host-birthday-party-in-honor-of-mary-ingalls/"
+          },
+          {
+            "Id": "english_g6_paraphrase_attribution",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "writing.paraphrase_and_citation",
+            "Canon": "actual_life",
+            "Prompt": "Source idea: Wilder's fiction was shaped from memories and earlier autobiographical writing. Which note is an ethical paraphrase?",
+            "Options": [
+              "Copy the source's exact wording without quotation marks.",
+              "Wilder reshaped remembered experience into fiction (Pioneer Girl Project).",
+              "Change two words in the original and omit the source.",
+              "Write ‘everyone knows this’ instead of naming evidence."
+            ],
+            "CorrectIndex": 1,
+            "Hint": "A paraphrase uses new wording and still credits the source of the idea.",
+            "SuccessText": "The credited sentence restates the idea in fresh wording and identifies its source. Paraphrasing does not remove the need for attribution.",
+            "SourceTitle": "Pioneer Girl Project: The Path into Fiction",
+            "SourceUrl": "https://pioneergirlproject.org/order/pioneer-girl-the-path-into-fiction/"
+          },
+          {
+            "Id": "english_g6_active_voice",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "language.voice",
+            "Canon": "inspired",
+            "Prompt": "Which imagined sentence uses active voice?",
+            "Options": [
+              "The bell was rung by the students.",
+              "The lesson was written on the slate by the teacher.",
+              "The students rang the bell.",
+              "The books were carried into the schoolhouse."
+            ],
+            "CorrectIndex": 2,
+            "Hint": "In active voice, the subject performs the action.",
+            "SuccessText": "In ‘The students rang the bell,’ the subject students performs the action. Active voice often makes the actor and action especially direct.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g6_sentence_variety",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "writing.sentence_combining",
+            "Canon": "inspired",
+            "Prompt": "Revise these imagined choppy sentences: ‘The storm strengthened. The family stayed inside. They read aloud.’ Which revision is clearest and most varied?",
+            "Options": [
+              "The storm strengthened the family stayed inside they read aloud.",
+              "Strengthening. The family inside and reading.",
+              "The storm strengthened, the family stayed inside, they read aloud.",
+              "As the storm strengthened, the family stayed inside and read aloud."
+            ],
+            "CorrectIndex": 3,
+            "Hint": "Look for a complete sentence that shows the relationship between the storm and the family's action.",
+            "SuccessText": "The dependent opening clause and coordinated verbs combine the ideas clearly. The other revisions contain fragments or comma splices.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g6_connotation_sturdy",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "vocabulary.connotation",
+            "Canon": "inspired",
+            "Prompt": "Imagined description: ‘They sheltered in a sturdy cabin.’ What connotation does sturdy add?",
+            "Options": [
+              "The cabin seems strong and dependable.",
+              "The cabin seems brightly colored.",
+              "The cabin seems newly decorated.",
+              "The cabin seems difficult to find."
+            ],
+            "CorrectIndex": 0,
+            "Hint": "Connotation is the feeling or association a word carries beyond its basic definition.",
+            "SuccessText": "Sturdy suggests strength and dependability. A writer's word choice can shape a reader's impression without stating every quality directly.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g6_argument_reasoning",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "argument.claim_evidence_reasoning",
+            "Canon": "general",
+            "Prompt": "A paragraph presents a claim and then gives a relevant fact. What should usually come next to make the argument stronger?",
+            "Options": [
+              "An unrelated anecdote",
+              "Reasoning that explains how the fact supports the claim",
+              "The same claim copied three times",
+              "A new topic with no transition"
+            ],
+            "CorrectIndex": 1,
+            "Hint": "Evidence becomes useful when the writer connects it to the claim.",
+            "SuccessText": "Reasoning explains why the evidence matters and how it supports the claim. A strong argument makes that logical connection visible to the reader.",
+            "SourceTitle": "Common Core State Standards: English Language Arts",
+            "SourceUrl": "https://corestandards.org/english-language-arts-standards/"
+          },
+          {
+            "Id": "english_g6_memoir_fiction_comparison",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "literature.compare_genres",
+            "Canon": "book",
+            "Prompt": "A researcher compares Wilder's autobiographical manuscript with a Little House novel based partly on similar memories. What is the most useful question to ask?",
+            "Options": [
+              "Which text has the largest page size?",
+              "Do both texts use exactly the same font?",
+              "How did the author select, rearrange, or reshape remembered events for fiction?",
+              "Which text could replace all historical research?"
+            ],
+            "CorrectIndex": 2,
+            "Hint": "Focus on how genre and purpose can change the telling of an event.",
+            "SuccessText": "Comparing selection and reshaping reveals how autobiographical material can become fiction. Neither version should automatically be treated as a complete historical record.",
+            "SourceTitle": "Pioneer Girl Project: The Path into Fiction",
+            "SourceUrl": "https://pioneergirlproject.org/order/pioneer-girl-the-path-into-fiction/"
+          },
+          {
+            "Id": "english_g6_cross_media_purpose",
+            "GradeMin": 6,
+            "GradeMax": 8,
+            "SkillId": "media.evaluate_purpose",
+            "Canon": "tv_1974",
+            "Prompt": "Classic TV adaptation: A student studies one TV episode, a Little House novel, and a National Park Service biography. Which approach best respects each source's purpose?",
+            "Options": [
+              "Treat the episode as a transcript of Wilder's childhood.",
+              "Use the novel alone to verify every date and location.",
+              "Ignore the biography because it is not dramatic.",
+              "Use the biography for historical evidence and compare how the novel and episode shape stories for their audiences."
+            ],
+            "CorrectIndex": 3,
+            "Hint": "Historical accounts, fiction, and television adaptations are made for different purposes.",
+            "SuccessText": "The sources can work together when their purposes are distinguished. Historical evidence supports factual claims, while the novel and TV episode can be analyzed as narrative and adaptation.",
+            "SourceTitle": "PBS American Masters: Laura Ingalls Wilder—Prairie to Page",
+            "SourceUrl": "https://www.pbs.org/video/laura-ingalls-wilder-prairie-to-page-pqnclr/"
+          }
+        ]
+    }
+  }
+}

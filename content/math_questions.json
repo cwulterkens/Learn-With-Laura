@@ -1,0 +1,341 @@
+{
+  "ContentVersion": 2,
+  "Questions": {
+    "1": {
+      "addition": [
+        { "Prompt": "A reader sorts 7 picture cards and then gets 5 more. How many picture cards are there now?", "Answer": 12 },
+        { "Prompt": "One basket holds 9 apples and another holds 6. How many apples are there altogether?", "Answer": 15 },
+        { "Prompt": "A ten-frame is full with 10 counters, and 4 counters sit beside it. How many counters are there?", "Answer": 14 },
+        { "Prompt": "What number is 8 more than 7?", "Answer": 15 },
+        { "Prompt": "There are 6 blue beads and 6 red beads. How many beads are there in all?", "Answer": 12 },
+        { "Prompt": "Start at 9 on a number line and hop forward 3 spaces. What number do you reach?", "Answer": 12 },
+        { "Prompt": "What number is made from 1 ten and 7 ones?", "Answer": 17 },
+        { "Prompt": "A shelf has 4 books. If 5 more books are added, how many books are on the shelf?", "Answer": 9 }
+      ],
+      "subtraction": [
+        { "Prompt": "A basket held 14 apples. After 6 were used, how many apples remained?", "Answer": 8 },
+        { "Prompt": "There were 18 birds by a field. If 9 flew away, how many stayed?", "Answer": 9 },
+        { "Prompt": "What is 13 minus 5?", "Answer": 8 },
+        { "Prompt": "Ten cups were on a table. Three were put away. How many cups are still there?", "Answer": 7 },
+        { "Prompt": "A class read 16 pages on Monday and 11 pages on Tuesday. How many more pages did it read Monday?", "Answer": 5 },
+        { "Prompt": "Start at 15 on a number line and hop back 7 spaces. What number do you reach?", "Answer": 8 },
+        { "Prompt": "A number has 1 ten and 6 ones. Take away 8 ones. What number remains?", "Answer": 8 },
+        { "Prompt": "How many more is 12 than 7?", "Answer": 5 }
+      ],
+      "multiplication": [
+        { "Prompt": "Three small bags hold 2 buttons each. How many buttons are there altogether?", "Answer": 6 },
+        { "Prompt": "Four pairs of socks contain how many socks?", "Answer": 8 },
+        { "Prompt": "What is the total of 5 plus 5?", "Answer": 10 },
+        { "Prompt": "An array has 2 rows with 4 counters in each row. How many counters are in the array?", "Answer": 8 },
+        { "Prompt": "Five baskets each hold 1 loaf. How many loaves are there?", "Answer": 5 },
+        { "Prompt": "Three plates each hold 3 crackers. How many crackers are there?", "Answer": 9 },
+        { "Prompt": "Four children each need 2 mittens. How many mittens are needed?", "Answer": 8 },
+        { "Prompt": "Count by twos 4 times: 2, 4, 6, __. What number comes next?", "Answer": 8 }
+      ],
+      "division": [
+        { "Prompt": "Eight berries are shared equally by 2 children. How many berries does each child get?", "Answer": 4 },
+        { "Prompt": "Twelve crackers are placed equally on 3 plates. How many crackers go on each plate?", "Answer": 4 },
+        { "Prompt": "Ten buttons are matched into pairs. How many pairs are made?", "Answer": 5 },
+        { "Prompt": "Six cups are placed equally on 2 shelves. How many cups are on each shelf?", "Answer": 3 },
+        { "Prompt": "Fifteen seeds are put into groups of 5. How many groups are made?", "Answer": 3 },
+        { "Prompt": "Four mittens are matched into pairs. How many pairs are there?", "Answer": 2 },
+        { "Prompt": "Sixteen blocks are arranged in 4 equal rows. How many blocks are in each row?", "Answer": 4 },
+        { "Prompt": "Nine flowers are shared equally among 3 vases. How many flowers go in each vase?", "Answer": 3 }
+      ]
+    },
+    "2": {
+      "addition": [
+        { "Prompt": "A class gathers 26 pinecones in the morning and 37 in the afternoon. How many does it gather altogether?", "Answer": 63 },
+        { "Prompt": "What is 48 plus 25?", "Answer": 73 },
+        { "Prompt": "A box has 34 crayons and another has 20. How many crayons are there in all?", "Answer": 54 },
+        { "Prompt": "A reader has read 58 pages and then reads 22 more. How many pages has the reader read altogether?", "Answer": 80 },
+        { "Prompt": "Three baskets hold 19, 16, and 7 apples. How many apples do they hold altogether?", "Answer": 42 },
+        { "Prompt": "Double 27. What number do you get?", "Answer": 54 },
+        { "Prompt": "A jar has 65 beads. Eighteen more are added. How many beads are in the jar now?", "Answer": 83 },
+        { "Prompt": "What is 39 plus 41?", "Answer": 80 }
+      ],
+      "subtraction": [
+        { "Prompt": "A book has 84 pages. After 29 pages are read, how many pages remain?", "Answer": 55 },
+        { "Prompt": "What is 70 minus 36?", "Answer": 34 },
+        { "Prompt": "A basket held 93 beans. Forty-eight were used. How many beans remain?", "Answer": 45 },
+        { "Prompt": "There were 63 fence posts. If 17 were moved, how many stayed in place?", "Answer": 46 },
+        { "Prompt": "What number is 64 less than 100?", "Answer": 36 },
+        { "Prompt": "One ribbon is 72 centimeters long and another is 38 centimeters long. What is the difference in length?", "Answer": 34 },
+        { "Prompt": "A shelf had 62 books. If 27 were checked out, how many stayed on the shelf?", "Answer": 35 },
+        { "Prompt": "Start with 90. Subtract 25, then subtract 18. What number remains?", "Answer": 47 }
+      ],
+      "multiplication": [
+        { "Prompt": "Four bags hold 3 marbles each. How many marbles are there altogether?", "Answer": 12 },
+        { "Prompt": "An array has 5 rows of 4 tiles. How many tiles are in the array?", "Answer": 20 },
+        { "Prompt": "Three plates each hold 6 biscuits. How many biscuits are there?", "Answer": 18 },
+        { "Prompt": "Nine pairs of buttons contain how many buttons?", "Answer": 18 },
+        { "Prompt": "Five shelves each hold 7 books. How many books do they hold altogether?", "Answer": 35 },
+        { "Prompt": "What is 4 plus 4 plus 4 plus 4?", "Answer": 16 },
+        { "Prompt": "Eight children each need 2 pencils. How many pencils are needed?", "Answer": 16 },
+        { "Prompt": "Three baskets each hold 5 apples. How many apples are there in all?", "Answer": 15 }
+      ],
+      "division": [
+        { "Prompt": "Eighteen counters are placed into 3 equal rows. How many counters are in each row?", "Answer": 6 },
+        { "Prompt": "Twenty apples are shared equally among 5 baskets. How many apples go in each basket?", "Answer": 4 },
+        { "Prompt": "Sixteen socks are matched into pairs. How many pairs are made?", "Answer": 8 },
+        { "Prompt": "Twenty-four cards are split equally among 4 players. How many cards does each player get?", "Answer": 6 },
+        { "Prompt": "Fifteen flowers are placed equally in 3 vases. How many flowers go in each vase?", "Answer": 5 },
+        { "Prompt": "Ten cups are placed equally on 2 shelves. How many cups are on each shelf?", "Answer": 5 },
+        { "Prompt": "Twenty-one beads are put into groups of 7. How many groups are made?", "Answer": 3 },
+        { "Prompt": "Twelve eggs are placed equally in 4 bowls. How many eggs go in each bowl?", "Answer": 3 }
+      ]
+    },
+    "3": {
+      "addition": [
+        { "Prompt": "A school library has 248 storybooks and 135 information books. How many books are there altogether?", "Answer": 383 },
+        { "Prompt": "What is 367 plus 458?", "Answer": 825 },
+        { "Prompt": "Three classes collect 125, 246, and 309 cans. How many cans do they collect in all?", "Answer": 680 },
+        { "Prompt": "A journey covers 600 meters, then 275 more meters. How many meters are covered?", "Answer": 875 },
+        { "Prompt": "Two trail sections are 184 meters and 227 meters long. What is their total length?", "Answer": 411 },
+        { "Prompt": "What number must be added to 468 to make 700?", "Answer": 232 },
+        { "Prompt": "What number is made from 3 hundreds, 14 tens, and 6 ones?", "Answer": 446 },
+        { "Prompt": "Estimate 392 plus 211 by rounding each number to the nearest hundred. What is the estimate?", "Answer": 600 }
+      ],
+      "subtraction": [
+        { "Prompt": "What is 704 minus 286?", "Answer": 418 },
+        { "Prompt": "A library had 900 sheets of paper and used 457. How many sheets remain?", "Answer": 443 },
+        { "Prompt": "What is 632 minus 198?", "Answer": 434 },
+        { "Prompt": "One thousand seeds were counted. If 675 were planted, how many were left?", "Answer": 325 },
+        { "Prompt": "A trail is 865 meters long. After 349 meters, how many meters remain?", "Answer": 516 },
+        { "Prompt": "What is the difference between 721 and 468?", "Answer": 253 },
+        { "Prompt": "A number plus 350 equals 829. What is the number?", "Answer": 479 },
+        { "Prompt": "An item costs 642 cents. How many cents in change come from 1,000 cents?", "Answer": 358 }
+      ],
+      "multiplication": [
+        { "Prompt": "What is 8 times 7?", "Answer": 56 },
+        { "Prompt": "Nine rows each hold 6 plants. How many plants are there?", "Answer": 54 },
+        { "Prompt": "An array has 7 rows of 8 tiles. How many tiles are in the array?", "Answer": 56 },
+        { "Prompt": "Four boxes each hold 23 cards. How many cards are there altogether?", "Answer": 92 },
+        { "Prompt": "A rectangular garden is 12 meters long and 5 meters wide. What is its area in square meters?", "Answer": 60 },
+        { "Prompt": "A class packs 3 dozen pencils. How many pencils is that?", "Answer": 36 },
+        { "Prompt": "Six shelves each hold 14 books. How many books are on the shelves?", "Answer": 84 },
+        { "Prompt": "Two classrooms each have 27 chairs. How many chairs do they have altogether?", "Answer": 54 }
+      ],
+      "division": [
+        { "Prompt": "What is 72 divided by 8?", "Answer": 9 },
+        { "Prompt": "Sixty-three counters are arranged in 7 equal rows. How many are in each row?", "Answer": 9 },
+        { "Prompt": "Ninety-six pages are split into 6 equal sections. How many pages are in each section?", "Answer": 16 },
+        { "Prompt": "Eighty-four apples are shared equally among 4 baskets. How many go in each basket?", "Answer": 21 },
+        { "Prompt": "Forty-five pencils are packed 3 per bundle. How many bundles are made?", "Answer": 15 },
+        { "Prompt": "A rectangle has an area of 54 square meters and a width of 6 meters. What is its length?", "Answer": 9 },
+        { "Prompt": "Forty-eight cards are shared equally among 6 players. How many cards does each player get?", "Answer": 8 },
+        { "Prompt": "What is 100 divided by 10?", "Answer": 10 }
+      ]
+    },
+    "4": {
+      "addition": [
+        { "Prompt": "What is 2,375 plus 1,846?", "Answer": 4221 },
+        { "Prompt": "A library counts 4,508 story pages and 3,297 information pages. How many pages is that altogether?", "Answer": 7805 },
+        { "Prompt": "Three groups collect 1,245, 2,038, and 717 items. How many items do they collect in all?", "Answer": 4000 },
+        { "Prompt": "What number must be added to 6,750 to make 10,000?", "Answer": 3250 },
+        { "Prompt": "Two travel segments are 1,387 meters and 2,468 meters. What is their total length?", "Answer": 3855 },
+        { "Prompt": "A student uses 3/8 meter of ribbon and then 5/8 meter more. How many meters of ribbon are used altogether?", "Answer": 1 },
+        { "Prompt": "A rectangular garden is 38 meters long and 24 meters wide. What is its perimeter in meters?", "Answer": 124 },
+        { "Prompt": "A reading project has 2,846 story pages and 1,755 fact pages. How many pages are included?", "Answer": 4601 }
+      ],
+      "subtraction": [
+        { "Prompt": "What is 8,000 minus 3,675?", "Answer": 4325 },
+        { "Prompt": "A printer started with 10,000 sheets and used 5,839. How many sheets remain?", "Answer": 4161 },
+        { "Prompt": "What is 6,542 minus 2,987?", "Answer": 3555 },
+        { "Prompt": "How many years elapsed from the start of 1870 to the start of 1894?", "Answer": 24 },
+        { "Prompt": "An item costs 2,865 cents. How many cents in change come from 5,000 cents?", "Answer": 2135 },
+        { "Prompt": "What is the difference between 9,040 and 4,678?", "Answer": 4362 },
+        { "Prompt": "What number must be added to 3,850 to make 7,200?", "Answer": 3350 },
+        { "Prompt": "Start with 7,500. Subtract 2,350, then subtract 1,875. What number remains?", "Answer": 3275 }
+      ],
+      "multiplication": [
+        { "Prompt": "What is 34 times 6?", "Answer": 204 },
+        { "Prompt": "Twenty-seven trays each hold 8 cups. How many cups do they hold altogether?", "Answer": 216 },
+        { "Prompt": "A class makes 46 packets with 7 cards in each. How many cards are used?", "Answer": 322 },
+        { "Prompt": "What is 23 times 14?", "Answer": 322 },
+        { "Prompt": "A rectangular field is 28 meters long and 15 meters wide. What is its area in square meters?", "Answer": 420 },
+        { "Prompt": "Twelve boxes each hold 24 pencils. How many pencils are in the boxes?", "Answer": 288 },
+        { "Prompt": "Nine bundles each contain 125 sheets. How many sheets are there?", "Answer": 1125 },
+        { "Prompt": "Four equal fence sections are each 36 meters long. What is their total length?", "Answer": 144 }
+      ],
+      "division": [
+        { "Prompt": "What is 864 divided by 8?", "Answer": 108 },
+        { "Prompt": "Seven hundred thirty-five cards are shared equally among 7 groups. How many cards are in each group?", "Answer": 105 },
+        { "Prompt": "What is 936 divided by 9?", "Answer": 104 },
+        { "Prompt": "Six hundred seventy-two seeds are packed equally into 6 sacks. How many seeds go in each sack?", "Answer": 112 },
+        { "Prompt": "A 96-page book is read in equal parts over 12 days. How many pages are read each day?", "Answer": 8 },
+        { "Prompt": "A rectangle has an area of 540 square meters and a length of 30 meters. What is its width?", "Answer": 18 },
+        { "Prompt": "One hundred forty-four objects are packed equally into 12 boxes. How many go in each box?", "Answer": 12 },
+        { "Prompt": "A number divided by 8 equals 125. What is the number?", "Answer": 1000 }
+      ]
+    },
+    "5": {
+      "addition": [
+        { "Prompt": "What is 12,475 plus 8,936?", "Answer": 21411 },
+        { "Prompt": "Three collections contain 3,508, 14,992, and 6,500 items. How many items are there altogether?", "Answer": 25000 },
+        { "Prompt": "A notebook costs $3.75 and a pencil set costs $2.25. How many whole dollars do they cost together?", "Answer": 6 },
+        { "Prompt": "What is 1 3/4 plus 2 1/4?", "Answer": 4 },
+        { "Prompt": "Three trail sections are 248, 376, and 129 meters long. What is their total length?", "Answer": 753 },
+        { "Prompt": "A tank holds 2,450 liters, then 875 more liters are added. How many liters does it hold?", "Answer": 3325 },
+        { "Prompt": "A lesson lasts 2 hours 35 minutes and a project lasts 1 hour 45 minutes. How many minutes is that altogether?", "Answer": 260 },
+        { "Prompt": "What whole number equals 6.4 plus 3.6?", "Answer": 10 }
+      ],
+      "subtraction": [
+        { "Prompt": "What is 50,000 minus 18,675?", "Answer": 31325 },
+        { "Prompt": "A warehouse had 23,408 items and shipped 9,759. How many items remain?", "Answer": 13649 },
+        { "Prompt": "An item costs $12.65. How many cents in change come from $20.00?", "Answer": 735 },
+        { "Prompt": "What whole number equals 7.5 minus 2.5?", "Answer": 5 },
+        { "Prompt": "A 1,200-meter route has sections of 468 meters and 257 meters completed. How many meters remain?", "Answer": 475 },
+        { "Prompt": "What whole number equals 5 3/8 minus 2 3/8?", "Answer": 3 },
+        { "Prompt": "How many minutes pass from 4:15 to 6:50?", "Answer": 155 },
+        { "Prompt": "What number must be added to 17,625 to make 40,000?", "Answer": 22375 }
+      ],
+      "multiplication": [
+        { "Prompt": "What is 48 times 27?", "Answer": 1296 },
+        { "Prompt": "What is 125 times 36?", "Answer": 4500 },
+        { "Prompt": "What is 3/4 of 28?", "Answer": 21 },
+        { "Prompt": "What is 2/5 of 45?", "Answer": 18 },
+        { "Prompt": "A rectangular prism is 12 units long, 8 units wide, and 5 units high. What is its volume?", "Answer": 480 },
+        { "Prompt": "A square has side length 37 meters. What is its area in square meters?", "Answer": 1369 },
+        { "Prompt": "Fifteen boxes each hold 24 jars. How many jars are there altogether?", "Answer": 360 },
+        { "Prompt": "A map scale represents 6 miles with each inch. How many miles do 14 inches represent?", "Answer": 84 }
+      ],
+      "division": [
+        { "Prompt": "What is 4,320 divided by 24?", "Answer": 180 },
+        { "Prompt": "What is 4,875 divided by 25?", "Answer": 195 },
+        { "Prompt": "How many 3/4-mile segments fit exactly into 6 miles?", "Answer": 8 },
+        { "Prompt": "Twenty cups of water fill pitchers that each hold 2 cups. How many pitchers are filled?", "Answer": 10 },
+        { "Prompt": "Twelve identical items cost 1,440 cents altogether. What is the cost of one item in cents?", "Answer": 120 },
+        { "Prompt": "A prism has a volume of 960 cubic units and a base that is 12 by 8 units. What is its height?", "Answer": 10 },
+        { "Prompt": "Five-sixths of a number is 25. What is the number?", "Answer": 30 },
+        { "Prompt": "What is the mean of 18, 24, 30, and 36?", "Answer": 27 }
+      ]
+    },
+    "6": {
+      "addition": [
+        { "Prompt": "What is -8 plus 15?", "Answer": 7 },
+        { "Prompt": "A temperature of -6 degrees rises by 19 degrees. What is the new temperature?", "Answer": 13 },
+        { "Prompt": "What whole number equals 5/6 plus 7/6?", "Answer": 2 },
+        { "Prompt": "What whole number equals 12.75 plus 7.25?", "Answer": 20 },
+        { "Prompt": "Red and blue beads are in a 3:5 ratio. If there are 64 beads altogether, how many are blue?", "Answer": 40 },
+        { "Prompt": "What is the sum of 11, 15, 19, and 23?", "Answer": 68 },
+        { "Prompt": "A regular hexagon has side length 9 centimeters. What is its perimeter?", "Answer": 54 },
+        { "Prompt": "Evaluate 3a + 2b when a = 4 and b = 6.", "Answer": 24 }
+      ],
+      "subtraction": [
+        { "Prompt": "What is -3 minus -11?", "Answer": 8 },
+        { "Prompt": "One point is 125 meters below sea level and another is 340 meters above it. How many meters apart are they?", "Answer": 465 },
+        { "Prompt": "What whole number equals 30.5 minus 18.5?", "Answer": 12 },
+        { "Prompt": "What whole number equals 7 3/4 minus 2 3/4?", "Answer": 5 },
+        { "Prompt": "An $80 item is discounted by 25%. How many dollars is the price reduced?", "Answer": 20 },
+        { "Prompt": "What is the horizontal distance between x = -9 and x = 7?", "Answer": 16 },
+        { "Prompt": "Solve x + 28 = 73. What is x?", "Answer": 45 },
+        { "Prompt": "What is the absolute difference between -12 and 5?", "Answer": 17 }
+      ],
+      "multiplication": [
+        { "Prompt": "What is 35% of 80?", "Answer": 28 },
+        { "Prompt": "Four notebooks cost $6 at the same rate. How many dollars do 10 notebooks cost?", "Answer": 15 },
+        { "Prompt": "A triangle has a base of 18 centimeters and a height of 12 centimeters. What is its area?", "Answer": 108 },
+        { "Prompt": "What is 3/5 of 70?", "Answer": 42 },
+        { "Prompt": "Evaluate 4(3x - 2) when x = 4.", "Answer": 40 },
+        { "Prompt": "A rectangular prism is 9 units long, 7 units wide, and 4 units high. What is its volume?", "Answer": 252 },
+        { "Prompt": "A cyclist travels 12 miles per hour for 2.5 hours. How many miles does the cyclist travel?", "Answer": 30 },
+        { "Prompt": "What whole number equals 6.25 times 8?", "Answer": 50 }
+      ],
+      "division": [
+        { "Prompt": "A ratio is 5:3, so it has 8 equal units altogether. If the total is 64, what is the value of one unit?", "Answer": 8 },
+        { "Prompt": "A train travels 156 miles in 3 hours at a constant speed. How many miles per hour does it travel?", "Answer": 52 },
+        { "Prompt": "Four hundred twenty students are placed in 15 equal groups. How many students are in each group?", "Answer": 28 },
+        { "Prompt": "What whole number equals 3/4 divided by 1/8?", "Answer": 6 },
+        { "Prompt": "Solve 7x = 84. What is x?", "Answer": 12 },
+        { "Prompt": "Forty-five is 25% of what number?", "Answer": 180 },
+        { "Prompt": "A triangle has an area of 132 square units and a base of 22 units. What is its height?", "Answer": 12 },
+        { "Prompt": "What is the mean of 14, 18, 25, and 31?", "Answer": 22 }
+      ]
+    },
+    "7": {
+      "addition": [
+        { "Prompt": "Evaluate -18 + 27 + (-4).", "Answer": 5 },
+        { "Prompt": "What whole number equals 3.6 + 7.45 + 8.95?", "Answer": 20 },
+        { "Prompt": "What whole number equals 2 1/3 plus 4 2/3?", "Answer": 7 },
+        { "Prompt": "Evaluate y = 3x + 5 when x = 7.", "Answer": 26 },
+        { "Prompt": "Two angles in a triangle measure 48 degrees and 67 degrees. What is the sum of those two angles?", "Answer": 115 },
+        { "Prompt": "An account balance is -$25, then $70 is added. What is the new balance in dollars?", "Answer": 45 },
+        { "Prompt": "What is the sum of the first five positive multiples of 4?", "Answer": 60 },
+        { "Prompt": "Evaluate (2x + 7) + (3x - 4) when x = 5.", "Answer": 28 }
+      ],
+      "subtraction": [
+        { "Prompt": "What is -7 minus -19?", "Answer": 12 },
+        { "Prompt": "What whole number equals 42.5 minus 17.5?", "Answer": 25 },
+        { "Prompt": "A quantity decreases from 80 to 68. By how many points did it decrease?", "Answer": 12 },
+        { "Prompt": "Two angles in a triangle measure 58 degrees and 47 degrees. How many degrees are in the third angle?", "Answer": 75 },
+        { "Prompt": "Solve x - 36 = 29. What is x?", "Answer": 65 },
+        { "Prompt": "What is the vertical distance between y = -14 and y = 9?", "Answer": 23 },
+        { "Prompt": "A $250 budget pays expenses of $72.50 and $48.50. How many dollars remain?", "Answer": 129 },
+        { "Prompt": "A length decreases from 10/12 meter to 4/12 meter. By how many twelfths of a meter did it decrease?", "Answer": 6 }
+      ],
+      "multiplication": [
+        { "Prompt": "What is 18% of 250?", "Answer": 45 },
+        { "Prompt": "The ratios 7:4 and n:20 are equivalent. What is n?", "Answer": 35 },
+        { "Prompt": "Using 22/7 for pi, what is the area of a circle with radius 7 centimeters?", "Answer": 154 },
+        { "Prompt": "An event has probability 3/10. In 80 trials, how many times would it be expected to happen?", "Answer": 24 },
+        { "Prompt": "A vehicle travels 48 miles per hour for 2.5 hours. How many miles does it travel?", "Answer": 120 },
+        { "Prompt": "Evaluate -3(2x - 9) when x = 2.", "Answer": 15 },
+        { "Prompt": "On a scale drawing, 1.5 centimeters represents 6 meters. How many meters does 7.5 centimeters represent?", "Answer": 30 },
+        { "Prompt": "A cube has edge length 5 centimeters. What is its total surface area?", "Answer": 150 }
+      ],
+      "division": [
+        { "Prompt": "Fourteen identical items cost 1,890 cents. What is the cost of one item in cents?", "Answer": 135 },
+        { "Prompt": "A vehicle travels 288 miles in 4.5 hours at a constant speed. What is its speed in miles per hour?", "Answer": 64 },
+        { "Prompt": "What whole number equals 5/6 divided by 5/18?", "Answer": 3 },
+        { "Prompt": "Solve 0.4x = 18. What is x?", "Answer": 45 },
+        { "Prompt": "Thirty-six is what percent of 120?", "Answer": 30 },
+        { "Prompt": "A triangle has an area of 225 square units and a base of 25 units. What is its height?", "Answer": 18 },
+        { "Prompt": "In a proportional relationship, y = 84 when x = 12. What is the constant of proportionality?", "Answer": 7 },
+        { "Prompt": "What is the slope of the line through (2, 5) and (8, 23)?", "Answer": 3 }
+      ]
+    },
+    "8": {
+      "addition": [
+        { "Prompt": "Evaluate y = -2x + 17 when x = 6.", "Answer": 5 },
+        { "Prompt": "A system has x + y = 19 and x - y = 5. What is x?", "Answer": 12 },
+        { "Prompt": "When (3.2 × 10^5) + (4.8 × 10^5) is written as n × 10^5, what is n?", "Answer": 8 },
+        { "Prompt": "A right triangle has legs of 9 and 12 units. What is the square of its hypotenuse?", "Answer": 225 },
+        { "Prompt": "A point begins at x = -4 and moves 9 units right. What is its new x-coordinate?", "Answer": 5 },
+        { "Prompt": "Evaluate f(x) = 3(x × x) + 2 when x = 4.", "Answer": 50 },
+        { "Prompt": "What is the sum of the interior angles of a pentagon in degrees?", "Answer": 540 },
+        { "Prompt": "What is the sum of 12, 18, 21, 25, and 29?", "Answer": 105 }
+      ],
+      "subtraction": [
+        { "Prompt": "Solve 5x - 17 = 48. What is x?", "Answer": 13 },
+        { "Prompt": "When (9.1 × 10^6) - (3.6 × 10^6) is written as n × 10^5, what is n?", "Answer": 55 },
+        { "Prompt": "A right triangle has a hypotenuse of 17 units and one leg of 8 units. What is the other leg?", "Answer": 15 },
+        { "Prompt": "An angle measures 137 degrees. How many degrees are in its supplementary angle?", "Answer": 43 },
+        { "Prompt": "Plan A costs 4n + 12 dollars and Plan B costs 3n + 20 dollars. When n = 10, what is the positive difference in cost?", "Answer": 2 },
+        { "Prompt": "What is -12 minus -35?", "Answer": 23 },
+        { "Prompt": "A quantity decreases from 240 to 198. By how many units did it decrease?", "Answer": 42 },
+        { "Prompt": "What is the horizontal distance between x = -11 and x = 14?", "Answer": 25 }
+      ],
+      "multiplication": [
+        { "Prompt": "Evaluate y = 6x - 11 when x = 9.", "Answer": 43 },
+        { "Prompt": "Using 3 for pi, what is the volume of a cylinder with radius 5 units and height 12 units?", "Answer": 900 },
+        { "Prompt": "What is 8% of 375?", "Answer": 30 },
+        { "Prompt": "Two similar shapes have a scale factor of 2.5. A side on the smaller shape is 14 units. How long is the matching larger side?", "Answer": 35 },
+        { "Prompt": "Evaluate (2x - 3)(x + 4) when x = 5.", "Answer": 63 },
+        { "Prompt": "A trapezoid has bases of 12 and 20 units and a height of 9 units. What is its area?", "Answer": 144 },
+        { "Prompt": "When (3 × 10^4)(2 × 10^3) is written as n × 10^7, what is n?", "Answer": 6 },
+        { "Prompt": "An event has probability 0.35. In 240 trials, how many times would it be expected to happen?", "Answer": 84 }
+      ],
+      "division": [
+        { "Prompt": "What is the slope of the line through (-2, 5) and (4, 23)?", "Answer": 3 },
+        { "Prompt": "Solve 6x + 12 = 102. What is x?", "Answer": 15 },
+        { "Prompt": "Using 3 for pi, what is the volume of a cone with radius 6 units and height 10 units?", "Answer": 360 },
+        { "Prompt": "A right triangle has a hypotenuse of 25 units and one leg of 15 units. What is the other leg?", "Answer": 20 },
+        { "Prompt": "When (8.4 × 10^7) ÷ (2.1 × 10^3) is written as n × 10^4, what is n?", "Answer": 4 },
+        { "Prompt": "Fifty-four is 12% of what number?", "Answer": 450 },
+        { "Prompt": "The equation 3x + 2y = 30 has y = 3. What is x?", "Answer": 8 },
+        { "Prompt": "A cube has a volume of 1,728 cubic units. What is its edge length?", "Answer": 12 }
+      ]
+    }
+  }
+}

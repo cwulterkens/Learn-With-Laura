@@ -1,0 +1,61 @@
+{
+  "ContentVersion": 2,
+  "Badges": [
+    {
+      "Id": "first_correct",
+      "Name": "First Prairie Star",
+      "Description": "Master your first learning question.",
+      "Metric": "total_correct",
+      "Threshold": 1
+    },
+    {
+      "Id": "steady_learner",
+      "Name": "Steady Learner",
+      "Description": "Build a five-answer first-try streak.",
+      "Metric": "best_streak",
+      "Threshold": 5
+    },
+    {
+      "Id": "prairie_scholar",
+      "Name": "Prairie Scholar",
+      "Description": "Earn 25 Prairie Stars by learning and exploring.",
+      "Metric": "prairie_stars",
+      "Threshold": 25
+    },
+    {
+      "Id": "math_trailblazer",
+      "Name": "Math Trailblazer",
+      "Description": "Master 25 math questions.",
+      "Metric": "math_correct",
+      "Threshold": 25
+    },
+    {
+      "Id": "practice_champion",
+      "Name": "Practice Champion",
+      "Description": "Complete five focused learning sessions.",
+      "Metric": "sessions_completed",
+      "Threshold": 5
+    },
+    {
+      "Id": "family_helper",
+      "Name": "Family Helper",
+      "Description": "Complete three family memory activities.",
+      "Metric": "family_activities",
+      "Threshold": 3
+    },
+    {
+      "Id": "prairie_traveler",
+      "Name": "Prairie Traveler",
+      "Description": "Travel 150 miles across Laura's learning chapters.",
+      "Metric": "journey_miles",
+      "Threshold": 150
+    },
+    {
+      "Id": "chapter_explorer",
+      "Name": "Chapter Explorer",
+      "Description": "Master three Laura adventure chapters.",
+      "Metric": "mini_games_completed",
+      "Threshold": 3
+    }
+  ]
+}

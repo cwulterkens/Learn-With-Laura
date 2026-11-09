@@ -1,0 +1,20 @@
+{
+  "SettingsVersion": 3,
+  "SessionMinutes": 25,
+  "QuestionsPerEvaluation": 10,
+  "CorrectAnswersForMiniGame": 5,
+  "PromoteAccuracy": 0.85,
+  "DemoteAccuracy": 0.5,
+  "AuthoredQuestionChance": 0.65,
+  "MusicVolume": 0.6,
+  "SfxVolume": 0.7,
+  "MasterMute": false,
+  "Fullscreen": false,
+  "LargeText": false,
+  "HighContrast": false,
+  "ReducedMotion": false,
+  "Resolution": "1536x1024",
+  "UiFontPath": "res://assets/fonts/AtkinsonHyperlegible-Regular.otf",
+  "ActiveProfileName": "",
+  "LastSelectedGrade": 1
+}

@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Local operating system and IDE metadata
+.DS_Store
+.idea/
+
+# Local project-file backups
+*.csproj.old

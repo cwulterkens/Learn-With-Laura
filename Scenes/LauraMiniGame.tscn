@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://bxee47unul06s"]
+
+[ext_resource type="Script" uid="uid://b257wu3r0tdr" path="res://Scripts/LauraMiniGame.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://bgklwf8fanxne" path="res://assets/laura_big_woods.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://rxktks34p7xr" path="res://assets/laura_trail_theme.wav" id="5"]
+[ext_resource type="AudioStream" uid="uid://bdhjjsnd6us40" path="res://assets/sfx_success.wav" id="6"]
+[ext_resource type="AudioStream" uid="uid://5j4orfjvxkhv" path="res://assets/sfx_award.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://cp7xnheehbcnn" path="res://assets/sfx_wrong.wav" id="8"]
+[ext_resource type="AudioStream" uid="uid://gjey7ncit5tt" path="res://assets/sfx_select.wav" id="9"]
+
+[node name="LauraMiniGame" type="Control" unique_id=63902262]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1361705628]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1846198994]
+stream = ExtResource("5")
+autoplay = true
+
+[node name="SuccessSfx" type="AudioStreamPlayer" parent="." unique_id=1025253556]
+stream = ExtResource("6")
+
+[node name="AwardSfx" type="AudioStreamPlayer" parent="." unique_id=521132532]
+stream = ExtResource("7")
+
+[node name="WrongSfx" type="AudioStreamPlayer" parent="." unique_id=1111069013]
+stream = ExtResource("8")
+
+[node name="PatternSfx" type="AudioStreamPlayer" parent="." unique_id=853721797]
+stream = ExtResource("9")
+
+[node name="Panel" type="Panel" parent="." unique_id=792716445]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = -470.0
+offset_right = 560.0
+offset_bottom = 470.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1163338079]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="Panel/VBox" unique_id=672031245]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Laura's Adventure"
+horizontal_alignment = 1
+
+[node name="IntroLabel" type="Label" parent="Panel/VBox" unique_id=761028887]
+layout_mode = 2
+text = "Intro"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AreaButtons" type="VBoxContainer" parent="Panel/VBox" unique_id=2101201644]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="QuizBox" type="VBoxContainer" parent="Panel/VBox" unique_id=319333765]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="AreaLabel" type="Label" parent="Panel/VBox/QuizBox" unique_id=299743340]
+layout_mode = 2
+text = "Area"
+horizontal_alignment = 1
+
+[node name="QuestionLabel" type="Label" parent="Panel/VBox/QuizBox" unique_id=2082282789]
+layout_mode = 2
+text = "Question"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="OptionsGrid" type="GridContainer" parent="Panel/VBox/QuizBox" unique_id=1095740342]
+layout_mode = 2
+
+[node name="OptionA" type="Button" parent="Panel/VBox/QuizBox/OptionsGrid" unique_id=662892342]
+custom_minimum_size = Vector2(840, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Option A"
+
+[node name="OptionB" type="Button" parent="Panel/VBox/QuizBox/OptionsGrid" unique_id=1734237144]
+custom_minimum_size = Vector2(840, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Option B"
+
+[node name="OptionC" type="Button" parent="Panel/VBox/QuizBox/OptionsGrid" unique_id=1158880235]
+custom_minimum_size = Vector2(840, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Option C"
+
+[node name="OptionD" type="Button" parent="Panel/VBox/QuizBox/OptionsGrid" unique_id=1049297423]
+custom_minimum_size = Vector2(840, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Option D"
+
+[node name="FeedbackLabel" type="Label" parent="Panel/VBox/QuizBox" unique_id=992519289]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ProgressLabel" type="Label" parent="Panel/VBox/QuizBox" unique_id=150416047]
+layout_mode = 2
+text = "Adventure progress"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Panel/VBox/QuizBox" unique_id=1064335696]
+visible = false
+layout_mode = 2
+text = "Continue the Journey"
+
+[node name="Footer" type="HBoxContainer" parent="Panel/VBox" unique_id=705071238]
+layout_mode = 2
+alignment = 1
+
+[node name="ReturnButton" type="Button" parent="Panel/VBox/Footer" unique_id=1839102130]
+layout_mode = 2
+text = "Return To Lesson"
+
+[node name="HomeButton" type="Button" parent="Panel/VBox/Footer" unique_id=1961292131]
+layout_mode = 2
+text = "Home"
