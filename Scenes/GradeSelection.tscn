@@ -1,16 +1,18 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://ckin1miww36b3"]
 
-[ext_resource type="Script" path="res://Scripts/GradeSelection.cs" id="1"]
-[ext_resource type="Texture2D" path="res://assets/menu_wallpaper.png" id="2"]
+[ext_resource type="Script" uid="uid://gw1r6nypk875" path="res://Scripts/GradeSelection.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://dsqx7hexy67o" path="res://assets/menu_wallpaper.png" id="2"]
 
-[node name="GradeSelection" type="Control"]
+[node name="GradeSelection" type="Control" unique_id=1019285383]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=167662416]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +23,7 @@ texture = ExtResource("2")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="SafeArea" type="MarginContainer" parent="."]
+[node name="SafeArea" type="MarginContainer" parent="." unique_id=769191858]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,14 +35,14 @@ theme_override_constants/margin_top = 72
 theme_override_constants/margin_right = 72
 theme_override_constants/margin_bottom = 72
 
-[node name="Center" type="CenterContainer" parent="SafeArea"]
+[node name="Center" type="CenterContainer" parent="SafeArea" unique_id=911719663]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="SafeArea/Center"]
+[node name="Panel" type="Panel" parent="SafeArea/Center" unique_id=1034254252]
 custom_minimum_size = Vector2(700, 560)
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel"]
+[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel" unique_id=1221801945]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,31 +56,30 @@ grow_vertical = 2
 theme_override_constants/separation = 14
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox"]
+[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=2076294600]
 layout_mode = 2
-horizontal_alignment = 1
-autowrap_mode = 3
 theme_override_font_sizes/font_size = 38
 text = "Choose Grade"
-
-[node name="MessageLabel" type="Label" parent="SafeArea/Center/Panel/VBox"]
-layout_mode = 2
 horizontal_alignment = 1
 autowrap_mode = 3
-text = "What grade are you in today?"
 
-[node name="GradeSpin" type="SpinBox" parent="SafeArea/Center/Panel/VBox"]
+[node name="MessageLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=1588576060]
+layout_mode = 2
+text = "What grade are you in today?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="GradeSpin" type="SpinBox" parent="SafeArea/Center/Panel/VBox" unique_id=216509325]
 custom_minimum_size = Vector2(560, 64)
 layout_mode = 2
 min_value = 1.0
 max_value = 8.0
-step = 1.0
+value = 1.0
 
-[node name="StartButton" type="Button" parent="SafeArea/Center/Panel/VBox"]
+[node name="StartButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=793002800]
 layout_mode = 2
 text = "Start Learning"
 
-[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/VBox"]
+[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=147952849]
 layout_mode = 2
 text = "Back"
-

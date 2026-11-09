@@ -39,18 +39,18 @@ public partial class LearningModule : Control
         }
 
         _background = GetNode<TextureRect>("Background");
-        _titleLabel = GetNode<Label>("Panel/VBox/TitleLabel");
-        _questionLabel = GetNode<Label>("Panel/VBox/QuestionLabel");
-        _feedbackLabel = GetNode<Label>("Panel/VBox/FeedbackLabel");
-        _statusLabel = GetNode<Label>("Panel/VBox/StatusLabel");
-        _badgeLabel = GetNode<Label>("Panel/VBox/BadgeLabel");
-        _progressLabel = GetNode<Label>("Panel/VBox/ProgressLabel");
-        _nextButton = GetNode<Button>("Panel/VBox/SkipButton");
+        _titleLabel = GetNode<Label>("Panel/Scroll/VBox/TitleLabel");
+        _questionLabel = GetNode<Label>("Panel/Scroll/VBox/QuestionLabel");
+        _feedbackLabel = GetNode<Label>("Panel/Scroll/VBox/FeedbackLabel");
+        _statusLabel = GetNode<Label>("Panel/Scroll/VBox/StatusLabel");
+        _badgeLabel = GetNode<Label>("Panel/Scroll/VBox/BadgeLabel");
+        _progressLabel = GetNode<Label>("Panel/Scroll/VBox/ProgressLabel");
+        _nextButton = GetNode<Button>("Panel/Scroll/VBox/SkipButton");
 
-        _optionButtons[0] = GetNode<Button>("Panel/VBox/OptionsGrid/OptionA");
-        _optionButtons[1] = GetNode<Button>("Panel/VBox/OptionsGrid/OptionB");
-        _optionButtons[2] = GetNode<Button>("Panel/VBox/OptionsGrid/OptionC");
-        _optionButtons[3] = GetNode<Button>("Panel/VBox/OptionsGrid/OptionD");
+        _optionButtons[0] = GetNode<Button>("Panel/Scroll/VBox/OptionsGrid/OptionA");
+        _optionButtons[1] = GetNode<Button>("Panel/Scroll/VBox/OptionsGrid/OptionB");
+        _optionButtons[2] = GetNode<Button>("Panel/Scroll/VBox/OptionsGrid/OptionC");
+        _optionButtons[3] = GetNode<Button>("Panel/Scroll/VBox/OptionsGrid/OptionD");
 
         for (int index = 0; index < _optionButtons.Length; index++)
         {
@@ -59,8 +59,8 @@ public partial class LearningModule : Control
         }
 
         _nextButton.Pressed += OnNextPressed;
-        GetNode<Button>("Panel/VBox/Footer/SubjectsButton").Pressed += OnSubjectsPressed;
-        GetNode<Button>("Panel/VBox/Footer/HomeButton").Pressed += OnHomePressed;
+        GetNode<Button>("Panel/Scroll/VBox/Footer/SubjectsButton").Pressed += OnSubjectsPressed;
+        GetNode<Button>("Panel/Scroll/VBox/Footer/HomeButton").Pressed += OnHomePressed;
 
         var music = GetNode<AudioStreamPlayer>("Music");
         AppState.ConfigureMusicPlayer(music);

@@ -15,7 +15,7 @@ Questions label their context as **Actual Life**, **Little House Books**, **Clas
 
 ## Run and build
 
-Requirements: Godot 4.6.x Mono and the .NET 8 SDK.
+Requirements: Godot 4.8 Mono (currently 4.8.0-beta.2) and the .NET 10 SDK.
 
 ```sh
 dotnet restore "Learn With Laura.sln"

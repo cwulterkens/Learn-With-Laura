@@ -46,20 +46,6 @@ stream = ExtResource("9")
 
 [node name="Panel" type="Panel" parent="." unique_id=792716445]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -560.0
-offset_top = -470.0
-offset_right = 560.0
-offset_bottom = 470.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1163338079]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -69,91 +55,110 @@ offset_right = -24.0
 offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Scroll" unique_id=1163338079]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="TitleLabel" type="Label" parent="Panel/VBox" unique_id=672031245]
+[node name="TitleLabel" type="Label" parent="Panel/Scroll/VBox" unique_id=672031245]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Laura's Adventure"
 horizontal_alignment = 1
 
-[node name="IntroLabel" type="Label" parent="Panel/VBox" unique_id=761028887]
+[node name="IntroLabel" type="Label" parent="Panel/Scroll/VBox" unique_id=761028887]
 layout_mode = 2
 text = "Intro"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="AreaButtons" type="VBoxContainer" parent="Panel/VBox" unique_id=2101201644]
+[node name="AreaButtons" type="VBoxContainer" parent="Panel/Scroll/VBox" unique_id=2101201644]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="QuizBox" type="VBoxContainer" parent="Panel/VBox" unique_id=319333765]
+[node name="QuizBox" type="VBoxContainer" parent="Panel/Scroll/VBox" unique_id=319333765]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="AreaLabel" type="Label" parent="Panel/VBox/QuizBox" unique_id=299743340]
+[node name="AreaLabel" type="Label" parent="Panel/Scroll/VBox/QuizBox" unique_id=299743340]
 layout_mode = 2
 text = "Area"
 horizontal_alignment = 1
 
-[node name="QuestionLabel" type="Label" parent="Panel/VBox/QuizBox" unique_id=2082282789]
+[node name="QuestionLabel" type="Label" parent="Panel/Scroll/VBox/QuizBox" unique_id=2082282789]
 layout_mode = 2
 text = "Question"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="OptionsGrid" type="GridContainer" parent="Panel/VBox/QuizBox" unique_id=1095740342]
+[node name="OptionsGrid" type="GridContainer" parent="Panel/Scroll/VBox/QuizBox" unique_id=1095740342]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="OptionA" type="Button" parent="Panel/VBox/QuizBox/OptionsGrid" unique_id=662892342]
-custom_minimum_size = Vector2(840, 64)
+[node name="OptionA" type="Button" parent="Panel/Scroll/VBox/QuizBox/OptionsGrid" unique_id=662892342]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 text = "Option A"
 
-[node name="OptionB" type="Button" parent="Panel/VBox/QuizBox/OptionsGrid" unique_id=1734237144]
-custom_minimum_size = Vector2(840, 64)
+[node name="OptionB" type="Button" parent="Panel/Scroll/VBox/QuizBox/OptionsGrid" unique_id=1734237144]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 text = "Option B"
 
-[node name="OptionC" type="Button" parent="Panel/VBox/QuizBox/OptionsGrid" unique_id=1158880235]
-custom_minimum_size = Vector2(840, 64)
+[node name="OptionC" type="Button" parent="Panel/Scroll/VBox/QuizBox/OptionsGrid" unique_id=1158880235]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 text = "Option C"
 
-[node name="OptionD" type="Button" parent="Panel/VBox/QuizBox/OptionsGrid" unique_id=1049297423]
-custom_minimum_size = Vector2(840, 64)
+[node name="OptionD" type="Button" parent="Panel/Scroll/VBox/QuizBox/OptionsGrid" unique_id=1049297423]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 text = "Option D"
 
-[node name="FeedbackLabel" type="Label" parent="Panel/VBox/QuizBox" unique_id=992519289]
+[node name="FeedbackLabel" type="Label" parent="Panel/Scroll/VBox/QuizBox" unique_id=992519289]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ProgressLabel" type="Label" parent="Panel/VBox/QuizBox" unique_id=150416047]
+[node name="ProgressLabel" type="Label" parent="Panel/Scroll/VBox/QuizBox" unique_id=150416047]
 layout_mode = 2
 text = "Adventure progress"
 horizontal_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="Panel/VBox/QuizBox" unique_id=1064335696]
+[node name="ContinueButton" type="Button" parent="Panel/Scroll/VBox/QuizBox" unique_id=1064335696]
 visible = false
 layout_mode = 2
 text = "Continue the Journey"
 
-[node name="Footer" type="HBoxContainer" parent="Panel/VBox" unique_id=705071238]
+[node name="Footer" type="VBoxContainer" parent="Panel/Scroll/VBox" unique_id=705071238]
 layout_mode = 2
 alignment = 1
 
-[node name="ReturnButton" type="Button" parent="Panel/VBox/Footer" unique_id=1839102130]
+[node name="ReturnButton" type="Button" parent="Panel/Scroll/VBox/Footer" unique_id=1839102130]
 layout_mode = 2
 text = "Return To Lesson"
 
-[node name="HomeButton" type="Button" parent="Panel/VBox/Footer" unique_id=1961292131]
+[node name="HomeButton" type="Button" parent="Panel/Scroll/VBox/Footer" unique_id=1961292131]
 layout_mode = 2
 text = "Home"

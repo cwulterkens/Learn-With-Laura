@@ -7,7 +7,7 @@
 .idea/
 
 # Local project-file backups
-*.csproj.old
+*.csproj.old*
 
 # .NET test and build output outside Godot's generated directory
 **/bin/
