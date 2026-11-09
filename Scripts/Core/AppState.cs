@@ -222,22 +222,26 @@ public static class AppState
 
     public static List<string> GetProfileNames()
     {
-        var result = new List<string>();
+        var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
         if (!DirAccess.DirExistsAbsolute("user://profiles"))
         {
-            return result;
+            return result.ToList();
         }
 
         using var dir = DirAccess.Open("user://profiles");
         if (dir == null)
         {
-            return result;
+            return result.ToList();
         }
 
         foreach (string file in dir.GetFiles())
         {
-            if (file.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+            if (file.EndsWith(".json.bak", StringComparison.OrdinalIgnoreCase))
+            {
+                result.Add(file[..^9]);
+            }
+            else if (file.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
             {
                 result.Add(file[..^5]);
             }
@@ -267,29 +271,37 @@ public static class AppState
 
         string clean = SanitizeName(firstName);
         string path = GetProfilePath(clean);
-        if (!FileAccess.FileExists(path))
+        string profileFileName = path.GetFile();
+        bool found = false;
+        bool allRemoved = true;
+
+        using var dir = DirAccess.Open(path.GetBaseDir());
+        if (dir == null)
         {
             return false;
         }
 
-        Error error = DirAccess.RemoveAbsolute(path);
-        if (error != Error.Ok)
+        foreach (string file in dir.GetFiles())
         {
-            GD.PrintErr($"Failed to delete profile {clean}: {error}");
-            return false;
-        }
-
-        foreach (string suffix in new[] { ".bak", ".tmp", ".corrupt", ".corrupt.tmp" })
-        {
-            string artifactPath = path + suffix;
-            if (FileAccess.FileExists(artifactPath))
+            if (!file.Equals(profileFileName, StringComparison.OrdinalIgnoreCase)
+                && !file.StartsWith($"{profileFileName}.", StringComparison.OrdinalIgnoreCase))
             {
-                Error artifactError = DirAccess.RemoveAbsolute(artifactPath);
-                if (artifactError != Error.Ok)
-                {
-                    GD.PrintErr($"Failed to remove profile recovery file {artifactPath}: {artifactError}");
-                }
+                continue;
             }
+
+            found = true;
+            string artifactPath = path.GetBaseDir().PathJoin(file);
+            Error artifactError = DirAccess.RemoveAbsolute(artifactPath);
+            if (artifactError != Error.Ok)
+            {
+                GD.PrintErr($"Failed to remove profile recovery file {artifactPath}: {artifactError}");
+                allRemoved = false;
+            }
+        }
+
+        if (!found || !allRemoved)
+        {
+            return false;
         }
 
         if (ActiveProfile != null && ActiveProfile.FirstName == clean)
@@ -302,16 +314,85 @@ public static class AppState
         return true;
     }
 
-    public static bool SetActiveProfile(string firstName)
+    public static ProfileActivationResult TryActivateProfile(
+        string firstName,
+        ProfileActivationChoice choice = ProfileActivationChoice.Normal)
     {
         if (string.IsNullOrWhiteSpace(firstName))
         {
-            return false;
+            return new ProfileActivationResult { Status = ProfileActivationStatus.InvalidName };
         }
 
         string clean = SanitizeName(firstName);
         string path = GetProfilePath(clean);
-        ProfileData profile = JsonStorage.LoadOrDefault(path, new ProfileData { FirstName = clean });
+        JsonRecoveryInspection<ProfileData> inspection = JsonStorage.InspectUserFile<ProfileData>(path);
+        JsonRecoveryDecision decision = JsonRecoveryPolicy.Decide(
+            inspection.PrimaryStatus,
+            inspection.BackupStatus);
+
+        ProfileData profile = null!;
+        ProfileActivationStatus successStatus = ProfileActivationStatus.Activated;
+        if (choice == ProfileActivationChoice.RestoreBackup)
+        {
+            if (inspection.BackupStatus != JsonFileStatus.Valid || inspection.BackupValue == null)
+            {
+                return new ProfileActivationResult
+                {
+                    Status = ProfileActivationStatus.Corrupt,
+                    ProfileName = clean,
+                    Error = inspection.BackupError
+                };
+            }
+
+            profile = inspection.BackupValue;
+            successStatus = ProfileActivationStatus.RecoveredBackup;
+        }
+        else if (choice == ProfileActivationChoice.StartFresh)
+        {
+            profile = new ProfileData { FirstName = clean };
+            successStatus = ProfileActivationStatus.Created;
+        }
+        else
+        {
+            switch (decision)
+            {
+                case JsonRecoveryDecision.UsePrimary:
+                    profile = inspection.PrimaryValue;
+                    break;
+                case JsonRecoveryDecision.OfferBackupRestore:
+                    return new ProfileActivationResult
+                    {
+                        Status = ProfileActivationStatus.BackupAvailable,
+                        ProfileName = clean,
+                        Error = inspection.PrimaryError
+                    };
+                case JsonRecoveryDecision.OfferFreshStart:
+                    return new ProfileActivationResult
+                    {
+                        Status = ProfileActivationStatus.Corrupt,
+                        ProfileName = clean,
+                        Error = string.IsNullOrWhiteSpace(inspection.PrimaryError)
+                            ? inspection.BackupError
+                            : inspection.PrimaryError
+                    };
+                default:
+                    return new ProfileActivationResult
+                    {
+                        Status = ProfileActivationStatus.NotFound,
+                        ProfileName = clean
+                    };
+            }
+        }
+
+        if (profile == null)
+        {
+            return new ProfileActivationResult
+            {
+                Status = ProfileActivationStatus.Corrupt,
+                ProfileName = clean,
+                Error = "Profile data could not be read."
+            };
+        }
 
         profile.FirstName = clean;
         profile.OperationProgress ??= new Dictionary<string, OperationProgress>();
@@ -324,14 +405,31 @@ public static class AppState
         EnsureSubjectKeys(profile);
         EnsureSavedSession(profile);
 
+        int previousLastGrade = Settings.LastSelectedGrade;
+        int grade = ProfileSelectionRules.ActivateGrade(profile, Settings);
+        profile.LastUpdatedUtc = DateTime.UtcNow;
+        if (!JsonStorage.Save(path, profile))
+        {
+            Settings.LastSelectedGrade = previousLastGrade;
+            return new ProfileActivationResult
+            {
+                Status = ProfileActivationStatus.SaveFailed,
+                ProfileName = clean,
+                Error = "The profile could not be saved safely."
+            };
+        }
+
         ActiveProfile = profile;
-        Settings.ActiveProfileName = profile.FirstName;
-        CurrentGrade = ProfileSelectionRules.ActivateGrade(profile, Settings);
-        CurrentSubjectKey = string.IsNullOrWhiteSpace(profile.LastPlayedSubject) ? "math" : profile.LastPlayedSubject;
-        SaveProfile();
+        Settings.ActiveProfileName = clean;
+        CurrentGrade = grade;
+        CurrentSubjectKey = profile.LastPlayedSubject;
         SaveSettings();
 
-        return true;
+        return new ProfileActivationResult
+        {
+            Status = successStatus,
+            ProfileName = clean
+        };
     }
 
     public static void SaveProfile()
@@ -671,7 +769,7 @@ public static class AppState
     {
         if (!string.IsNullOrWhiteSpace(Settings.ActiveProfileName))
         {
-            SetActiveProfile(Settings.ActiveProfileName);
+            TryActivateProfile(Settings.ActiveProfileName);
         }
 
         if (ActiveProfile != null)

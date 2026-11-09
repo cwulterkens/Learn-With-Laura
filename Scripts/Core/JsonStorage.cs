@@ -4,20 +4,6 @@ using System.Text.Json;
 
 public static class JsonStorage
 {
-    private enum LoadFailure
-    {
-        None,
-        Missing,
-        OpenFailed,
-        Empty,
-        InvalidJson
-    }
-
-    private static readonly JsonSerializerOptions ReadOptions = new()
-    {
-        PropertyNameCaseInsensitive = true
-    };
-
     private static readonly JsonSerializerOptions WriteOptions = new()
     {
         WriteIndented = true
@@ -25,7 +11,7 @@ public static class JsonStorage
 
     public static T LoadOrDefault<T>(string path, T fallback) where T : class
     {
-        if (TryLoad(path, out T value, out _, out LoadFailure primaryFailure, out string primaryError))
+        if (TryLoad(path, out T value, out _, out JsonFileStatus primaryFailure, out string primaryError))
         {
             return value;
         }
@@ -33,21 +19,21 @@ public static class JsonStorage
         if (IsUserPath(path))
         {
             string backupPath = GetBackupPath(path);
-            if (TryLoad(backupPath, out value, out _, out LoadFailure backupFailure, out string backupError))
+            if (TryLoad(backupPath, out value, out _, out JsonFileStatus backupFailure, out string backupError))
             {
                 GD.PushWarning(
-                    primaryFailure == LoadFailure.Missing
+                    primaryFailure == JsonFileStatus.Missing
                         ? $"Recovered JSON from backup because the primary file is missing: {path}"
                         : $"Recovered JSON from backup after the primary failed to load: {path} ({primaryError})");
                 return value;
             }
 
-            if (primaryFailure != LoadFailure.Missing)
+            if (primaryFailure != JsonFileStatus.Missing)
             {
                 GD.PrintErr($"Failed to load JSON at {path}: {primaryError}");
             }
 
-            if (backupFailure != LoadFailure.Missing)
+            if (backupFailure != JsonFileStatus.Missing)
             {
                 GD.PrintErr($"Failed to load JSON backup at {backupPath}: {backupError}");
             }
@@ -55,7 +41,7 @@ public static class JsonStorage
             return fallback;
         }
 
-        if (primaryFailure != LoadFailure.Missing)
+        if (primaryFailure != JsonFileStatus.Missing)
         {
             GD.PrintErr($"Failed to load JSON at {path}: {primaryError}");
         }
@@ -63,7 +49,33 @@ public static class JsonStorage
         return fallback;
     }
 
-    public static bool Save<T>(string path, T value)
+    public static JsonRecoveryInspection<T> InspectUserFile<T>(string path) where T : class
+    {
+        TryLoad(
+            path,
+            out T primaryValue,
+            out _,
+            out JsonFileStatus primaryStatus,
+            out string primaryError);
+        TryLoad(
+            GetBackupPath(path),
+            out T backupValue,
+            out _,
+            out JsonFileStatus backupStatus,
+            out string backupError);
+
+        return new JsonRecoveryInspection<T>
+        {
+            PrimaryStatus = primaryStatus,
+            PrimaryValue = primaryStatus == JsonFileStatus.Valid ? primaryValue : null,
+            PrimaryError = primaryError,
+            BackupStatus = backupStatus,
+            BackupValue = backupStatus == JsonFileStatus.Valid ? backupValue : null,
+            BackupError = backupError
+        };
+    }
+
+    public static bool Save<T>(string path, T value) where T : class
     {
         string json;
         try
@@ -125,13 +137,11 @@ public static class JsonStorage
         }
     }
 
-    private static bool SaveUserFile<T>(string path, string json)
+    private static bool SaveUserFile<T>(string path, string json) where T : class
     {
         string temporaryPath = GetTemporaryPath(path);
         string backupPath = GetBackupPath(path);
         string backupTemporaryPath = $"{backupPath}.tmp";
-        string corruptPath = $"{path}.corrupt";
-        string corruptTemporaryPath = $"{corruptPath}.tmp";
 
         try
         {
@@ -153,11 +163,36 @@ public static class JsonStorage
                     path,
                     out T _,
                     out string primaryText,
-                    out LoadFailure primaryFailure,
+                    out JsonFileStatus primaryFailure,
                     out string primaryError);
 
                 if (primaryIsValid)
                 {
+                    if (FileAccess.FileExists(backupPath))
+                    {
+                        bool backupIsValid = TryLoad(
+                            backupPath,
+                            out T _,
+                            out string backupText,
+                            out JsonFileStatus backupFailure,
+                            out string existingBackupError);
+                        if (!backupIsValid)
+                        {
+                            if (backupFailure is JsonFileStatus.Empty or JsonFileStatus.InvalidJson)
+                            {
+                                if (!PreserveMalformedJson(backupPath, backupText, existingBackupError))
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                GD.PrintErr($"Refusing to replace unreadable JSON backup at {backupPath}: {existingBackupError}");
+                                return false;
+                            }
+                        }
+                    }
+
                     if (!WriteTextFile(backupTemporaryPath, primaryText))
                     {
                         return false;
@@ -176,23 +211,13 @@ public static class JsonStorage
                         return false;
                     }
                 }
-                else if (primaryFailure == LoadFailure.Empty || primaryFailure == LoadFailure.InvalidJson)
+                else if (primaryFailure == JsonFileStatus.Empty || primaryFailure == JsonFileStatus.InvalidJson)
                 {
                     // Preserve malformed data for diagnosis/recovery without promoting it to last-known-good.
-                    if (!WriteTextFile(corruptTemporaryPath, primaryText))
+                    if (!PreserveMalformedJson(path, primaryText, primaryError))
                     {
-                        GD.PrintErr($"Refusing to replace corrupt JSON at {path}; it could not be preserved.");
                         return false;
                     }
-
-                    Error corruptRenameError = DirAccess.RenameAbsolute(corruptTemporaryPath, corruptPath);
-                    if (corruptRenameError != Error.Ok)
-                    {
-                        GD.PrintErr($"Refusing to replace corrupt JSON at {path}; archival failed: {corruptRenameError}");
-                        return false;
-                    }
-
-                    GD.PushWarning($"Preserved corrupt JSON at {corruptPath}: {primaryError}");
                 }
                 else
                 {
@@ -214,25 +239,65 @@ public static class JsonStorage
         {
             RemoveIfPresent(temporaryPath);
             RemoveIfPresent(backupTemporaryPath);
+        }
+    }
+
+    private static bool PreserveMalformedJson(string sourcePath, string text, string error)
+    {
+        string corruptPath = GetAvailableCorruptPath(sourcePath);
+        string corruptTemporaryPath = $"{corruptPath}.tmp";
+        try
+        {
+            if (!WriteTextFile(corruptTemporaryPath, text))
+            {
+                GD.PrintErr($"Refusing to replace corrupt JSON at {sourcePath}; it could not be preserved.");
+                return false;
+            }
+
+            Error corruptRenameError = DirAccess.RenameAbsolute(corruptTemporaryPath, corruptPath);
+            if (corruptRenameError != Error.Ok)
+            {
+                GD.PrintErr($"Refusing to replace corrupt JSON at {sourcePath}; archival failed: {corruptRenameError}");
+                return false;
+            }
+
+            GD.PushWarning($"Preserved corrupt JSON at {corruptPath}: {error}");
+            return true;
+        }
+        finally
+        {
             RemoveIfPresent(corruptTemporaryPath);
         }
+    }
+
+    private static string GetAvailableCorruptPath(string sourcePath)
+    {
+        string candidate = $"{sourcePath}.corrupt";
+        int suffix = 1;
+        while (FileAccess.FileExists(candidate))
+        {
+            candidate = $"{sourcePath}.corrupt.{suffix}";
+            suffix++;
+        }
+
+        return candidate;
     }
 
     private static bool TryLoad<T>(
         string path,
         out T value,
         out string text,
-        out LoadFailure failure,
-        out string error)
+        out JsonFileStatus failure,
+        out string error) where T : class
     {
         value = default!;
         text = string.Empty;
-        failure = LoadFailure.None;
+        failure = JsonFileStatus.Valid;
         error = string.Empty;
 
         if (!FileAccess.FileExists(path))
         {
-            failure = LoadFailure.Missing;
+            failure = JsonFileStatus.Missing;
             error = "file does not exist";
             return false;
         }
@@ -240,37 +305,17 @@ public static class JsonStorage
         using var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
         if (file == null)
         {
-            failure = LoadFailure.OpenFailed;
+            failure = JsonFileStatus.OpenFailed;
             error = $"open failed ({FileAccess.GetOpenError()})";
             return false;
         }
 
         text = file.GetAsText();
-        if (string.IsNullOrWhiteSpace(text))
-        {
-            failure = LoadFailure.Empty;
-            error = "file is empty";
-            return false;
-        }
-
-        try
-        {
-            value = JsonSerializer.Deserialize<T>(text, ReadOptions)!;
-            if (value is null)
-            {
-                failure = LoadFailure.InvalidJson;
-                error = "JSON contains null instead of an object";
-                return false;
-            }
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            failure = LoadFailure.InvalidJson;
-            error = ex.Message;
-            return false;
-        }
+        JsonDocumentResult<T> parsed = JsonDocumentParser.Parse<T>(true, text);
+        failure = parsed.Status;
+        error = parsed.Error;
+        value = parsed.Value!;
+        return parsed.Status == JsonFileStatus.Valid;
     }
 
     private static bool EnsureDirectory(string path)
