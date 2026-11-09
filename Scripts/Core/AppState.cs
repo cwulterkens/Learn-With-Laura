@@ -326,6 +326,7 @@ public static class AppState
 
         ActiveProfile = profile;
         Settings.ActiveProfileName = profile.FirstName;
+        CurrentGrade = ProfileSelectionRules.ActivateGrade(profile, Settings);
         CurrentSubjectKey = string.IsNullOrWhiteSpace(profile.LastPlayedSubject) ? "math" : profile.LastPlayedSubject;
         SaveProfile();
         SaveSettings();
