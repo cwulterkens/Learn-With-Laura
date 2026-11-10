@@ -394,18 +394,7 @@ public static class AppState
             };
         }
 
-        profile.FirstName = clean;
-        profile.OperationProgress ??= new Dictionary<string, OperationProgress>();
-        profile.SubjectProgress ??= new Dictionary<string, SubjectProgress>();
-        profile.Outcomes ??= new LearningOutcomeCounts();
-        profile.UnlockedBadges ??= new List<string>();
-        profile.UnlockedAwards ??= new List<string>();
-        AdventureProgress.Normalize(profile);
-        profile.Journey ??= new JourneyProgress();
-        JourneyResources.Normalize(profile.Journey);
-        EnsureOperationKeys(profile);
-        EnsureSubjectKeys(profile);
-        EnsureSavedSession(profile);
+        PrepareProfile(profile, clean);
 
         int previousLastGrade = Settings.LastSelectedGrade;
         int grade = ProfileSelectionRules.ActivateGrade(profile, Settings);
@@ -434,15 +423,157 @@ public static class AppState
         };
     }
 
-    public static void SaveProfile()
+    public static bool SaveProfile()
     {
         if (ActiveProfile == null)
         {
-            return;
+            return false;
         }
 
         ActiveProfile.LastUpdatedUtc = DateTime.UtcNow;
-        JsonStorage.Save(GetProfilePath(ActiveProfile.FirstName), ActiveProfile);
+        return JsonStorage.Save(GetProfilePath(ActiveProfile.FirstName), ActiveProfile);
+    }
+
+    public static LocalProfileActionResult CreateActiveProfileBackup()
+    {
+        if (ActiveProfile == null)
+        {
+            return ActionFailure("Select a local learner before creating a backup.");
+        }
+
+        string timestamp = DateTime.UtcNow.ToString("yyyyMMdd-HHmmssfff");
+        string path = $"user://profile_backups/{SanitizeName(ActiveProfile.DisplayName)}-{timestamp}.lwl-profile.json";
+        ProfileTransferEnvelope transfer = ProfileDataManagement.CreateTransfer(ActiveProfile);
+        return JsonStorage.Save(path, transfer)
+            ? new LocalProfileActionResult { Succeeded = true, Path = path }
+            : ActionFailure("The local backup could not be written safely.");
+    }
+
+    public static LocalProfileActionResult ExportActiveProfile(string path)
+    {
+        if (ActiveProfile == null)
+        {
+            return ActionFailure("Select a local learner before exporting progress.");
+        }
+        if (string.IsNullOrWhiteSpace(path))
+        {
+            return ActionFailure("Choose a local destination for the export.");
+        }
+
+        string exportPath = path.EndsWith(".json", StringComparison.OrdinalIgnoreCase)
+            ? path
+            : $"{path}.json";
+        string json = ProfileDataManagement.SerializeTransfer(ActiveProfile);
+        using var file = FileAccess.Open(exportPath, FileAccess.ModeFlags.Write);
+        if (file == null)
+        {
+            return ActionFailure($"The export could not be opened for writing ({FileAccess.GetOpenError()}).");
+        }
+
+        file.StoreString(json);
+        file.Flush();
+        if (file.GetError() != Error.Ok)
+        {
+            return ActionFailure("The export could not be written completely.");
+        }
+
+        return new LocalProfileActionResult { Succeeded = true, Path = exportPath };
+    }
+
+    public static LocalProfileActionResult ImportActiveProfile(string path)
+    {
+        if (ActiveProfile == null)
+        {
+            return ActionFailure("Select the local learner that should receive the imported progress.");
+        }
+        if (string.IsNullOrWhiteSpace(path) || !FileAccess.FileExists(path))
+        {
+            return ActionFailure("The selected local import file does not exist.");
+        }
+
+        using var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
+        if (file == null)
+        {
+            return ActionFailure($"The import could not be opened ({FileAccess.GetOpenError()}).");
+        }
+
+        ProfileTransferParseResult parsed = ProfileDataManagement.ParseTransfer(file.GetAsText());
+        if (!parsed.Succeeded || parsed.Profile == null)
+        {
+            return ActionFailure(parsed.Error);
+        }
+
+        LocalProfileActionResult backup = CreateActiveProfileBackup();
+        if (!backup.Succeeded)
+        {
+            return ActionFailure($"Import stopped because the current progress could not be backed up. {backup.Error}");
+        }
+
+        string nickname = ActiveProfile.DisplayName;
+        ProfileData imported = parsed.Profile;
+        PrepareProfile(imported, nickname);
+        int previousLastGrade = Settings.LastSelectedGrade;
+        int grade = ProfileSelectionRules.ActivateGrade(imported, Settings);
+        imported.LastUpdatedUtc = DateTime.UtcNow;
+        if (!JsonStorage.Save(GetProfilePath(nickname), imported))
+        {
+            Settings.LastSelectedGrade = previousLastGrade;
+            return ActionFailure("The imported progress could not be installed safely; the current profile was left active.");
+        }
+
+        ActiveProfile = imported;
+        Settings.ActiveProfileName = nickname;
+        CurrentGrade = grade;
+        CurrentSubjectKey = string.IsNullOrWhiteSpace(imported.LastPlayedSubject)
+            ? "math"
+            : imported.LastPlayedSubject;
+        SaveSettings();
+        return new LocalProfileActionResult
+        {
+            Succeeded = true,
+            Path = backup.Path
+        };
+    }
+
+    public static LocalProfileActionResult ResetActiveProfile(ProgressResetScope scope)
+    {
+        if (ActiveProfile == null)
+        {
+            return ActionFailure("Select a local learner before resetting progress.");
+        }
+
+        LocalProfileActionResult backup = CreateActiveProfileBackup();
+        if (!backup.Succeeded)
+        {
+            return ActionFailure($"Reset stopped because a safety backup could not be created. {backup.Error}");
+        }
+
+        ProfileData original = ProfileDataManagement.CloneProfile(ActiveProfile);
+        string previousSubjectKey = CurrentSubjectKey;
+        ProfileDataManagement.Reset(
+            ActiveProfile,
+            scope,
+            GetDefaultTierForGrade(ActiveProfile.CurrentGrade));
+        EnsureOperationKeys(ActiveProfile);
+        EnsureSubjectKeys(ActiveProfile);
+        if (scope == ProgressResetScope.All
+            || (scope == ProgressResetScope.Adventure && CurrentSubjectKey == "laura"))
+        {
+            CurrentSubjectKey = "math";
+        }
+
+        if (!SaveProfile())
+        {
+            ActiveProfile = original;
+            CurrentSubjectKey = previousSubjectKey;
+            return ActionFailure("The reset could not be saved; a safety backup is available.");
+        }
+
+        return new LocalProfileActionResult
+        {
+            Succeeded = true,
+            Path = backup.Path
+        };
     }
 
     public static OperationProgress GetOperationProgress(string operation)
@@ -809,6 +940,27 @@ public static class AppState
         }
 
         return new string(chars);
+    }
+
+    private static void PrepareProfile(ProfileData profile, string nickname)
+    {
+        profile.FirstName = SanitizeName(nickname);
+        profile.OperationProgress ??= new Dictionary<string, OperationProgress>();
+        profile.SubjectProgress ??= new Dictionary<string, SubjectProgress>();
+        profile.Outcomes ??= new LearningOutcomeCounts();
+        profile.UnlockedBadges ??= new List<string>();
+        profile.UnlockedAwards ??= new List<string>();
+        AdventureProgress.Normalize(profile);
+        profile.Journey ??= new JourneyProgress();
+        JourneyResources.Normalize(profile.Journey);
+        EnsureOperationKeys(profile);
+        EnsureSubjectKeys(profile);
+        EnsureSavedSession(profile);
+    }
+
+    private static LocalProfileActionResult ActionFailure(string error)
+    {
+        return new LocalProfileActionResult { Error = error };
     }
 
     private static void EnsureOperationKeys(ProfileData profile)

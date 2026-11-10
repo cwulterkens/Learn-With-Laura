@@ -25,7 +25,7 @@ public partial class SubjectSelection : Control
 
         _profileLabel = GetNode<Label>("SafeArea/Center/Panel/VBox/ProfileLabel");
         _profileLabel.Text =
-            $"{AppState.ActiveProfile.FirstName} | Grade {AppState.CurrentGrade} | Choose your lesson";
+            $"{AppState.ActiveProfile.DisplayName} | Grade {AppState.CurrentGrade} | Choose your lesson";
 
         GetNode<Button>("SafeArea/Center/Panel/VBox/MathButton").Pressed += () => StartSubject("math");
         GetNode<Button>("SafeArea/Center/Panel/VBox/ScienceButton").Pressed += () => StartSubject("science");

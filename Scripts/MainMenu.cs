@@ -18,12 +18,12 @@ public partial class MainMenu : Control
 		var continueButton = GetNode<Button>("SafeArea/Center/Panel/VBox/ContinueButton");
 		if (AppState.ActiveProfile == null)
 		{
-			welcome.Text = "No profile selected";
+			welcome.Text = "No local learner selected";
 			continueButton.Visible = false;
 		}
 			else
 			{
-				welcome.Text = $"Welcome, {AppState.ActiveProfile.FirstName} · Prairie Stars {AppState.ActiveProfile.PrairieStars} · Trail Score {AppState.ActiveProfile.GameScore} · Badges {AppState.ActiveProfile.UnlockedAwards.Count}";
+				welcome.Text = $"Welcome, {AppState.ActiveProfile.DisplayName} · Prairie Stars {AppState.ActiveProfile.PrairieStars} · Trail Score {AppState.ActiveProfile.GameScore} · Badges {AppState.ActiveProfile.UnlockedAwards.Count}";
 				continueButton.Visible = AppState.HasResumePoint();
 				continueButton.Text = AppState.GetResumeLabel();
 			}
@@ -33,6 +33,7 @@ public partial class MainMenu : Control
 		continueButton.Pressed += OnContinuePressed;
 		GetNode<Button>("SafeArea/Center/Panel/VBox/LearnButton").Pressed += OnLearnPressed;
 		GetNode<Button>("SafeArea/Center/Panel/VBox/TrailButton").Pressed += OnTrailPressed;
+		GetNode<Button>("SafeArea/Center/Panel/VBox/ProgressButton").Pressed += OnProgressPressed;
 		GetNode<Button>("SafeArea/Center/Panel/VBox/ProfilesButton").Pressed += OnProfilesPressed;
 		GetNode<Button>("SafeArea/Center/Panel/VBox/SettingsButton").Pressed += OnOptionsPressed;
 		GetNode<Button>("SafeArea/Center/Panel/VBox/ExitButton").Pressed += () => GetTree().Quit();
@@ -86,6 +87,18 @@ public partial class MainMenu : Control
 		AppState.PendingLauraFreePlay = false;
 		AppState.PendingSceneAfterProfile = "res://Scenes/MainMenu.tscn";
 		GetTree().ChangeSceneToFile("res://Scenes/ProfileSelection.tscn");
+	}
+
+	private void OnProgressPressed()
+	{
+		if (AppState.ActiveProfile == null)
+		{
+			AppState.PendingSceneAfterProfile = "res://Scenes/ProgressScreen.tscn";
+			GetTree().ChangeSceneToFile("res://Scenes/ProfileSelection.tscn");
+			return;
+		}
+
+		GetTree().ChangeSceneToFile("res://Scenes/ProgressScreen.tscn");
 	}
 
 	private void OnOptionsPressed()

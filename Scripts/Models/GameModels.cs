@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 public class GameSettings
 {
@@ -108,7 +109,15 @@ public class BadgeDefinition
 
 public class ProfileData
 {
+    // Legacy serialized field retained until the profile migration issue is completed.
+    // The UI treats this value only as a local nickname.
     public string FirstName { get; set; } = "";
+    [JsonIgnore]
+    public string DisplayName
+    {
+        get => FirstName;
+        set => FirstName = value;
+    }
     public int CurrentGrade { get; set; } = 1;
     public Dictionary<string, OperationProgress> OperationProgress { get; set; } = new();
     public Dictionary<string, SubjectProgress> SubjectProgress { get; set; } = new();
@@ -151,7 +160,7 @@ public class SubjectProgress
     public int TotalCorrect { get; set; }
     public int TotalAttempted { get; set; }
     public LearningOutcomeCounts Outcomes { get; set; } = new();
-    public DateTime LastPlayedUtc { get; set; } = DateTime.UtcNow;
+    public DateTime LastPlayedUtc { get; set; } = DateTime.MinValue;
 }
 
 public class OperationProgress
