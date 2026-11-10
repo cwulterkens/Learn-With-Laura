@@ -14,6 +14,8 @@ public enum ProfileActivationStatus
     Corrupt,
     NotFound,
     InvalidName,
+    UnsupportedVersion,
+    MigrationFailed,
     SaveFailed
 }
 

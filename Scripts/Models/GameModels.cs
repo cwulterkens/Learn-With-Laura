@@ -109,8 +109,11 @@ public class BadgeDefinition
 
 public class ProfileData
 {
-    // Legacy serialized field retained until the profile migration issue is completed.
-    // The UI treats this value only as a local nickname.
+    // Version 0 is the historical, unversioned format. New profiles pass through the
+    // same ordered migrations as old saves before they are persisted.
+    public int SchemaVersion { get; set; }
+    // Retained as the serialized property name for compatibility. The UI treats it
+    // only as a local nickname.
     public string FirstName { get; set; } = "";
     [JsonIgnore]
     public string DisplayName

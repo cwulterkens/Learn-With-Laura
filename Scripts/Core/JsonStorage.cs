@@ -98,6 +98,53 @@ public static class JsonStorage
             : WriteTextFile(path, json);
     }
 
+    public static bool PreservePreMigrationFile(
+        string sourcePath,
+        int schemaVersion,
+        out string archivePath)
+    {
+        archivePath = string.Empty;
+        if (!IsUserPath(sourcePath) || !FileAccess.FileExists(sourcePath))
+        {
+            GD.PrintErr($"Cannot archive migration source because it is not a local user file: {sourcePath}");
+            return false;
+        }
+
+        using var source = FileAccess.Open(sourcePath, FileAccess.ModeFlags.Read);
+        if (source == null)
+        {
+            GD.PrintErr($"Cannot read migration source {sourcePath}: {FileAccess.GetOpenError()}");
+            return false;
+        }
+
+        string sourceText = source.GetAsText();
+        string baseArchivePath = $"{sourcePath}.premigration-v{schemaVersion}";
+        archivePath = GetAvailableArchivePath(baseArchivePath);
+        string temporaryPath = $"{archivePath}.tmp";
+        try
+        {
+            if (!WriteTextFile(temporaryPath, sourceText))
+            {
+                archivePath = string.Empty;
+                return false;
+            }
+
+            Error renameError = DirAccess.RenameAbsolute(temporaryPath, archivePath);
+            if (renameError != Error.Ok)
+            {
+                GD.PrintErr($"Could not archive pre-migration profile {sourcePath}: {renameError}");
+                archivePath = string.Empty;
+                return false;
+            }
+
+            return true;
+        }
+        finally
+        {
+            RemoveIfPresent(temporaryPath);
+        }
+    }
+
     public static void CopyIfMissing(string fromResPath, string toUserPath)
     {
         if (FileAccess.FileExists(toUserPath) || !FileAccess.FileExists(fromResPath))
@@ -277,6 +324,19 @@ public static class JsonStorage
         while (FileAccess.FileExists(candidate))
         {
             candidate = $"{sourcePath}.corrupt.{suffix}";
+            suffix++;
+        }
+
+        return candidate;
+    }
+
+    private static string GetAvailableArchivePath(string basePath)
+    {
+        string candidate = basePath;
+        int suffix = 1;
+        while (FileAccess.FileExists(candidate))
+        {
+            candidate = $"{basePath}.{suffix}";
             suffix++;
         }
 

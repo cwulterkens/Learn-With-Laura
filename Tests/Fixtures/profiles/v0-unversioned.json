@@ -1,0 +1,21 @@
+{
+  "FirstName": "Half-Pint",
+  "CurrentGrade": 4,
+  "OperationProgress": {
+    "addition": {
+      "Tier": 2,
+      "WindowCorrect": 7,
+      "WindowAttempted": 10
+    }
+  },
+  "SubjectProgress": {
+    "math": {
+      "TotalCorrect": 6,
+      "TotalAttempted": 8
+    }
+  },
+  "TotalCorrect": 6,
+  "TotalAttempted": 8,
+  "GameScore": 120,
+  "MiniGamesCompleted": 1
+}
