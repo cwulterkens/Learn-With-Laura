@@ -116,6 +116,7 @@ public class ProfileData
     public List<string> UnlockedAwards { get; set; } = new();
     public int TotalCorrect { get; set; }
     public int TotalAttempted { get; set; }
+    public LearningOutcomeCounts Outcomes { get; set; } = new();
     public int GameScore { get; set; }
     public int SessionsCompleted { get; set; }
     public int CorrectSinceMiniGame { get; set; }
@@ -149,14 +150,26 @@ public class SubjectProgress
 {
     public int TotalCorrect { get; set; }
     public int TotalAttempted { get; set; }
+    public LearningOutcomeCounts Outcomes { get; set; } = new();
     public DateTime LastPlayedUtc { get; set; } = DateTime.UtcNow;
 }
 
 public class OperationProgress
 {
     public int Tier { get; set; }
+    public int WindowFirstTryCorrect { get; set; }
+    // Retained for compatibility with pre-outcome saves. New adaptive windows do not use it.
     public int WindowCorrect { get; set; }
     public int WindowAttempted { get; set; }
+    public LearningOutcomeCounts Outcomes { get; set; } = new();
+}
+
+public class LearningOutcomeCounts
+{
+    public int FirstTryCorrect { get; set; }
+    public int HintAssistedCorrect { get; set; }
+    public int Corrected { get; set; }
+    public int Skipped { get; set; }
 }
 
 public class RuntimeQuestion

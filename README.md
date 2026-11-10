@@ -13,6 +13,8 @@ Learn With Laura is a single-player, offline learning game for grades 1–8. Eac
 
 Questions label their context as **Actual Life**, **Little House Books**, **Classic TV Adaptation**, **Imagined Prairie Scenario**, or **School Concept**. Source titles are shown with factual explanations. The game does not fetch those sources or use any network service at runtime.
 
+First-try answers are the mastery signal used to adapt math difficulty. Answers completed with a hint still earn learning credit and adventure progress, while corrected and skipped questions are recorded separately. See [Learning outcome semantics](docs/LEARNING_OUTCOMES.md).
+
 ## Run and build
 
 Requirements: Godot 4.8 Mono (currently 4.8.0-beta.2) and the .NET 10 SDK.
