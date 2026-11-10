@@ -331,6 +331,7 @@ public static class AppState
             inspection.BackupStatus);
 
         ProfileData profile = null!;
+        string migrationSourcePath = "";
         ProfileActivationStatus successStatus = ProfileActivationStatus.Activated;
         if (choice == ProfileActivationChoice.RestoreBackup)
         {
@@ -345,6 +346,7 @@ public static class AppState
             }
 
             profile = inspection.BackupValue;
+            migrationSourcePath = $"{path}.bak";
             successStatus = ProfileActivationStatus.RecoveredBackup;
         }
         else if (choice == ProfileActivationChoice.StartFresh)
@@ -358,6 +360,7 @@ public static class AppState
             {
                 case JsonRecoveryDecision.UsePrimary:
                     profile = inspection.PrimaryValue;
+                    migrationSourcePath = path;
                     break;
                 case JsonRecoveryDecision.OfferBackupRestore:
                     return new ProfileActivationResult
@@ -394,7 +397,45 @@ public static class AppState
             };
         }
 
+        ProfileMigrationResult migration = ProfileSaveMigration.Migrate(profile);
+        if (!migration.Succeeded || migration.Profile == null)
+        {
+            return new ProfileActivationResult
+            {
+                Status = migration.Status == ProfileMigrationStatus.UnsupportedVersion
+                    ? ProfileActivationStatus.UnsupportedVersion
+                    : ProfileActivationStatus.MigrationFailed,
+                ProfileName = clean,
+                Error = migration.Error
+            };
+        }
+
+        profile = migration.Profile;
         PrepareProfile(profile, clean);
+        if (!ProfileSaveMigration.TryValidateCurrent(profile, out string validationError))
+        {
+            return new ProfileActivationResult
+            {
+                Status = ProfileActivationStatus.MigrationFailed,
+                ProfileName = clean,
+                Error = $"The profile was not activated because validation failed: {validationError}"
+            };
+        }
+
+        if (migration.RequiresSave
+            && !string.IsNullOrWhiteSpace(migrationSourcePath)
+            && !JsonStorage.PreservePreMigrationFile(
+                migrationSourcePath,
+                migration.OriginalVersion,
+                out _))
+        {
+            return new ProfileActivationResult
+            {
+                Status = ProfileActivationStatus.MigrationFailed,
+                ProfileName = clean,
+                Error = "The profile was not changed because its pre-migration backup could not be created."
+            };
+        }
 
         int previousLastGrade = Settings.LastSelectedGrade;
         int grade = ProfileSelectionRules.ActivateGrade(profile, Settings);
@@ -427,6 +468,12 @@ public static class AppState
     {
         if (ActiveProfile == null)
         {
+            return false;
+        }
+
+        if (!ProfileSaveMigration.TryValidateCurrent(ActiveProfile, out string validationError))
+        {
+            GD.PrintErr($"Refusing to save an invalid active profile: {validationError}");
             return false;
         }
 
@@ -503,15 +550,26 @@ public static class AppState
             return ActionFailure(parsed.Error);
         }
 
+        string nickname = ActiveProfile.DisplayName;
+        ProfileMigrationResult migration = ProfileSaveMigration.Migrate(parsed.Profile);
+        if (!migration.Succeeded || migration.Profile == null)
+        {
+            return ActionFailure(migration.Error);
+        }
+
+        ProfileData imported = migration.Profile;
+        PrepareProfile(imported, nickname);
+        if (!ProfileSaveMigration.TryValidateCurrent(imported, out string validationError))
+        {
+            return ActionFailure($"The imported profile did not pass validation: {validationError}");
+        }
+
         LocalProfileActionResult backup = CreateActiveProfileBackup();
         if (!backup.Succeeded)
         {
             return ActionFailure($"Import stopped because the current progress could not be backed up. {backup.Error}");
         }
 
-        string nickname = ActiveProfile.DisplayName;
-        ProfileData imported = parsed.Profile;
-        PrepareProfile(imported, nickname);
         int previousLastGrade = Settings.LastSelectedGrade;
         int grade = ProfileSelectionRules.ActivateGrade(imported, Settings);
         imported.LastUpdatedUtc = DateTime.UtcNow;

@@ -21,7 +21,12 @@
     <Compile Include="../Scripts/Core/JourneyResources.cs" Link="Core/JourneyResources.cs" />
     <Compile Include="../Scripts/Core/ProfileRecovery.cs" Link="Core/ProfileRecovery.cs" />
     <Compile Include="../Scripts/Core/ProfileDataManagement.cs" Link="Core/ProfileDataManagement.cs" />
+    <Compile Include="../Scripts/Core/ProfileSaveMigration.cs" Link="Core/ProfileSaveMigration.cs" />
     <Compile Include="../Scripts/Core/ProfileSelectionRules.cs" Link="Core/ProfileSelectionRules.cs" />
     <Compile Include="../Scripts/Models/GameModels.cs" Link="Models/GameModels.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Fixtures/**/*.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

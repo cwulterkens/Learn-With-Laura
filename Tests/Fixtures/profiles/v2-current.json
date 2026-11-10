@@ -1,0 +1,67 @@
+{
+  "SchemaVersion": 2,
+  "FirstName": "Trail-Scholar",
+  "CurrentGrade": 6,
+  "OperationProgress": {
+    "division": {
+      "Tier": 2,
+      "WindowFirstTryCorrect": 2,
+      "WindowAttempted": 3,
+      "Outcomes": {
+        "FirstTryCorrect": 9,
+        "HintAssistedCorrect": 1,
+        "Corrected": 2,
+        "Skipped": 0
+      }
+    }
+  },
+  "SubjectProgress": {
+    "math": {
+      "TotalCorrect": 12,
+      "TotalAttempted": 15,
+      "Outcomes": {
+        "FirstTryCorrect": 9,
+        "HintAssistedCorrect": 1,
+        "Corrected": 2,
+        "Skipped": 3
+      }
+    }
+  },
+  "UnlockedBadges": ["first_correct"],
+  "UnlockedAwards": [],
+  "TotalCorrect": 12,
+  "TotalAttempted": 15,
+  "Outcomes": {
+    "FirstTryCorrect": 9,
+    "HintAssistedCorrect": 1,
+    "Corrected": 2,
+    "Skipped": 3
+  },
+  "GameScore": 300,
+  "SessionsCompleted": 2,
+  "CorrectSinceMiniGame": 1,
+  "MiniGamesCompleted": 2,
+  "LauraChapterReplays": 0,
+  "MasteredLauraAreas": ["big_woods", "prairie"],
+  "PrairieStars": 8,
+  "CurrentStreak": 2,
+  "BestStreak": 5,
+  "Journey": {
+    "Day": 4,
+    "Miles": 60,
+    "Food": 18,
+    "Wood": 10,
+    "Morale": 8,
+    "Health": 9,
+    "LessonsAnswered": 15,
+    "FamilyActivitiesCompleted": 2,
+    "CurrentRegion": "prairie"
+  },
+  "LastPlayedSubject": "math",
+  "SavedSession": {
+    "ScenePath": "res://Scenes/LearningModule.tscn",
+    "SubjectKey": "math",
+    "DisplayLabel": "Math classroom"
+  },
+  "TotalLearningSeconds": 540
+}

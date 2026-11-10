@@ -1,0 +1,52 @@
+{
+  "SchemaVersion": 1,
+  "FirstName": "Bookworm",
+  "CurrentGrade": 5,
+  "OperationProgress": {
+    "multiplication": {
+      "Tier": 2,
+      "WindowFirstTryCorrect": 3,
+      "WindowAttempted": 4,
+      "Outcomes": {
+        "FirstTryCorrect": 12,
+        "HintAssistedCorrect": 2,
+        "Corrected": 1,
+        "Skipped": 0
+      }
+    }
+  },
+  "SubjectProgress": {
+    "math": {
+      "TotalCorrect": 15,
+      "TotalAttempted": 18,
+      "Outcomes": {
+        "FirstTryCorrect": 12,
+        "HintAssistedCorrect": 2,
+        "Corrected": 1,
+        "Skipped": 3
+      }
+    }
+  },
+  "Outcomes": {
+    "FirstTryCorrect": 12,
+    "HintAssistedCorrect": 2,
+    "Corrected": 1,
+    "Skipped": 3
+  },
+  "TotalCorrect": 15,
+  "TotalAttempted": 18,
+  "MasteredLauraAreas": ["big_woods", " BIG_WOODS ", "prairie"],
+  "Journey": {
+    "Day": 0,
+    "Miles": -5,
+    "Food": -1,
+    "Wood": 8,
+    "Morale": 25,
+    "Health": -2,
+    "LessonsAnswered": -1,
+    "FamilyActivitiesCompleted": 3,
+    "CurrentRegion": ""
+  },
+  "LastPlayedSubject": " " ,
+  "SavedSession": null
+}
