@@ -15,6 +15,8 @@ Questions label their context as **Actual Life**, **Little House Books**, **Clas
 
 First-try answers are the mastery signal used to adapt math difficulty. Answers completed with a hint still earn learning credit and adventure progress, while corrected and skipped questions are recorded separately. See [Learning outcome semantics](docs/LEARNING_OUTCOMES.md).
 
+Laura's Adventure uses food, wood, health, morale, days, miles, and region-based camp choices without game-over states or penalties for learning mistakes. See [Journey resource design](docs/JOURNEY_RESOURCES.md).
+
 ## Run and build
 
 Requirements: Godot 4.8 Mono (currently 4.8.0-beta.2) and the .NET 10 SDK.

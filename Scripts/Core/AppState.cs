@@ -402,6 +402,7 @@ public static class AppState
         profile.UnlockedAwards ??= new List<string>();
         AdventureProgress.Normalize(profile);
         profile.Journey ??= new JourneyProgress();
+        JourneyResources.Normalize(profile.Journey);
         EnsureOperationKeys(profile);
         EnsureSubjectKeys(profile);
         EnsureSavedSession(profile);

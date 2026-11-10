@@ -121,11 +121,52 @@ public partial class LauraMiniGame : Control
     {
         foreach (Node child in _areaButtons.GetChildren())
         {
+            _areaButtons.RemoveChild(child);
             child.QueueFree();
         }
 
+        JourneyProgress journey = AppState.ActiveProfile!.Journey;
+        var campLabel = new Label
+        {
+            Text = $"Camp choices · {JourneyResources.GetNeedsMessage(journey)}",
+            AutowrapMode = TextServer.AutowrapMode.WordSmart,
+            HorizontalAlignment = HorizontalAlignment.Center
+        };
+        _areaButtons.AddChild(campLabel);
+        UiHelpers.StyleNewControl(campLabel);
+
+        bool suppliesFull = journey.Food >= JourneyResources.FoodCapacity
+            && journey.Wood >= JourneyResources.WoodCapacity;
+        var gatherButton = new Button
+        {
+            Text = suppliesFull
+                ? "Supplies are comfortably full"
+                : "Gather Supplies · add food and wood · 1 day",
+            CustomMinimumSize = new Vector2(0, 58),
+            SizeFlagsHorizontal = Control.SizeFlags.Fill | Control.SizeFlags.Expand,
+            Disabled = suppliesFull
+        };
+        gatherButton.Pressed += () => ApplyCampChoice(CampChoice.GatherSupplies);
+        _areaButtons.AddChild(gatherButton);
+        UiHelpers.StyleNewControl(gatherButton);
+
+        bool fullyRested = journey.Health >= JourneyResources.MaxHealth
+            && journey.Morale >= JourneyResources.MaxMorale;
+        var restButton = new Button
+        {
+            Text = fullyRested
+                ? "Health and morale are fully restored"
+                : "Rest Together · restore health and morale · uses 1 food when available · 1 day",
+            CustomMinimumSize = new Vector2(0, 58),
+            SizeFlagsHorizontal = Control.SizeFlags.Fill | Control.SizeFlags.Expand,
+            Disabled = fullyRested
+        };
+        restButton.Pressed += () => ApplyCampChoice(CampChoice.RestTogether);
+        _areaButtons.AddChild(restButton);
+        UiHelpers.StyleNewControl(restButton);
+
         int index = 0;
-        int miles = AppState.ActiveProfile!.Journey.Miles;
+        int miles = journey.Miles;
         foreach (LauraAreaDefinition area in AppState.LauraMiniGameContent.Areas)
         {
             int requiredMiles = index * 40;
@@ -162,6 +203,16 @@ public partial class LauraMiniGame : Control
         int chapterCount = AppState.LauraMiniGameContent.Areas.Count;
         _introLabel.Text = BuildStatusLine(
             $"Choose a chapter from Laura's world. Chapters mastered: {masteredCount}/{chapterCount}. Knowledge stops and interactive memory mini-games move the journey forward.");
+    }
+
+    private void ApplyCampChoice(CampChoice choice)
+    {
+        JourneyChangeResult result = JourneyResources.ApplyCampChoice(
+            AppState.ActiveProfile!.Journey,
+            choice);
+        AppState.SaveProfile();
+        BuildRouteButtons();
+        _introLabel.Text = BuildStatusLine($"Camp update: {result.Summary}");
     }
 
     private void StartArea(string areaId, bool resetProgress)
@@ -297,19 +348,23 @@ public partial class LauraMiniGame : Control
             profile.SavedSession.LauraCorrectAnswers += 1;
             profile.GameScore += 100;
             profile.PrairieStars += 2;
-            journey.Morale = Math.Min(10, journey.Morale + 1);
-            _feedbackLabel.Text = BuildQuestionFeedback(true);
+            int moraleBefore = journey.Morale;
+            journey.Morale = Math.Min(JourneyResources.MaxMorale, journey.Morale + 1);
+            int moraleChange = journey.Morale - moraleBefore;
+            string moraleMessage = moraleChange > 0
+                ? $"Learning success lifted morale by {moraleChange}."
+                : "Learning success kept morale at its full level.";
+            _feedbackLabel.Text = $"{BuildQuestionFeedback(true)}\n{moraleMessage}";
             _successSfx.Play();
         }
         else
         {
-            journey.Health = Math.Max(0, journey.Health - 1);
-            journey.Morale = Math.Max(0, journey.Morale - 1);
-            _feedbackLabel.Text = BuildQuestionFeedback(false);
+            _feedbackLabel.Text = $"{BuildQuestionFeedback(false)}\nMistakes are part of learning; the answer itself does not change journey resources.";
             _wrongSfx.Play();
         }
 
-        AdvanceJourneyAfterStop();
+        JourneyChangeResult journeyChange = AdvanceJourneyAfterStop();
+        _feedbackLabel.Text += $"\nTrail update: {journeyChange.Summary}";
         AppState.UnlockEligibleBadges();
         if (profile.UnlockedAwards.Count > awardCountBefore)
         {
@@ -496,49 +551,19 @@ public partial class LauraMiniGame : Control
         profile.Journey.FamilyActivitiesCompleted += 1;
         profile.PrairieStars += 3;
         profile.GameScore += 75;
-        AwardFamilyActivitySupplies();
+        JourneyChangeResult resourceReward = JourneyResources.ApplyFamilyActivityReward(
+            profile.Journey,
+            _currentFamilyActivity);
         AppState.UnlockEligibleBadges();
         AppState.SaveProfile();
 
         SetOptionButtonsEnabled(false);
-        _feedbackLabel.Text = $"Pattern complete! {GetActivityRewardText()} +3 Prairie Stars";
+        _feedbackLabel.Text = $"Pattern complete! {resourceReward.Summary} +3 Prairie Stars";
         _successSfx.Play();
         _continueButton.Text = "Continue the Journey";
         _continueButton.Visible = true;
         _continueButton.GrabFocus();
         UpdateProgress();
-    }
-
-    private void AwardFamilyActivitySupplies()
-    {
-        JourneyProgress journey = AppState.ActiveProfile!.Journey;
-        switch (_currentFamilyActivity)
-        {
-            case "tracking":
-                journey.Food += 4;
-                break;
-            case "baking":
-                journey.Food += 3;
-                journey.Morale = Math.Min(10, journey.Morale + 1);
-                break;
-            case "shared_chores":
-                journey.Wood += 4;
-                break;
-            default:
-                journey.Morale = Math.Min(10, journey.Morale + 2);
-                break;
-        }
-    }
-
-    private string GetActivityRewardText()
-    {
-        return _currentFamilyActivity switch
-        {
-            "tracking" => "Careful observation found useful trail food.",
-            "baking" => "The bread is ready and the food basket is fuller.",
-            "shared_chores" => "Shared work added wood and kept the camp tidy.",
-            _ => "The fiddle tune lifted everyone's morale."
-        };
     }
 
     private void ContinueAdventure()
@@ -568,13 +593,14 @@ public partial class LauraMiniGame : Control
         PresentNextAdventureStep();
     }
 
-    private void AdvanceJourneyAfterStop()
+    private JourneyChangeResult AdvanceJourneyAfterStop()
     {
         JourneyProgress journey = AppState.ActiveProfile!.Journey;
-        journey.Day += 1;
-        journey.Miles += _rng.RandiRange(8, 18);
-        journey.Food = Math.Max(0, journey.Food - _rng.RandiRange(1, 3));
-        journey.Wood = Math.Max(0, journey.Wood - _rng.RandiRange(0, 1));
+        return JourneyResources.AdvanceTravelStop(
+            journey,
+            _rng.RandiRange(8, 18),
+            _rng.RandiRange(1, 3),
+            _rng.RandiRange(0, 1));
     }
 
     private void FinishMiniGame()
@@ -594,6 +620,7 @@ public partial class LauraMiniGame : Control
         _patternPlaybackVersion++;
 
         int awardCountBefore = profile.UnlockedAwards.Count;
+        int healthBefore = profile.Journey.Health;
         if (_completionMastered)
         {
             ChapterMasteryResult masteryResult = AdventureProgress.RecordMasteredRun(profile, _activeAreaId);
@@ -610,7 +637,7 @@ public partial class LauraMiniGame : Control
                 profile.PrairieStars += 4;
                 profile.Journey.Miles += 8;
             }
-            profile.Journey.Health = Math.Min(10, profile.Journey.Health + 1);
+            profile.Journey.Health = Math.Min(JourneyResources.MaxHealth, profile.Journey.Health + 1);
         }
         else
         {
@@ -646,10 +673,12 @@ public partial class LauraMiniGame : Control
         _questionLabel.Text = _completionMastered
             ? $"You mastered {correct}/{KnowledgeGoal} knowledge stops and completed both memory mini-games."
             : $"You completed both memory mini-games and mastered {correct}/{KnowledgeGoal} knowledge stops. Master {MasteryCorrect} to finish this chapter.";
+        int healthChange = profile.Journey.Health - healthBefore;
+        string healthReward = healthChange > 0 ? $" · Health +{healthChange}" : "";
         _feedbackLabel.Text = _completionMastered
             ? firstMastery
-                ? "+10 Prairie Stars, a 250-point first-mastery bonus, and 20 journey miles!"
-                : "+4 Prairie Stars, a 100-point revisit bonus, and 8 journey miles!"
+                ? $"Prairie Stars +10 · First-mastery bonus +250 points · Miles +20{healthReward}"
+                : $"Prairie Stars +4 · Revisit bonus +100 points · Miles +8{healthReward}"
             : "+2 Prairie Stars for your effort. Review the explanations, then try this chapter once more.";
         _progressLabel.Text = BuildStatusLine(_completionMastered ? "Chapter complete." : "Practice makes progress.");
         _continueButton.Text = _completionMastered
@@ -748,7 +777,8 @@ public partial class LauraMiniGame : Control
         JourneyProgress journey = AppState.ActiveProfile!.Journey;
         int masteredCount = AppState.ActiveProfile.MasteredLauraAreas.Count;
         int chapterCount = AppState.LauraMiniGameContent.Areas.Count;
-        return $"{prefix}\nDay {journey.Day} · Miles {journey.Miles} · Food {journey.Food} · Wood {journey.Wood}\nHealth {journey.Health}/10 · Morale {journey.Morale}/10 · Chapters {masteredCount}/{chapterCount} · Stars {AppState.ActiveProfile.PrairieStars} · Badges {AppState.ActiveProfile.UnlockedAwards.Count}";
+        string region = AppState.GetLauraArea(journey.CurrentRegion)?.Name ?? "Trail Camp";
+        return $"{prefix}\n{region} · Day {journey.Day} · Miles {journey.Miles} · Food {journey.Food} · Wood {journey.Wood}\nHealth {journey.Health}/{JourneyResources.MaxHealth} · Morale {journey.Morale}/{JourneyResources.MaxMorale} · Chapters {masteredCount}/{chapterCount} · Stars {AppState.ActiveProfile.PrairieStars} · Badges {AppState.ActiveProfile.UnlockedAwards.Count}";
     }
 
     private string RandomTrailEvent()
