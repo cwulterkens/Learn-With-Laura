@@ -9,6 +9,7 @@ public partial class Recess : Control
     private string[] _activePrompts = Array.Empty<string>();
     private int _promptIndex;
     private bool _breakActive;
+    private LearningBreakChoice _activeBreakChoice;
 
     public override void _Ready()
     {
@@ -25,9 +26,9 @@ public partial class Recess : Control
         _activityLabel = GetNode<Label>("SafeArea/Center/Panel/VBox/ActivityLabel");
         _stretchButton = GetNode<Button>("SafeArea/Center/Panel/VBox/HuntingButton");
         _breathingButton = GetNode<Button>("SafeArea/Center/Panel/VBox/BakingButton");
-        _stretchButton.Text = "Prairie Stretch Break";
-        _breathingButton.Text = "Quiet Fiddle Breathing";
-        _activityLabel.Text = "You worked hard. Choose a short movement or calming break before the next lesson.";
+        _stretchButton.Text = "Prairie Stretch · +2 health · +1 morale";
+        _breathingButton.Text = "Quiet Fiddle Breathing · +1 health · +2 morale";
+        _activityLabel.Text = BuildBreakIntro();
 
         _stretchButton.Pressed += () => StartOrAdvanceBreak("stretch");
         _breathingButton.Pressed += () => StartOrAdvanceBreak("breathing");
@@ -41,6 +42,9 @@ public partial class Recess : Control
     {
         if (!_breakActive)
         {
+            _activeBreakChoice = mode == "stretch"
+                ? LearningBreakChoice.Stretch
+                : LearningBreakChoice.Breathing;
             _activePrompts = mode == "stretch"
                 ? new[]
                 {
@@ -78,17 +82,33 @@ public partial class Recess : Control
     private void CompleteBreak()
     {
         _breakActive = false;
-        _activityLabel.Text = "Break complete! Your next lesson is ready when you are.";
         _stretchButton.Disabled = false;
         _breathingButton.Disabled = false;
-        _stretchButton.Text = "Prairie Stretch Break";
-        _breathingButton.Text = "Quiet Fiddle Breathing";
+        _stretchButton.Text = "Prairie Stretch · +2 health · +1 morale";
+        _breathingButton.Text = "Quiet Fiddle Breathing · +1 health · +2 morale";
 
         if (AppState.ActiveProfile != null)
         {
-            AppState.ActiveProfile.Journey.Morale = Math.Min(10, AppState.ActiveProfile.Journey.Morale + 1);
+            JourneyChangeResult result = JourneyResources.ApplyLearningBreak(
+                AppState.ActiveProfile.Journey,
+                _activeBreakChoice);
+            _activityLabel.Text = $"Break complete! {result.Summary}\nYour next lesson is ready when you are.";
             AppState.SaveProfile();
+            return;
         }
+
+        _activityLabel.Text = "Break complete! Your next lesson is ready when you are.";
+    }
+
+    private string BuildBreakIntro()
+    {
+        if (AppState.ActiveProfile == null)
+        {
+            return "Choose a short movement or calming break before the next lesson.";
+        }
+
+        JourneyProgress journey = AppState.ActiveProfile.Journey;
+        return $"You worked hard. Choose the kind of break your learner needs.\nHealth {journey.Health}/{JourneyResources.MaxHealth} · Morale {journey.Morale}/{JourneyResources.MaxMorale}";
     }
 
     private void ReturnToLesson()
