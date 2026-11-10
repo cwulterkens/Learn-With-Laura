@@ -17,6 +17,8 @@ First-try answers are the mastery signal used to adapt math difficulty. Answers 
 
 Laura's Adventure uses food, wood, health, morale, days, miles, and region-based camp choices without game-over states or penalties for learning mistakes. See [Journey resource design](docs/JOURNEY_RESOURCES.md).
 
+The Local Progress screen provides offline progress review, timestamped backups, export/import, and confirmed reset controls. Learners use local nicknames rather than account identities. See [Local learner data and privacy](docs/LOCAL_DATA.md).
+
 ## Run and build
 
 Requirements: Godot 4.8 Mono (currently 4.8.0-beta.2) and the .NET 10 SDK.

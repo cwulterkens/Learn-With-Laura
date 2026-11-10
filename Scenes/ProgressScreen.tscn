@@ -1,0 +1,152 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/ProgressScreen.cs" id="1"]
+[ext_resource type="Texture2D" path="res://assets/classroom.png" id="2"]
+
+[node name="ProgressScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Local Learner Progress"
+horizontal_alignment = 1
+
+[node name="OverviewLabel" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+text = "Overview"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="SubjectsLabel" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+text = "Subject progress"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="RecentLabel" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+text = "Recent activity"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BadgesLabel" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+text = "Badges"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AdventureLabel" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+text = "Adventure mastery"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="DataTitle" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Local Backup, Export, and Restore"
+horizontal_alignment = 1
+
+[node name="DataButtons" type="VBoxContainer" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BackupButton" type="Button" parent="Panel/Scroll/VBox/DataButtons"]
+layout_mode = 2
+text = "Create Local Safety Backup"
+
+[node name="ExportButton" type="Button" parent="Panel/Scroll/VBox/DataButtons"]
+layout_mode = 2
+text = "Export Progress Copy…"
+
+[node name="ImportButton" type="Button" parent="Panel/Scroll/VBox/DataButtons"]
+layout_mode = 2
+text = "Restore / Import Progress…"
+
+[node name="ResetTitle" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Reset Progress"
+horizontal_alignment = 1
+
+[node name="ResetButtons" type="VBoxContainer" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ResetLearningButton" type="Button" parent="Panel/Scroll/VBox/ResetButtons"]
+layout_mode = 2
+text = "Reset Classroom Progress…"
+
+[node name="ResetAdventureButton" type="Button" parent="Panel/Scroll/VBox/ResetButtons"]
+layout_mode = 2
+text = "Reset Adventure Progress…"
+
+[node name="ResetAllButton" type="Button" parent="Panel/Scroll/VBox/ResetButtons"]
+layout_mode = 2
+text = "Reset All Progress…"
+
+[node name="PrivacyLabel" type="Label" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+text = "Local data and privacy"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="StatusLabel" type="Label" parent="Panel/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+text = "No data action selected."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BackButton" type="Button" parent="Panel/Scroll/VBox"]
+layout_mode = 2
+text = "Back to Home"

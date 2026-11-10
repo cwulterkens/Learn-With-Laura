@@ -178,7 +178,7 @@ public partial class MathClassroom : Control
 
         var profile = AppState.ActiveProfile;
         _statusLabel.Text =
-            $"Profile: {profile.FirstName} | Grade: {AppState.CurrentGrade} | Correct: {profile.TotalCorrect}/{profile.TotalAttempted}";
+            $"Nickname: {profile.DisplayName} | Grade: {AppState.CurrentGrade} | Correct: {profile.TotalCorrect}/{profile.TotalAttempted}";
     }
 
     private void UpdateBadgeStatus()

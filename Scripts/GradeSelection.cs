@@ -34,7 +34,7 @@ public partial class GradeSelection : Control
 
         GetNode<Button>("SafeArea/Center/Panel/VBox/BackButton").Pressed += () => GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
 
-        string name = AppState.ActiveProfile?.FirstName ?? "Learner";
+        string name = AppState.ActiveProfile?.DisplayName ?? "Learner";
         message.Text = $"{name}, what grade are you in today?";
     }
 }

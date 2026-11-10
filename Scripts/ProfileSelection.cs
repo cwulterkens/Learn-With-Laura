@@ -50,7 +50,7 @@ public partial class ProfileSelection : Control
         }
 
         _statusLabel.Text = AppState.ActiveProfile != null
-            ? $"Current: {AppState.ActiveProfile.FirstName}"
+            ? $"Current nickname: {AppState.ActiveProfile.DisplayName}"
             : "Current: none";
     }
 
@@ -60,13 +60,13 @@ public partial class ProfileSelection : Control
         string name = _nameInput.Text.Trim();
         if (name.Length < 2)
         {
-            _statusLabel.Text = "Enter a first name with at least 2 characters.";
+            _statusLabel.Text = "Enter a nickname with at least 2 characters.";
             return;
         }
 
         if (AppState.ProfileExists(name))
         {
-            _statusLabel.Text = $"A learner named {name} already exists. Select that profile, or add an initial to create another.";
+            _statusLabel.Text = $"The nickname {name} already exists. Select that learner, or choose another nickname.";
             return;
         }
 
@@ -152,7 +152,7 @@ public partial class ProfileSelection : Control
         ResetDeleteConfirmation();
         _pendingRecoveryName = "";
         string name = _profileList.GetItemText((int)index);
-        _statusLabel.Text = AppState.ActiveProfile?.FirstName == name
+        _statusLabel.Text = AppState.ActiveProfile?.DisplayName == name
             ? $"{name} is active · Grade {AppState.ActiveProfile.CurrentGrade} · Stars {AppState.ActiveProfile.PrairieStars} · Badges {AppState.ActiveProfile.UnlockedBadges.Count}"
             : $"Selected learner: {name}";
     }
@@ -162,7 +162,7 @@ public partial class ProfileSelection : Control
         _pendingDeleteName = "";
         if (_deleteButton != null)
         {
-            _deleteButton.Text = "Delete Selected Profile";
+            _deleteButton.Text = "Delete Selected Learner";
         }
     }
 

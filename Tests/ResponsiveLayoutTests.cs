@@ -6,6 +6,7 @@ public class ResponsiveLayoutTests
     [Theory]
     [InlineData("Scenes/LearningModule.tscn")]
     [InlineData("Scenes/LauraMiniGame.tscn")]
+    [InlineData("Scenes/ProgressScreen.tscn")]
     public void LongLessonScreensUseFocusFollowingVerticalScroll(string relativePath)
     {
         string scene = File.ReadAllText(RepositoryFile(relativePath));
@@ -19,6 +20,7 @@ public class ResponsiveLayoutTests
     [Theory]
     [InlineData("Scripts/LearningModule.cs")]
     [InlineData("Scripts/LauraMiniGame.cs")]
+    [InlineData("Scripts/ProgressScreen.cs")]
     public void ScreenScriptsUseResponsiveContentPaths(string relativePath)
     {
         string script = File.ReadAllText(RepositoryFile(relativePath));

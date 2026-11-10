@@ -383,7 +383,7 @@ public partial class LearningModule : Control
         int towardAdventure = Math.Min(target, profile.CorrectSinceMiniGame);
 
         _statusLabel.Text =
-            $"{profile.FirstName} · Grade {AppState.CurrentGrade} · First try {subjectProgress.Outcomes.FirstTryCorrect} · With a hint {subjectProgress.Outcomes.HintAssistedCorrect} · Questions tried {subjectProgress.TotalAttempted}";
+            $"{profile.DisplayName} · Grade {AppState.CurrentGrade} · First try {subjectProgress.Outcomes.FirstTryCorrect} · With a hint {subjectProgress.Outcomes.HintAssistedCorrect} · Questions tried {subjectProgress.TotalAttempted}";
         _progressLabel.Text =
             $"Prairie Stars: {profile.PrairieStars} · Streak: {profile.CurrentStreak} (best {profile.BestStreak})";
         _badgeLabel.Text =
