@@ -6,6 +6,8 @@ public partial class MathClassroom : Control
     private QuestionEngine _engine = null!;
     private RuntimeQuestion _currentQuestion = null!;
     private float _elapsedSeconds;
+    private bool _attemptRecorded;
+    private bool _missedOnce;
 
     private Label _questionLabel = null!;
     private LineEdit _answerInput = null!;
@@ -39,7 +41,7 @@ public partial class MathClassroom : Control
         _badgeLabel = GetNode<Label>("Panel/VBox/BadgeLabel");
 
         GetNode<Button>("Panel/VBox/SubmitButton").Pressed += OnSubmit;
-        GetNode<Button>("Panel/VBox/SkipButton").Pressed += NextQuestion;
+        GetNode<Button>("Panel/VBox/SkipButton").Pressed += OnSkip;
         GetNode<Button>("Panel/VBox/BackButton").Pressed += OnBackPressed;
 
         _engine = new QuestionEngine();
@@ -80,14 +82,27 @@ public partial class MathClassroom : Control
 
         var profile = AppState.ActiveProfile!;
         var opProgress = AppState.GetOperationProgress(_currentQuestion.OperationKey);
+        var subjectProgress = AppState.GetSubjectProgress("math");
 
-        profile.TotalAttempted += 1;
-        opProgress.WindowAttempted += 1;
+        if (!_attemptRecorded)
+        {
+            profile.TotalAttempted += 1;
+            subjectProgress.TotalAttempted += 1;
+            subjectProgress.LastPlayedUtc = DateTime.UtcNow;
+            _attemptRecorded = true;
+        }
 
         if (parsed == _currentQuestion.Answer)
         {
+            LearningOutcome outcome = _missedOnce
+                ? LearningOutcome.HintAssistedCorrect
+                : LearningOutcome.FirstTryCorrect;
             profile.TotalCorrect += 1;
-            opProgress.WindowCorrect += 1;
+            subjectProgress.TotalCorrect += 1;
+            AdaptiveMastery.RecordOutcome(profile.Outcomes, outcome);
+            AdaptiveMastery.RecordOutcome(subjectProgress.Outcomes, outcome);
+            AdaptiveMastery.RecordOutcome(opProgress.Outcomes, outcome);
+            AdaptiveMastery.RecordWindowOutcome(opProgress, outcome);
             _feedbackLabel.Text = "Correct!";
             _answerInput.Text = "";
 
@@ -105,7 +120,11 @@ public partial class MathClassroom : Control
         }
         else
         {
-            _feedbackLabel.Text = "Not quite. Try again!";
+            _missedOnce = true;
+            string hint = string.IsNullOrWhiteSpace(_currentQuestion.Hint)
+                ? "Try a different way to work through the problem."
+                : _currentQuestion.Hint;
+            _feedbackLabel.Text = $"Not quite. Hint: {hint}";
             AppState.SaveProfile();
         }
 
@@ -115,9 +134,39 @@ public partial class MathClassroom : Control
     private void NextQuestion()
     {
         _currentQuestion = _engine.NextQuestion(AppState.CurrentGrade, "math");
+        _attemptRecorded = false;
+        _missedOnce = false;
         _questionLabel.Text = _currentQuestion.Prompt;
         _answerInput.Text = "";
         _answerInput.GrabFocus();
+    }
+
+    private void OnSkip()
+    {
+        if (_currentQuestion == null || AppState.ActiveProfile == null)
+        {
+            return;
+        }
+
+        var profile = AppState.ActiveProfile;
+        var subjectProgress = AppState.GetSubjectProgress("math");
+        var operationProgress = AppState.GetOperationProgress(_currentQuestion.OperationKey);
+        if (!_attemptRecorded)
+        {
+            profile.TotalAttempted += 1;
+            subjectProgress.TotalAttempted += 1;
+            subjectProgress.LastPlayedUtc = DateTime.UtcNow;
+        }
+
+        AdaptiveMastery.RecordOutcome(profile.Outcomes, LearningOutcome.Skipped);
+        AdaptiveMastery.RecordOutcome(subjectProgress.Outcomes, LearningOutcome.Skipped);
+        AdaptiveMastery.RecordOutcome(operationProgress.Outcomes, LearningOutcome.Skipped);
+        AdaptiveMastery.RecordWindowOutcome(operationProgress, LearningOutcome.Skipped);
+        profile.CurrentStreak = 0;
+        _engine.TryApplyAdaptiveProgress(_currentQuestion.OperationKey, out _);
+        AppState.SaveProfile();
+        NextQuestion();
+        UpdateStatus();
     }
 
     private void UpdateStatus()

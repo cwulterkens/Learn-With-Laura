@@ -61,32 +61,29 @@ public class QuestionEngine
 
         OperationProgress progress = AppState.GetOperationProgress(operation);
         int windowSize = Math.Max(1, AppState.Settings.QuestionsPerEvaluation);
-
-        if (progress.WindowAttempted < windowSize)
+        OperationConfig config = AppState.GetOperationConfig(AppState.CurrentGrade, operation);
+        int maxTier = Math.Max(0, config.MaxValuesByTier.Count - 1);
+        if (!AdaptiveMastery.TryEvaluate(
+            progress,
+            windowSize,
+            AppState.Settings.PromoteAccuracy,
+            AppState.Settings.DemoteAccuracy,
+            maxTier,
+            out AdaptiveTierChange change))
         {
             return false;
         }
 
-        double accuracy = (double)progress.WindowCorrect / progress.WindowAttempted;
-        OperationConfig config = AppState.GetOperationConfig(AppState.CurrentGrade, operation);
-        int maxTier = Math.Max(0, config.MaxValuesByTier.Count - 1);
-        int before = progress.Tier;
-
-        if (accuracy >= AppState.Settings.PromoteAccuracy && progress.Tier < maxTier)
+        message = change switch
         {
-            progress.Tier++;
-            message = $"Great work in {ToDisplay(operation)}. Difficulty increased.";
-        }
-        else if (accuracy <= AppState.Settings.DemoteAccuracy && progress.Tier > 0)
-        {
-            progress.Tier--;
-            message = $"Let's build confidence in {ToDisplay(operation)}. Difficulty lowered.";
-        }
+            AdaptiveTierChange.Promoted =>
+                $"Your first-try mastery in {ToDisplay(operation)} raised the difficulty.",
+            AdaptiveTierChange.Demoted =>
+                $"Let's practice {ToDisplay(operation)} at a gentler level to build first-try confidence.",
+            _ => string.Empty
+        };
 
-        progress.WindowAttempted = 0;
-        progress.WindowCorrect = 0;
-
-        return before != progress.Tier;
+        return change != AdaptiveTierChange.None;
     }
 
     private RuntimeQuestion NextMathQuestion(int grade)

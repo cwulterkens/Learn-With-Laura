@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Compile Include="../Scripts/Core/AdventureProgress.cs" Link="Core/AdventureProgress.cs" />
+    <Compile Include="../Scripts/Core/AdaptiveMastery.cs" Link="Core/AdaptiveMastery.cs" />
     <Compile Include="../Scripts/Core/JsonRecovery.cs" Link="Core/JsonRecovery.cs" />
     <Compile Include="../Scripts/Core/ProfileRecovery.cs" Link="Core/ProfileRecovery.cs" />
     <Compile Include="../Scripts/Core/ProfileSelectionRules.cs" Link="Core/ProfileSelectionRules.cs" />

@@ -397,6 +397,7 @@ public static class AppState
         profile.FirstName = clean;
         profile.OperationProgress ??= new Dictionary<string, OperationProgress>();
         profile.SubjectProgress ??= new Dictionary<string, SubjectProgress>();
+        profile.Outcomes ??= new LearningOutcomeCounts();
         profile.UnlockedBadges ??= new List<string>();
         profile.UnlockedAwards ??= new List<string>();
         AdventureProgress.Normalize(profile);
@@ -456,6 +457,8 @@ public static class AppState
             ActiveProfile.OperationProgress[operation] = value;
         }
 
+        value.Outcomes ??= new LearningOutcomeCounts();
+
         return value;
     }
 
@@ -471,6 +474,8 @@ public static class AppState
             value = new SubjectProgress();
             ActiveProfile.SubjectProgress[subjectKey] = value;
         }
+
+        value.Outcomes ??= new LearningOutcomeCounts();
 
         return value;
     }
@@ -814,6 +819,9 @@ public static class AppState
             {
                 profile.OperationProgress[key] = new OperationProgress { Tier = GetDefaultTierForGrade(profile.CurrentGrade) };
             }
+
+            profile.OperationProgress[key].Outcomes ??= new LearningOutcomeCounts();
+            AdaptiveMastery.ResetAmbiguousLegacyWindow(profile.OperationProgress[key]);
         }
     }
 
@@ -825,6 +833,8 @@ public static class AppState
             {
                 profile.SubjectProgress[subject] = new SubjectProgress();
             }
+
+            profile.SubjectProgress[subject].Outcomes ??= new LearningOutcomeCounts();
         }
     }
 

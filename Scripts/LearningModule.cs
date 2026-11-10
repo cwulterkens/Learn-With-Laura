@@ -142,11 +142,6 @@ public partial class LearningModule : Control
         subjectProgress.TotalAttempted += 1;
         subjectProgress.LastPlayedUtc = DateTime.UtcNow;
 
-        if (_currentQuestion.SubjectKey == "math")
-        {
-            AppState.GetOperationProgress(_currentQuestion.OperationKey).WindowAttempted += 1;
-        }
-
         _attemptRecorded = true;
     }
 
@@ -162,11 +157,9 @@ public partial class LearningModule : Control
         profile.PrairieStars += firstTry ? 2 : 1;
         profile.CurrentStreak = firstTry ? profile.CurrentStreak + 1 : 0;
         profile.BestStreak = Math.Max(profile.BestStreak, profile.CurrentStreak);
-
-        if (_currentQuestion.SubjectKey == "math")
-        {
-            AppState.GetOperationProgress(_currentQuestion.OperationKey).WindowCorrect += 1;
-        }
+        RecordQuestionOutcome(firstTry
+            ? LearningOutcome.FirstTryCorrect
+            : LearningOutcome.HintAssistedCorrect);
 
         int awardCountBefore = profile.UnlockedAwards.Count;
         string adaptiveMessage = EvaluateAdaptiveProgress();
@@ -215,6 +208,7 @@ public partial class LearningModule : Control
         _questionResolved = true;
         SetOptionButtonsEnabled(false);
         _optionButtons[_currentQuestion.CorrectIndex].Modulate = new Color(0.72f, 1f, 0.72f);
+        RecordQuestionOutcome(LearningOutcome.Corrected);
         string adaptiveMessage = EvaluateAdaptiveProgress();
         _feedbackLabel.Text = BuildCorrectionFeedback(adaptiveMessage);
         _nextButton.Text = "Next Question";
@@ -246,6 +240,7 @@ public partial class LearningModule : Control
         _questionResolved = true;
         SetOptionButtonsEnabled(false);
         _optionButtons[_currentQuestion.CorrectIndex].Modulate = new Color(0.72f, 1f, 0.72f);
+        RecordQuestionOutcome(LearningOutcome.Skipped);
         string adaptiveMessage = EvaluateAdaptiveProgress();
         _feedbackLabel.Text = BuildCorrectionFeedback(adaptiveMessage);
         _nextButton.Text = "Next Question";
@@ -292,6 +287,23 @@ public partial class LearningModule : Control
 
         _engine.TryApplyAdaptiveProgress(_currentQuestion.OperationKey, out string message);
         return message;
+    }
+
+    private void RecordQuestionOutcome(LearningOutcome outcome)
+    {
+        var profile = AppState.ActiveProfile!;
+        SubjectProgress subjectProgress = AppState.GetSubjectProgress(AppState.CurrentSubjectKey);
+        AdaptiveMastery.RecordOutcome(profile.Outcomes, outcome);
+        AdaptiveMastery.RecordOutcome(subjectProgress.Outcomes, outcome);
+
+        if (_currentQuestion.SubjectKey != "math")
+        {
+            return;
+        }
+
+        OperationProgress operationProgress = AppState.GetOperationProgress(_currentQuestion.OperationKey);
+        AdaptiveMastery.RecordOutcome(operationProgress.Outcomes, outcome);
+        AdaptiveMastery.RecordWindowOutcome(operationProgress, outcome);
     }
 
     private string BuildSuccessFeedback(bool firstTry, string adaptiveMessage, int awardCountBefore)
@@ -371,7 +383,7 @@ public partial class LearningModule : Control
         int towardAdventure = Math.Min(target, profile.CorrectSinceMiniGame);
 
         _statusLabel.Text =
-            $"{profile.FirstName} · Grade {AppState.CurrentGrade} · Mastered {subjectProgress.TotalCorrect}/{subjectProgress.TotalAttempted}";
+            $"{profile.FirstName} · Grade {AppState.CurrentGrade} · First try {subjectProgress.Outcomes.FirstTryCorrect} · With a hint {subjectProgress.Outcomes.HintAssistedCorrect} · Questions tried {subjectProgress.TotalAttempted}";
         _progressLabel.Text =
             $"Prairie Stars: {profile.PrairieStars} · Streak: {profile.CurrentStreak} (best {profile.BestStreak})";
         _badgeLabel.Text =
