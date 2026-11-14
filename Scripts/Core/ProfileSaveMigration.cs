@@ -127,7 +127,9 @@ public static class ProfileSaveMigration
         if (profile.OperationProgress == null || profile.SubjectProgress == null
             || profile.UnlockedBadges == null || profile.UnlockedAwards == null
             || profile.MasteredLauraAreas == null || profile.Outcomes == null
-            || profile.Journey == null || profile.SavedSession == null)
+            || profile.Journey == null || profile.SavedSession == null
+            || profile.TownInventory == null || profile.TownDiscoveries == null
+            || profile.FieldJournalEntries == null)
         {
             error = "A required profile collection or progress section is missing.";
             return false;
@@ -215,6 +217,8 @@ public static class ProfileSaveMigration
         profile.CurrentStreak = Math.Max(0, profile.CurrentStreak);
         profile.BestStreak = Math.Max(profile.CurrentStreak, profile.BestStreak);
         profile.TotalLearningSeconds = Math.Max(0, profile.TotalLearningSeconds);
+        PrairieTownEconomy.Normalize(profile);
+        HuntingWithPaProgress.Normalize(profile);
         profile.SchemaVersion = 2;
     }
 
@@ -258,6 +262,8 @@ public static class ProfileSaveMigration
         profile.SessionsCompleted = Math.Max(0, profile.SessionsCompleted);
         profile.CorrectSinceMiniGame = Math.Max(0, profile.CorrectSinceMiniGame);
         profile.MiniGamesCompleted = Math.Max(0, profile.MiniGamesCompleted);
+        PrairieTownEconomy.Normalize(profile);
+        HuntingWithPaProgress.Normalize(profile);
     }
 
     private static void NormalizeOutcomes(LearningOutcomeCounts outcomes)
@@ -283,6 +289,8 @@ public static class ProfileSaveMigration
             || profile.GameScore < 0 || profile.SessionsCompleted < 0
             || profile.CorrectSinceMiniGame < 0 || profile.MiniGamesCompleted < 0
             || profile.LauraChapterReplays < 0 || profile.PrairieStars < 0
+            || profile.PrairiePennies < 0 || profile.TownVisitCount < 0
+            || profile.HuntingTripsCompleted < 0
             || profile.CurrentStreak < 0 || profile.BestStreak < profile.CurrentStreak
             || profile.TotalLearningSeconds < 0;
     }

@@ -44,10 +44,10 @@ theme_override_constants/margin_bottom = 72
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="SafeArea/Center" unique_id=756159053]
-custom_minimum_size = Vector2(760, 980)
+custom_minimum_size = Vector2(760, 600)
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel" unique_id=1253723608]
+[node name="Scroll" type="ScrollContainer" parent="SafeArea/Center/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,54 +58,60 @@ offset_right = -36.0
 offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel/Scroll" unique_id=1253723608]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=346282205]
+[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=346282205]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Choose A Subject"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ProfileLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=466214443]
+[node name="ProfileLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=466214443]
 layout_mode = 2
 text = "Profile"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="MathButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=305731422]
+[node name="MathButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=305731422]
 layout_mode = 2
 text = "Math"
 
-[node name="ScienceButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=171754979]
+[node name="ScienceButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=171754979]
 layout_mode = 2
 text = "Science"
 
-[node name="HistoryButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1298597694]
+[node name="HistoryButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1298597694]
 layout_mode = 2
 text = "History"
 
-[node name="SocialStudiesButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=2017144810]
+[node name="SocialStudiesButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=2017144810]
 layout_mode = 2
 text = "Social Studies"
 
-[node name="GeographyButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=804710036]
+[node name="GeographyButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=804710036]
 layout_mode = 2
 text = "Geography"
 
-[node name="EnglishButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1478984991]
+[node name="EnglishButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1478984991]
 layout_mode = 2
 text = "English"
 
-[node name="ProfileButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1713899377]
+[node name="ProfileButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1713899377]
 layout_mode = 2
 text = "Switch Profile"
 
-[node name="GradeButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=93345458]
+[node name="GradeButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=93345458]
 layout_mode = 2
 text = "Change Grade"
 
-[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1702187800]
+[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1702187800]
 layout_mode = 2
-text = "Back To Home"
+text = "Return to Town"

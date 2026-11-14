@@ -44,10 +44,10 @@ theme_override_constants/margin_bottom = 72
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="SafeArea/Center" unique_id=1989523248]
-custom_minimum_size = Vector2(720, 640)
+custom_minimum_size = Vector2(720, 600)
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel" unique_id=492749047]
+[node name="Scroll" type="ScrollContainer" parent="SafeArea/Center/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,34 +58,40 @@ offset_right = -36.0
 offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel/Scroll" unique_id=492749047]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 14
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=749638613]
+[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=749638613]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Prairie Learning Break"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ActivityLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=91361626]
+[node name="ActivityLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=91361626]
 layout_mode = 2
 text = "Choose a short break"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="HuntingButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=897100649]
+[node name="HuntingButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=897100649]
 layout_mode = 2
 text = "Prairie Stretch Break"
 
-[node name="BakingButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=231271422]
+[node name="BakingButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=231271422]
 layout_mode = 2
 text = "Quiet Fiddle Breathing"
 
-[node name="ReturnButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1235882614]
+[node name="ReturnButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1235882614]
 layout_mode = 2
 text = "Return to Lesson"
 
-[node name="HomeButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1549771026]
+[node name="HomeButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1549771026]
 layout_mode = 2
-text = "Back to Home"
+text = "Return to Town"

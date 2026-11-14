@@ -15,6 +15,7 @@ public partial class LearningModule : Control
     private bool _transitioning;
 
     private TextureRect _background = null!;
+    private ScrollContainer _scroll = null!;
     private Label _titleLabel = null!;
     private Label _questionLabel = null!;
     private Label _feedbackLabel = null!;
@@ -39,6 +40,7 @@ public partial class LearningModule : Control
         }
 
         _background = GetNode<TextureRect>("Background");
+        _scroll = GetNode<ScrollContainer>("Panel/Scroll");
         _titleLabel = GetNode<Label>("Panel/Scroll/VBox/TitleLabel");
         _questionLabel = GetNode<Label>("Panel/Scroll/VBox/QuestionLabel");
         _feedbackLabel = GetNode<Label>("Panel/Scroll/VBox/FeedbackLabel");
@@ -155,6 +157,7 @@ public partial class LearningModule : Control
         subjectProgress.TotalCorrect += 1;
         profile.CorrectSinceMiniGame += 1;
         profile.PrairieStars += firstTry ? 2 : 1;
+        PrairieTownEconomy.AwardLearningReward(profile, firstTry);
         profile.CurrentStreak = firstTry ? profile.CurrentStreak + 1 : 0;
         profile.BestStreak = Math.Max(profile.BestStreak, profile.CurrentStreak);
         RecordQuestionOutcome(firstTry
@@ -165,7 +168,7 @@ public partial class LearningModule : Control
         string adaptiveMessage = EvaluateAdaptiveProgress();
         AppState.UnlockEligibleBadges();
 
-        _feedbackLabel.Text = BuildSuccessFeedback(firstTry, adaptiveMessage, awardCountBefore);
+        ShowFeedback(BuildSuccessFeedback(firstTry, adaptiveMessage, awardCountBefore));
         _questionResolved = true;
         SetOptionButtonsEnabled(false);
         _optionButtons[_currentQuestion.CorrectIndex].Modulate = new Color(0.72f, 1f, 0.72f);
@@ -196,10 +199,7 @@ public partial class LearningModule : Control
         {
             _missedOnce = true;
             _optionButtons[optionIndex].Disabled = true;
-            string hint = string.IsNullOrWhiteSpace(_currentQuestion.Hint)
-                ? "Look for the choice that best fits the question, then try once more."
-                : _currentQuestion.Hint;
-            _feedbackLabel.Text = $"Good try. Hint: {hint}";
+            ShowFeedback($"GOOD TRY — YOU CAN TRY AGAIN\n\n{QuestionExplanationBuilder.BuildHint(_currentQuestion)}");
             AppState.SaveProfile();
             UpdateStatus();
             return;
@@ -210,7 +210,7 @@ public partial class LearningModule : Control
         _optionButtons[_currentQuestion.CorrectIndex].Modulate = new Color(0.72f, 1f, 0.72f);
         RecordQuestionOutcome(LearningOutcome.Corrected);
         string adaptiveMessage = EvaluateAdaptiveProgress();
-        _feedbackLabel.Text = BuildCorrectionFeedback(adaptiveMessage);
+        ShowFeedback(BuildCorrectionFeedback(adaptiveMessage));
         _nextButton.Text = "Next Question";
         AppState.SaveProfile();
         UpdateStatus();
@@ -242,7 +242,7 @@ public partial class LearningModule : Control
         _optionButtons[_currentQuestion.CorrectIndex].Modulate = new Color(0.72f, 1f, 0.72f);
         RecordQuestionOutcome(LearningOutcome.Skipped);
         string adaptiveMessage = EvaluateAdaptiveProgress();
-        _feedbackLabel.Text = BuildCorrectionFeedback(adaptiveMessage);
+        ShowFeedback(BuildCorrectionFeedback(adaptiveMessage));
         _nextButton.Text = "Next Question";
         AppState.SaveProfile();
         UpdateStatus();
@@ -256,7 +256,8 @@ public partial class LearningModule : Control
         _missedOnce = false;
         _adventureReady = false;
         _feedbackLabel.Text = "";
-        _nextButton.Text = "Skip & Explain";
+        _feedbackLabel.Visible = false;
+        _nextButton.Text = "Skip — Show Answer & Explanation";
 
         string context = AppState.GetCanonDisplayName(_currentQuestion.Canon);
         _questionLabel.Text = $"{context}\n{_currentQuestion.Prompt}";
@@ -308,11 +309,10 @@ public partial class LearningModule : Control
 
     private string BuildSuccessFeedback(bool firstTry, string adaptiveMessage, int awardCountBefore)
     {
-        string explanation = string.IsNullOrWhiteSpace(_currentQuestion.SuccessText)
-            ? "Correct!"
-            : _currentQuestion.SuccessText;
+        string explanation = QuestionExplanationBuilder.Build(_currentQuestion);
         string starText = firstTry ? "+2 Prairie Stars" : "+1 Prairie Star for learning from the hint";
-        string result = $"{explanation}\n{starText}";
+        string pennyText = firstTry ? "+2 Prairie Pennies" : "+1 Prairie Penny";
+        string result = $"{explanation}\n\nREWARD\n{starText} · {pennyText}";
 
         if (!string.IsNullOrWhiteSpace(_currentQuestion.SourceTitle))
         {
@@ -335,11 +335,7 @@ public partial class LearningModule : Control
 
     private string BuildCorrectionFeedback(string adaptiveMessage)
     {
-        string answer = _currentQuestion.Options[_currentQuestion.CorrectIndex];
-        string explanation = string.IsNullOrWhiteSpace(_currentQuestion.SuccessText)
-            ? "Review the idea, then try a new question."
-            : _currentQuestion.SuccessText;
-        string result = $"The best answer is {answer}. {explanation}";
+        string result = QuestionExplanationBuilder.Build(_currentQuestion);
 
         if (!string.IsNullOrWhiteSpace(_currentQuestion.SourceTitle))
         {
@@ -352,6 +348,20 @@ public partial class LearningModule : Control
         }
 
         return result;
+    }
+
+    private void ShowFeedback(string text)
+    {
+        _feedbackLabel.Text = text;
+        _feedbackLabel.Visible = true;
+        GetTree().ProcessFrame -= ScrollExplanationIntoView;
+        GetTree().ProcessFrame += ScrollExplanationIntoView;
+    }
+
+    private void ScrollExplanationIntoView()
+    {
+        GetTree().ProcessFrame -= ScrollExplanationIntoView;
+        _scroll.ScrollVertical = Math.Max(0, (int)_feedbackLabel.Position.Y - 8);
     }
 
     private void SetOptionButtonsEnabled(bool enabled)
@@ -385,7 +395,7 @@ public partial class LearningModule : Control
         _statusLabel.Text =
             $"{profile.DisplayName} · Grade {AppState.CurrentGrade} · First try {subjectProgress.Outcomes.FirstTryCorrect} · With a hint {subjectProgress.Outcomes.HintAssistedCorrect} · Questions tried {subjectProgress.TotalAttempted}";
         _progressLabel.Text =
-            $"Prairie Stars: {profile.PrairieStars} · Streak: {profile.CurrentStreak} (best {profile.BestStreak})";
+            $"Prairie Stars: {profile.PrairieStars} · Prairie Pennies: {profile.PrairiePennies} · Streak: {profile.CurrentStreak} (best {profile.BestStreak})";
         _badgeLabel.Text =
             $"Adventure meter: {towardAdventure}/{target} · Badges: {profile.UnlockedBadges.Count}";
     }
@@ -418,7 +428,7 @@ public partial class LearningModule : Control
     private void OnHomePressed()
     {
         SaveAndExit();
-        GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+        GetTree().ChangeSceneToFile("res://Scenes/PrairieTown.tscn");
     }
 
     private void SaveAndExit()

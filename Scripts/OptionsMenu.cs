@@ -10,14 +10,14 @@ public partial class OptionsMenu : Control
         AppState.Initialize();
         UiHelpers.ApplyConfiguredFont(this);
 
-        var musicSlider = GetNode<HSlider>("SafeArea/Center/Panel/VBox/MusicSlider");
-        var sfxSlider = GetNode<HSlider>("SafeArea/Center/Panel/VBox/SfxSlider");
-        var muteToggle = GetNode<CheckBox>("SafeArea/Center/Panel/VBox/MuteToggle");
-        var largeTextToggle = GetNode<CheckBox>("SafeArea/Center/Panel/VBox/LargeTextToggle");
-        var highContrastToggle = GetNode<CheckBox>("SafeArea/Center/Panel/VBox/HighContrastToggle");
-        var reducedMotionToggle = GetNode<CheckBox>("SafeArea/Center/Panel/VBox/ReducedMotionToggle");
-        _resolutionSelect = GetNode<OptionButton>("SafeArea/Center/Panel/VBox/ResolutionSelect");
-        _displayModeSelect = GetNode<OptionButton>("SafeArea/Center/Panel/VBox/DisplayModeSelect");
+        var musicSlider = GetNode<HSlider>("SafeArea/Center/Panel/Scroll/VBox/MusicSlider");
+        var sfxSlider = GetNode<HSlider>("SafeArea/Center/Panel/Scroll/VBox/SfxSlider");
+        var muteToggle = GetNode<CheckBox>("SafeArea/Center/Panel/Scroll/VBox/MuteToggle");
+        var largeTextToggle = GetNode<CheckBox>("SafeArea/Center/Panel/Scroll/VBox/LargeTextToggle");
+        var highContrastToggle = GetNode<CheckBox>("SafeArea/Center/Panel/Scroll/VBox/HighContrastToggle");
+        var reducedMotionToggle = GetNode<CheckBox>("SafeArea/Center/Panel/Scroll/VBox/ReducedMotionToggle");
+        _resolutionSelect = GetNode<OptionButton>("SafeArea/Center/Panel/Scroll/VBox/ResolutionSelect");
+        _displayModeSelect = GetNode<OptionButton>("SafeArea/Center/Panel/Scroll/VBox/DisplayModeSelect");
 
         musicSlider.Value = AppState.Settings.MusicVolume;
         sfxSlider.Value = AppState.Settings.SfxVolume;
@@ -67,7 +67,7 @@ public partial class OptionsMenu : Control
 
         _resolutionSelect.ItemSelected += OnResolutionSelected;
         _displayModeSelect.ItemSelected += OnDisplayModeSelected;
-        GetNode<Button>("SafeArea/Center/Panel/VBox/BackButton").Pressed += () => GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/BackButton").Pressed += () => GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
     }
 
     private void PopulateDisplayOptions()

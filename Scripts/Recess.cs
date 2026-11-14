@@ -23,9 +23,9 @@ public partial class Recess : Control
             music.Play();
         }
 
-        _activityLabel = GetNode<Label>("SafeArea/Center/Panel/VBox/ActivityLabel");
-        _stretchButton = GetNode<Button>("SafeArea/Center/Panel/VBox/HuntingButton");
-        _breathingButton = GetNode<Button>("SafeArea/Center/Panel/VBox/BakingButton");
+        _activityLabel = GetNode<Label>("SafeArea/Center/Panel/Scroll/VBox/ActivityLabel");
+        _stretchButton = GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/HuntingButton");
+        _breathingButton = GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/BakingButton");
         _stretchButton.Text = "Prairie Stretch · +2 health · +1 morale";
         _breathingButton.Text = "Quiet Fiddle Breathing · +1 health · +2 morale";
         _activityLabel.Text = BuildBreakIntro();
@@ -33,9 +33,9 @@ public partial class Recess : Control
         _stretchButton.Pressed += () => StartOrAdvanceBreak("stretch");
         _breathingButton.Pressed += () => StartOrAdvanceBreak("breathing");
 
-        GetNode<Button>("SafeArea/Center/Panel/VBox/ReturnButton").Pressed += ReturnToLesson;
-        GetNode<Button>("SafeArea/Center/Panel/VBox/HomeButton").Pressed += () =>
-            GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/ReturnButton").Pressed += ReturnToLesson;
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/HomeButton").Pressed += () =>
+            GetTree().ChangeSceneToFile("res://Scenes/PrairieTown.tscn");
     }
 
     private void StartOrAdvanceBreak(string mode)

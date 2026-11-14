@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 public static class UiHelpers
 {
@@ -20,6 +21,8 @@ public static class UiHelpers
         EnsureUiFont();
 
         NormalizeControlTree(root);
+        ConfigureAccessibility(root);
+        Callable.From(() => FocusFirstAvailable(root)).CallDeferred();
     }
 
     public static void ApplyFixedWindow()
@@ -36,6 +39,33 @@ public static class UiHelpers
 
         EnsureUiFont();
         NormalizeControlTree(control);
+    }
+
+    public static bool ShouldReduceMotion()
+    {
+        return AccessibilitySupport.ShouldReduceMotion(
+            AppState.Settings.ReducedMotion,
+            DisplayServer.AccessibilityShouldReduceAnimation());
+    }
+
+    public static bool ShouldUseHighContrast()
+    {
+        return AccessibilitySupport.ShouldUseHighContrast(
+            AppState.Settings.HighContrast,
+            DisplayServer.AccessibilityShouldIncreaseContrast());
+    }
+
+    public static void FocusFirstAvailable(Control root)
+    {
+        if (!GodotObject.IsInstanceValid(root)
+            || !root.IsInsideTree()
+            || root.GetViewport().GuiGetFocusOwner() != null)
+        {
+            return;
+        }
+
+        Control first = FindFirstFocusable(root);
+        first?.GrabFocus();
     }
 
     private static void EnsureUiFont()
@@ -123,9 +153,9 @@ public static class UiHelpers
 
     private static void NormalizeControl(Control control)
     {
-        Color lightText = AppState.Settings.HighContrast ? Colors.White : LightText;
-        Color buttonText = AppState.Settings.HighContrast ? new Color(1f, 0.96f, 0.62f) : ButtonText;
-        int textBoost = AppState.Settings.LargeText ? 4 : 0;
+        Color lightText = ShouldUseHighContrast() ? Colors.White : LightText;
+        Color buttonText = ShouldUseHighContrast() ? new Color(1f, 0.96f, 0.62f) : ButtonText;
+        int textBoost = AppState.Settings.LargeText ? 6 : 0;
 
         if (control is Button button)
         {
@@ -212,8 +242,27 @@ public static class UiHelpers
             checkBox.AddThemeFontSizeOverride("font_size", 22 + textBoost);
         }
 
+        if (control is Godot.Range range)
+        {
+            range.FocusMode = Control.FocusModeEnum.All;
+            range.CustomMinimumSize = new Vector2(
+                range.CustomMinimumSize.X,
+                Mathf.Max(range.CustomMinimumSize.Y, 56));
+            if (string.IsNullOrWhiteSpace(range.AccessibilityName))
+            {
+                range.AccessibilityName = HumanizeName(range.Name.ToString());
+            }
+        }
+
         if (control is LineEdit lineEdit)
         {
+            lineEdit.FocusMode = Control.FocusModeEnum.All;
+            if (string.IsNullOrWhiteSpace(lineEdit.AccessibilityName))
+            {
+                lineEdit.AccessibilityName = string.IsNullOrWhiteSpace(lineEdit.PlaceholderText)
+                    ? HumanizeName(lineEdit.Name.ToString())
+                    : lineEdit.PlaceholderText;
+            }
             lineEdit.AddThemeColorOverride("font_color", DarkText);
             lineEdit.AddThemeColorOverride("font_placeholder_color", new Color(0.38f, 0.30f, 0.24f));
             lineEdit.AddThemeFontOverride("font", _uiFont);
@@ -224,6 +273,7 @@ public static class UiHelpers
 
         if (control is SpinBox spinBox)
         {
+            spinBox.FocusMode = Control.FocusModeEnum.All;
             spinBox.CustomMinimumSize = new Vector2(
                 Mathf.Max(spinBox.CustomMinimumSize.X, 560),
                 Mathf.Max(spinBox.CustomMinimumSize.Y, 64));
@@ -236,6 +286,11 @@ public static class UiHelpers
 
         if (control is ItemList itemList)
         {
+            itemList.FocusMode = Control.FocusModeEnum.All;
+            if (string.IsNullOrWhiteSpace(itemList.AccessibilityName))
+            {
+                itemList.AccessibilityName = HumanizeName(itemList.Name.ToString());
+            }
             itemList.AddThemeColorOverride("font_color", DarkText);
             itemList.AddThemeColorOverride("font_selected_color", buttonText);
             itemList.AddThemeFontOverride("font", _uiFont);
@@ -249,16 +304,90 @@ public static class UiHelpers
             control.SizeFlagsVertical = Control.SizeFlags.ShrinkCenter;
             control.AddThemeStyleboxOverride("panel", BuildPanelBox());
         }
+
+        string controlName = control.Name.ToString();
+        if (control is Label
+            && (controlName.Contains("Feedback", StringComparison.OrdinalIgnoreCase)
+                || controlName.Contains("Status", StringComparison.OrdinalIgnoreCase)
+                || controlName.Contains("Progress", StringComparison.OrdinalIgnoreCase)))
+        {
+            control.AccessibilityLive = AccessibilityServer.AccessibilityLiveMode.Polite;
+        }
+
+        if (control.FocusMode != Control.FocusModeEnum.None)
+        {
+            control.AddThemeStyleboxOverride("focus", BuildFocusBox());
+        }
+    }
+
+    private static void ConfigureAccessibility(Control root)
+    {
+        string screenName = HumanizeName(root.Name.ToString());
+        root.AccessibilityName = screenName;
+        root.AccessibilityDescription =
+            "Use Tab or arrow navigation and Enter or Space to activate controls. Controller directional navigation and the primary action button are also supported.";
+        Window window = root.GetWindow();
+        if (window != null)
+        {
+            window.AccessibilityName = $"Learn With Laura — {screenName}";
+            window.AccessibilityDescription = root.AccessibilityDescription;
+        }
+    }
+
+    private static Control FindFirstFocusable(Control root)
+    {
+        foreach (Node child in root.GetChildren())
+        {
+            if (child is not Control control || !control.IsVisibleInTree())
+            {
+                continue;
+            }
+
+            bool disabled = control is BaseButton button && button.Disabled;
+            if (!disabled && control.FocusMode != Control.FocusModeEnum.None)
+            {
+                return control;
+            }
+
+            Control nested = FindFirstFocusable(control);
+            if (nested != null)
+            {
+                return nested;
+            }
+        }
+
+        return null!;
+    }
+
+    private static string HumanizeName(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return "Control";
+        }
+
+        var result = new System.Text.StringBuilder(value.Length + 8);
+        for (int index = 0; index < value.Length; index++)
+        {
+            char current = value[index];
+            if (index > 0 && char.IsUpper(current) && !char.IsWhiteSpace(value[index - 1]))
+            {
+                result.Append(' ');
+            }
+            result.Append(current);
+        }
+
+        return result.ToString();
     }
 
     private static StyleBoxFlat BuildPanelBox()
     {
         return new StyleBoxFlat
         {
-            BgColor = AppState.Settings.HighContrast
+            BgColor = ShouldUseHighContrast()
                 ? new Color(0.035f, 0.025f, 0.02f, 0.96f)
                 : new Color(0.12f, 0.08f, 0.055f, 0.82f),
-            BorderColor = AppState.Settings.HighContrast
+            BorderColor = ShouldUseHighContrast()
                 ? new Color(1f, 0.86f, 0.34f)
                 : new Color(0.67f, 0.45f, 0.23f),
             BorderWidthLeft = 3,

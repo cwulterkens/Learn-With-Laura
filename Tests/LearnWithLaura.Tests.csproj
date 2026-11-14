@@ -16,13 +16,19 @@
 
   <ItemGroup>
     <Compile Include="../Scripts/Core/AdventureProgress.cs" Link="Core/AdventureProgress.cs" />
+    <Compile Include="../Scripts/Core/AccessibilitySupport.cs" Link="Core/AccessibilitySupport.cs" />
     <Compile Include="../Scripts/Core/AdaptiveMastery.cs" Link="Core/AdaptiveMastery.cs" />
     <Compile Include="../Scripts/Core/JsonRecovery.cs" Link="Core/JsonRecovery.cs" />
     <Compile Include="../Scripts/Core/JourneyResources.cs" Link="Core/JourneyResources.cs" />
+    <Compile Include="../Scripts/Core/HuntingWithPaProgress.cs" Link="Core/HuntingWithPaProgress.cs" />
+    <Compile Include="../Scripts/Core/QuestionExplanationBuilder.cs" Link="Core/QuestionExplanationBuilder.cs" />
+    <Compile Include="../Scripts/Core/SubjectQuestionBank.cs" Link="Core/SubjectQuestionBank.cs" />
     <Compile Include="../Scripts/Core/ProfileRecovery.cs" Link="Core/ProfileRecovery.cs" />
     <Compile Include="../Scripts/Core/ProfileDataManagement.cs" Link="Core/ProfileDataManagement.cs" />
     <Compile Include="../Scripts/Core/ProfileSaveMigration.cs" Link="Core/ProfileSaveMigration.cs" />
     <Compile Include="../Scripts/Core/ProfileSelectionRules.cs" Link="Core/ProfileSelectionRules.cs" />
+    <Compile Include="../Scripts/Core/PrairieTownEconomy.cs" Link="Core/PrairieTownEconomy.cs" />
+    <Compile Include="../Scripts/Core/PrairieTownCollision.cs" Link="Core/PrairieTownCollision.cs" />
     <Compile Include="../Scripts/Models/GameModels.cs" Link="Models/GameModels.cs" />
   </ItemGroup>
 

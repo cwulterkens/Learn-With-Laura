@@ -41,7 +41,9 @@ When two categories matter, the prompt names the comparison and the label identi
 
 ## Item and source policy
 
-Each item includes `Id`, `GradeMin`, `GradeMax`, `SkillId`, `Canon`, `Prompt`, four `Options`, `CorrectIndex`, `Hint`, `SuccessText`, `SourceTitle`, and `SourceUrl`.
+Each authored item includes `Id`, `GradeMin`, `GradeMax`, `SkillId`, `Canon`, `Prompt`, four `Options`, `CorrectIndex`, `Hint`, `SuccessText`, `SourceTitle`, and `SourceUrl`. Optional `HowTo` and `Example` fields provide a reusable method and worked check; older packs without them receive structured fallbacks from their hint and subject.
+
+In addition to the 180 authored items, the runtime builds 64 deterministic questions for each exact grade in science, history, social studies, geography, and English. This supplies 512 unique questions per non-math subject before the authored pack is added. Each generated item includes a skill identifier, explanation, how-to, example, and source family. Tests enforce the count, unique IDs and prompts, four distinct choices, valid answer indexes, and complete instructional support.
 
 - IDs and prompts must be unique. IDs are stable once released so learner records and analytics remain interpretable.
 - Sources should be authoritative and close to the claim: National Park Service, Library of Congress, Smithsonian/National Museum of the American Indian, Minnesota Historical Society, American Printing House for the Blind, published curriculum standards, and established scholarly projects.
@@ -64,7 +66,7 @@ These files are an authored draft, not a claim that consultation has already occ
 
 1. **Educator review:** Elementary and middle-grade educators should check standards fit, reading level, answer defensibility, distractor quality, hints, explanations, and the actual difficulty progression in every band. Classroom or playtest evidence should be used to revise items that confuse careful learners.
 2. **Osage review:** Engage and compensate an Osage Nation-approved cultural or educational reviewer for all Osage, Kansas, reserve, treaty, sovereignty, and settlement material. Follow requested terminology, sourcing, scope, and any decision not to use a particular activity or framing.
-3. **Disability and accessibility review:** Engage a disability-history reviewer and blind or low-vision testers, including review of Mary Ingalls material. Verify screen-reader output, keyboard and switch access, contrast, scalable text, non-audio cues, input timing, and alternatives to precision or rapid-response play.
+3. **Disability and accessibility review:** Engage a disability-history reviewer and compensated blind or low-vision testers, including review of Mary Ingalls material. Verify screen-reader output, keyboard and switch access, contrast, scalable text, non-audio cues, input timing, and alternatives to precision or rapid-response play using the test matrix in `docs/ACCESSIBILITY.md`.
 4. **Editorial fact check:** Re-open every cited source, record the check date outside the learner-facing text, verify names/dates/places, and confirm that book and TV details remain labeled as adaptations.
 5. **Playtest and bias review:** Test with learners across the stated grade bands and with varied reading, motor, sensory, and cognitive needs. Review answer-position balance, accidental clues, culturally loaded assumptions, and whether feedback invites another try without shame.
 

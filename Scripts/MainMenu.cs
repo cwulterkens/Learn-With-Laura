@@ -14,8 +14,8 @@ public partial class MainMenu : Control
 			music.Play();
 		}
 
-		var welcome = GetNode<Label>("SafeArea/Center/Panel/VBox/WelcomeLabel");
-		var continueButton = GetNode<Button>("SafeArea/Center/Panel/VBox/ContinueButton");
+		var welcome = GetNode<Label>("SafeArea/Center/Panel/Scroll/VBox/WelcomeLabel");
+		var continueButton = GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/ContinueButton");
 		if (AppState.ActiveProfile == null)
 		{
 			welcome.Text = "No local learner selected";
@@ -23,46 +23,30 @@ public partial class MainMenu : Control
 		}
 			else
 			{
-				welcome.Text = $"Welcome, {AppState.ActiveProfile.DisplayName} · Prairie Stars {AppState.ActiveProfile.PrairieStars} · Trail Score {AppState.ActiveProfile.GameScore} · Badges {AppState.ActiveProfile.UnlockedAwards.Count}";
+				welcome.Text = $"Welcome, {AppState.ActiveProfile.DisplayName} · Prairie Stars {AppState.ActiveProfile.PrairieStars} · Prairie Pennies {AppState.ActiveProfile.PrairiePennies} · Badges {AppState.ActiveProfile.UnlockedAwards.Count}";
 				continueButton.Visible = AppState.HasResumePoint();
 				continueButton.Text = AppState.GetResumeLabel();
 			}
 
-			GetNode<Button>("SafeArea/Center/Panel/VBox/TrailButton").Text = "Explore Laura's World (Free Play)";
-
 		continueButton.Pressed += OnContinuePressed;
-		GetNode<Button>("SafeArea/Center/Panel/VBox/LearnButton").Pressed += OnLearnPressed;
-		GetNode<Button>("SafeArea/Center/Panel/VBox/TrailButton").Pressed += OnTrailPressed;
-		GetNode<Button>("SafeArea/Center/Panel/VBox/ProgressButton").Pressed += OnProgressPressed;
-		GetNode<Button>("SafeArea/Center/Panel/VBox/ProfilesButton").Pressed += OnProfilesPressed;
-		GetNode<Button>("SafeArea/Center/Panel/VBox/SettingsButton").Pressed += OnOptionsPressed;
-		GetNode<Button>("SafeArea/Center/Panel/VBox/ExitButton").Pressed += () => GetTree().Quit();
+		GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/TownButton").Pressed += OnTownPressed;
+		GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/ProgressButton").Pressed += OnProgressPressed;
+		GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/ProfilesButton").Pressed += OnProfilesPressed;
+		GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/SettingsButton").Pressed += OnOptionsPressed;
+		GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/ExitButton").Pressed += () => GetTree().Quit();
 	}
 
-	private void OnLearnPressed()
+	private void OnTownPressed()
 	{
 		AppState.PendingLauraFreePlay = false;
 		if (AppState.ActiveProfile == null)
 		{
-			AppState.PendingSceneAfterProfile = "res://Scenes/GradeSelection.tscn";
+			AppState.PendingSceneAfterProfile = "res://Scenes/PrairieTown.tscn";
 			GetTree().ChangeSceneToFile("res://Scenes/ProfileSelection.tscn");
 			return;
 		}
 
-		GetTree().ChangeSceneToFile("res://Scenes/GradeSelection.tscn");
-	}
-
-	private void OnTrailPressed()
-	{
-		AppState.PendingLauraFreePlay = true;
-		if (AppState.ActiveProfile == null)
-		{
-			AppState.PendingSceneAfterProfile = "res://Scenes/LauraMiniGame.tscn";
-			GetTree().ChangeSceneToFile("res://Scenes/ProfileSelection.tscn");
-			return;
-		}
-
-		GetTree().ChangeSceneToFile("res://Scenes/LauraMiniGame.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/PrairieTown.tscn");
 	}
 
 	private void OnContinuePressed()
@@ -85,7 +69,7 @@ public partial class MainMenu : Control
 	private void OnProfilesPressed()
 	{
 		AppState.PendingLauraFreePlay = false;
-		AppState.PendingSceneAfterProfile = "res://Scenes/MainMenu.tscn";
+		AppState.PendingSceneAfterProfile = "res://Scenes/PrairieTown.tscn";
 		GetTree().ChangeSceneToFile("res://Scenes/ProfileSelection.tscn");
 	}
 

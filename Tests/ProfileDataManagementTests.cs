@@ -91,6 +91,11 @@ public class ProfileDataManagementTests
         Assert.Equal(4, profile.CurrentGrade);
         Assert.Equal(0, profile.TotalAttempted);
         Assert.Equal(0, profile.PrairieStars);
+        Assert.Equal(0, profile.PrairiePennies);
+        Assert.Empty(profile.TownInventory);
+        Assert.False(profile.TownRewardInitialized);
+        Assert.Equal(0, profile.HuntingTripsCompleted);
+        Assert.Empty(profile.FieldJournalEntries);
         Assert.Empty(profile.UnlockedBadges);
         Assert.Empty(profile.MasteredLauraAreas);
         Assert.False(profile.SavedSession.HasResumePoint);
@@ -149,6 +154,8 @@ public class ProfileDataManagementTests
             Journey = new JourneyProgress { Miles = 80 },
             MasteredLauraAreas = new List<string> { "big_woods" },
             UnlockedBadges = new List<string> { "first_correct" },
+            HuntingTripsCompleted = 2,
+            FieldJournalEntries = new List<string> { "rabbit|Rabbit tracks" },
             SavedSession = new SavedSessionData { ScenePath = "res://Scenes/LearningModule.tscn" }
         };
         profile.SubjectProgress["math"] = new SubjectProgress

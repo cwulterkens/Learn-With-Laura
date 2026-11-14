@@ -18,10 +18,10 @@ public partial class ProfileSelection : Control
         AppState.Initialize();
         UiHelpers.ApplyConfiguredFont(this);
 
-        _profileList = GetNode<ItemList>("SafeArea/Center/Panel/VBox/Profiles");
-        _nameInput = GetNode<LineEdit>("SafeArea/Center/Panel/VBox/NewNameInput");
-        _statusLabel = GetNode<Label>("SafeArea/Center/Panel/VBox/StatusLabel");
-        _deleteButton = GetNode<Button>("SafeArea/Center/Panel/VBox/DeleteButton");
+        _profileList = GetNode<ItemList>("SafeArea/Center/Panel/Scroll/VBox/Profiles");
+        _nameInput = GetNode<LineEdit>("SafeArea/Center/Panel/Scroll/VBox/NewNameInput");
+        _statusLabel = GetNode<Label>("SafeArea/Center/Panel/Scroll/VBox/StatusLabel");
+        _deleteButton = GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/DeleteButton");
         _recoveryDialog = new ConfirmationDialog
         {
             Title = "Recover Local Profile"
@@ -32,10 +32,10 @@ public partial class ProfileSelection : Control
         _recoveryDialog.Canceled += OnRecoveryCanceled;
         _recoveryDialog.CustomAction += OnRecoveryCustomAction;
 
-        GetNode<Button>("SafeArea/Center/Panel/VBox/CreateButton").Pressed += OnCreatePressed;
-        GetNode<Button>("SafeArea/Center/Panel/VBox/SelectButton").Pressed += OnSelectPressed;
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/CreateButton").Pressed += OnCreatePressed;
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/SelectButton").Pressed += OnSelectPressed;
         _deleteButton.Pressed += OnDeletePressed;
-        GetNode<Button>("SafeArea/Center/Panel/VBox/BackButton").Pressed += OnBackPressed;
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/BackButton").Pressed += OnBackPressed;
         _profileList.ItemSelected += OnProfileHighlighted;
 
         RefreshList();

@@ -153,6 +153,15 @@ public static class ProfileDataManagement
             profile.UnlockedBadges = new List<string>();
             profile.UnlockedAwards = new List<string>();
             profile.PrairieStars = 0;
+            profile.PrairiePennies = 0;
+            profile.TownRewardInitialized = false;
+            profile.TownVisitCount = 0;
+            profile.TownInventory = new List<string>();
+            profile.TownDiscoveries = new List<string>();
+            profile.HuntingTripsCompleted = 0;
+            profile.FieldJournalEntries = new List<string>();
+            profile.TownPositionX = 170f;
+            profile.TownPositionY = 900f;
             profile.GameScore = 0;
             profile.LastPlayedSubject = "math";
             profile.SavedSession = new SavedSessionData();
@@ -199,6 +208,8 @@ public static class ProfileDataManagement
         profile.MiniGamesCompleted = 0;
         profile.LauraChapterReplays = 0;
         profile.MasteredLauraAreas = new List<string>();
+        profile.HuntingTripsCompleted = 0;
+        profile.FieldJournalEntries = new List<string>();
         profile.Journey = new JourneyProgress();
         profile.SavedSession ??= new SavedSessionData();
         if (profile.SavedSession.ScenePath == "res://Scenes/LauraMiniGame.tscn")

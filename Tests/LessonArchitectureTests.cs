@@ -42,6 +42,8 @@ public class LessonArchitectureTests
         Assert.Contains("UnlockEligibleBadges", lesson);
         Assert.Contains("SaveProfile", lesson);
         Assert.Contains("res://Scenes/Recess.tscn", lesson);
+        Assert.Contains("QuestionExplanationBuilder.Build", lesson);
+        Assert.Contains("Skip — Show Answer & Explanation", lesson);
     }
 
     private static string RepositoryFile(

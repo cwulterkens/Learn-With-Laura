@@ -1,0 +1,511 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://Scripts/PrairieTown.cs" id="1"]
+[ext_resource type="Texture2D" path="res://assets/prairie_town_map.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/prairie_player_sheet.png" id="3"]
+[ext_resource type="AudioStream" path="res://assets/laura_trail_theme.wav" id="4"]
+[ext_resource type="AudioStream" path="res://assets/sfx_select.wav" id="5"]
+[ext_resource type="FontFile" path="res://assets/fonts/AtkinsonHyperlegible-Regular.otf" id="6"]
+[ext_resource type="FontFile" path="res://assets/fonts/AtkinsonHyperlegible-Bold.otf" id="7"]
+[ext_resource type="Texture2D" path="res://assets/prairie_wagon.png" id="8"]
+[ext_resource type="Texture2D" path="res://assets/prairie_pa_field.png" id="9"]
+
+[sub_resource type="StyleBoxFlat" id="StylePanel"]
+bg_color = Color(0.105, 0.07, 0.04, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.88, 0.66, 0.31, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleButton"]
+bg_color = Color(0.53, 0.29, 0.13, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.91, 0.69, 0.34, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleButtonHover"]
+bg_color = Color(0.69, 0.4, 0.17, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.83, 0.45, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PrairieTown" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+clip_contents = true
+script = ExtResource("1")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Map" type="Sprite2D" parent="World"]
+texture_filter = 1
+texture = ExtResource("2")
+centered = false
+
+[node name="ExplorationWagon" type="Sprite2D" parent="World"]
+z_index = 4
+texture_filter = 1
+position = Vector2(517, 814)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8")
+
+[node name="PaFieldGuide" type="Sprite2D" parent="World"]
+z_index = 4
+texture_filter = 1
+position = Vector2(158, 330)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("9")
+
+[node name="Player" type="Sprite2D" parent="World"]
+z_index = 10
+texture_filter = 1
+position = Vector2(170, 900)
+scale = Vector2(0.105, 0.105)
+texture = ExtResource("3")
+hframes = 4
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4")
+autoplay = true
+
+[node name="SelectSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="Panel" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = -18.0
+offset_bottom = 94.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StylePanel")
+
+[node name="Margin" type="MarginContainer" parent="UI/HUD/TopBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="UI/HUD/TopBar/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="TitleLabel" type="Label" parent="UI/HUD/TopBar/Margin/HBox"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.91, 0.67, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 27
+text = "Prairie Town"
+vertical_alignment = 1
+
+[node name="CoinLabel" type="Label" parent="UI/HUD/TopBar/Margin/HBox"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.91, 0.67, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 22
+text = "Prairie Pennies: 0"
+vertical_alignment = 1
+
+[node name="LocationLabel" type="Label" parent="UI/HUD/TopBar/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.96, 0.84, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 21
+text = "Prairie Homestead"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SatchelButton" type="Button" parent="UI/HUD/TopBar/Margin/HBox"]
+custom_minimum_size = Vector2(150, 58)
+layout_mode = 2
+focus_mode = 1
+mouse_filter = 0
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Satchel"
+accessibility_name = "Open satchel inventory"
+
+[node name="HomeButton" type="Button" parent="UI/HUD/TopBar/Margin/HBox"]
+custom_minimum_size = Vector2(150, 58)
+layout_mode = 2
+focus_mode = 1
+mouse_filter = 0
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Main Menu"
+
+[node name="PromptPanel" type="Panel" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 12
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -90.0
+offset_right = -190.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StylePanel")
+
+[node name="Margin" type="MarginContainer" parent="UI/HUD/PromptPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 10.0
+offset_right = -18.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PromptLabel" type="Label" parent="UI/HUD/PromptPanel/Margin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.96, 0.84, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 21
+text = "Move with arrow keys or a controller · Press Enter/Space to interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+accessibility_live = 1
+
+[node name="MessagePanel" type="Panel" parent="UI/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -165.0
+offset_right = 390.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StylePanel")
+
+[node name="Margin" type="MarginContainer" parent="UI/HUD/MessagePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 26.0
+offset_right = -30.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/HUD/MessagePanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="MessageTitle" type="Label" parent="UI/HUD/MessagePanel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.45, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 30
+text = "Town Discovery"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="UI/HUD/MessagePanel/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.96, 0.84, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 23
+text = "Welcome to town."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+accessibility_live = 1
+
+[node name="ActionButton" type="Button" parent="UI/HUD/MessagePanel/Margin/VBox"]
+visible = false
+custom_minimum_size = Vector2(340, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Enter"
+
+[node name="CloseButton" type="Button" parent="UI/HUD/MessagePanel/Margin/VBox"]
+custom_minimum_size = Vector2(260, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Continue Exploring"
+
+[node name="StorePanel" type="Panel" parent="UI/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -455.0
+offset_top = -430.0
+offset_right = 455.0
+offset_bottom = 430.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StylePanel")
+
+[node name="Margin" type="MarginContainer" parent="UI/HUD/StorePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 28.0
+offset_right = -34.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroll" type="ScrollContainer" parent="UI/HUD/StorePanel/Margin"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="UI/HUD/StorePanel/Margin/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="StoreTitle" type="Label" parent="UI/HUD/StorePanel/Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.45, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 31
+text = "Town General Store"
+horizontal_alignment = 1
+
+[node name="StoreBalanceLabel" type="Label" parent="UI/HUD/StorePanel/Margin/Scroll/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.96, 0.84, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 20
+text = "Spend Prairie Pennies earned by learning."
+horizontal_alignment = 1
+
+[node name="StoreFeedbackLabel" type="Label" parent="UI/HUD/StorePanel/Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.91, 0.67, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 20
+text = "Choose something for your prairie life."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+accessibility_live = 1
+
+[node name="SeedButton" type="Button" parent="UI/HUD/StorePanel/Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 66)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Prairie Seed Packet"
+
+[node name="RibbonButton" type="Button" parent="UI/HUD/StorePanel/Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 66)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Blue Calico Ribbon"
+
+[node name="BookButton" type="Button" parent="UI/HUD/StorePanel/Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 66)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Little Storybook"
+
+[node name="BonnetButton" type="Button" parent="UI/HUD/StorePanel/Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 66)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Red Sunbonnet"
+
+[node name="LanternButton" type="Button" parent="UI/HUD/StorePanel/Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 66)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Tin Lantern"
+
+[node name="HorseButton" type="Button" parent="UI/HUD/StorePanel/Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(0, 66)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Carved Toy Horse"
+
+[node name="CloseButton" type="Button" parent="UI/HUD/StorePanel/Margin/Scroll/VBox"]
+custom_minimum_size = Vector2(280, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Leave Store"
+
+[node name="InventoryPanel" type="Panel" parent="UI/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -300.0
+offset_right = 360.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StylePanel")
+
+[node name="Margin" type="MarginContainer" parent="UI/HUD/InventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 28.0
+offset_right = -34.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/HUD/InventoryPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="InventoryTitle" type="Label" parent="UI/HUD/InventoryPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.45, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 31
+text = "My Prairie Satchel"
+horizontal_alignment = 1
+
+[node name="InventoryLabel" type="Label" parent="UI/HUD/InventoryPanel/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.96, 0.84, 1)
+theme_override_fonts/font = ExtResource("6")
+theme_override_font_sizes/font_size = 24
+text = "Your satchel is empty."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CloseButton" type="Button" parent="UI/HUD/InventoryPanel/Margin/VBox"]
+custom_minimum_size = Vector2(280, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_fonts/font = ExtResource("7")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButtonHover")
+theme_override_styles/focus = SubResource("StyleButtonHover")
+text = "Close Satchel"

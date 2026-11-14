@@ -8,6 +8,10 @@
 
 config_version=5
 
+[accessibility]
+
+general/accessibility_support=1
+
 [application]
 
 config/name="Learn With Laura"

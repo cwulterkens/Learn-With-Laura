@@ -161,7 +161,9 @@ public class QuestionEngine
             operation,
             $"What is {a} {symbol} {b}?",
             answer,
-            $"The answer is {answer}.");
+            BuildMathWhy(operation, a, b, answer),
+            GetMathHint(operation),
+            BuildMathCheck(operation, a, b, answer, symbol));
     }
 
     private bool TryGetAuthoredMath(int grade, string operation, out RuntimeQuestion question)
@@ -178,14 +180,19 @@ public class QuestionEngine
         int index = TakeIndex($"math:{grade}:{operation}", items.Count);
         AuthoredQuestion picked = items[index];
 
-        question = BuildMathQuestion(operation, picked.Prompt, picked.Answer, $"The answer is {picked.Answer}.");
+        question = BuildMathQuestion(
+            operation,
+            picked.Prompt,
+            picked.Answer,
+            $"The correct result is {picked.Answer}.",
+            GetMathHint(operation),
+            $"Apply the {ToDisplay(operation).ToLowerInvariant()} relationship in the prompt. The completed result is {picked.Answer}; check its size against an estimate.");
         return true;
     }
 
     private RuntimeQuestion GetSubjectQuestion(string subjectKey, int requestedGrade)
     {
-        if (!AppState.SubjectQuestionContent.Subjects.TryGetValue(subjectKey, out var gradeMap)
-            || gradeMap.Count == 0)
+        if (!SubjectQuestionBank.Supports(subjectKey))
         {
             return new RuntimeQuestion
             {
@@ -197,21 +204,29 @@ public class QuestionEngine
             };
         }
 
-        string selectedGradeKey = FindBestGradeKey(gradeMap.Keys, requestedGrade);
-        List<ChoiceQuestion> questions = gradeMap[selectedGradeKey]
-            .Where(question => requestedGrade >= question.GradeMin && requestedGrade <= question.GradeMax)
-            .ToList();
-        if (questions.Count == 0)
+        var questions = new List<ChoiceQuestion>(SubjectQuestionBank.GetQuestions(subjectKey, requestedGrade));
+        if (AppState.SubjectQuestionContent.Subjects.TryGetValue(subjectKey, out var gradeMap)
+            && gradeMap.Count > 0)
         {
-            questions = gradeMap[selectedGradeKey];
+            string selectedGradeKey = FindBestGradeKey(gradeMap.Keys, requestedGrade);
+            List<ChoiceQuestion> authored = gradeMap[selectedGradeKey]
+                .Where(question => requestedGrade >= question.GradeMin && requestedGrade <= question.GradeMax)
+                .ToList();
+            questions.AddRange(authored.Count > 0 ? authored : gradeMap[selectedGradeKey]);
         }
 
-        int pickedIndex = TakeIndex($"subject:{subjectKey}:{selectedGradeKey}:{requestedGrade}", questions.Count);
+        int pickedIndex = TakeIndex($"subject:{subjectKey}:{requestedGrade}", questions.Count);
         ChoiceQuestion picked = questions[pickedIndex];
         return ToRuntimeQuestion(subjectKey, picked);
     }
 
-    private RuntimeQuestion BuildMathQuestion(string operation, string prompt, int answer, string successText)
+    private RuntimeQuestion BuildMathQuestion(
+        string operation,
+        string prompt,
+        int answer,
+        string successText,
+        string howTo,
+        string example)
     {
         List<int> distractors = BuildMathDistractors(answer);
         List<string> options = distractors.Select(value => value.ToString()).ToList();
@@ -226,7 +241,31 @@ public class QuestionEngine
             Options = options,
             CorrectIndex = correctIndex,
             Hint = GetMathHint(operation),
-            SuccessText = successText
+            SuccessText = successText,
+            HowTo = howTo,
+            Example = example
+        };
+    }
+
+    private static string BuildMathWhy(string operation, int a, int b, int answer)
+    {
+        return operation switch
+        {
+            "subtraction" => $"Subtracting {b} from {a} leaves {answer}.",
+            "multiplication" => $"{a} equal groups of {b}, or {a} × {b}, make {answer}.",
+            "division" => $"Splitting {a} into groups of {b} gives {answer} groups.",
+            _ => $"Combining {a} and {b} gives {answer}."
+        };
+    }
+
+    private static string BuildMathCheck(string operation, int a, int b, int answer, string symbol)
+    {
+        return operation switch
+        {
+            "subtraction" => $"Worked step: {a} {symbol} {b} = {answer}. Check with addition: {answer} + {b} = {a}.",
+            "multiplication" => $"Worked step: {a} {symbol} {b} = {answer}. Check by estimating the product's size or drawing equal groups.",
+            "division" => $"Worked step: {a} {symbol} {b} = {answer}. Check with multiplication: {answer} × {b} = {a}.",
+            _ => $"Worked step: {a} {symbol} {b} = {answer}. Check by subtracting one addend from the total."
         };
     }
 
@@ -314,6 +353,8 @@ public class QuestionEngine
             CorrectIndex = Math.Clamp(correctIndex, 0, Math.Max(0, indexedOptions.Count - 1)),
             Hint = picked.Hint,
             SuccessText = picked.SuccessText,
+            HowTo = picked.HowTo,
+            Example = picked.Example,
             SourceTitle = picked.SourceTitle,
             SourceUrl = picked.SourceUrl
         };

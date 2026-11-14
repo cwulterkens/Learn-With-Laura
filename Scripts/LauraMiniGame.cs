@@ -467,6 +467,13 @@ public partial class LauraMiniGame : Control
     {
         _acceptPatternInput = false;
         SetOptionButtonsEnabled(false);
+
+        if (UiHelpers.ShouldReduceMotion())
+        {
+            ShowStaticPattern(playbackVersion);
+            return;
+        }
+
         await ToSignal(GetTree().CreateTimer(0.55f), SceneTreeTimer.SignalName.Timeout);
 
         foreach (int buttonIndex in _pattern)
@@ -501,6 +508,20 @@ public partial class LauraMiniGame : Control
         _acceptPatternInput = true;
         SetOptionButtonsEnabled(true);
         _feedbackLabel.Text = "Your turn — repeat the pattern!";
+        _optionButtons[0].GrabFocus();
+    }
+
+    private void ShowStaticPattern(int playbackVersion)
+    {
+        if (!IsInsideTree() || playbackVersion != _patternPlaybackVersion)
+        {
+            return;
+        }
+
+        _patternInputIndex = 0;
+        _acceptPatternInput = true;
+        SetOptionButtonsEnabled(true);
+        _feedbackLabel.Text = AccessibilitySupport.BuildStaticPattern(_pattern, _patternLabels);
         _optionButtons[0].GrabFocus();
     }
 
@@ -724,7 +745,7 @@ public partial class LauraMiniGame : Control
     {
         _patternPlaybackVersion++;
         AppState.SaveProfile();
-        GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+        GetTree().ChangeSceneToFile("res://Scenes/PrairieTown.tscn");
     }
 
     private string GetReturnSubject()

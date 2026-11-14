@@ -23,25 +23,25 @@ public partial class SubjectSelection : Control
             music.Play();
         }
 
-        _profileLabel = GetNode<Label>("SafeArea/Center/Panel/VBox/ProfileLabel");
+        _profileLabel = GetNode<Label>("SafeArea/Center/Panel/Scroll/VBox/ProfileLabel");
         _profileLabel.Text =
             $"{AppState.ActiveProfile.DisplayName} | Grade {AppState.CurrentGrade} | Choose your lesson";
 
-        GetNode<Button>("SafeArea/Center/Panel/VBox/MathButton").Pressed += () => StartSubject("math");
-        GetNode<Button>("SafeArea/Center/Panel/VBox/ScienceButton").Pressed += () => StartSubject("science");
-        GetNode<Button>("SafeArea/Center/Panel/VBox/HistoryButton").Pressed += () => StartSubject("history");
-        GetNode<Button>("SafeArea/Center/Panel/VBox/SocialStudiesButton").Pressed += () => StartSubject("social_studies");
-        GetNode<Button>("SafeArea/Center/Panel/VBox/GeographyButton").Pressed += () => StartSubject("geography");
-        GetNode<Button>("SafeArea/Center/Panel/VBox/EnglishButton").Pressed += () => StartSubject("english");
-        GetNode<Button>("SafeArea/Center/Panel/VBox/ProfileButton").Pressed += () =>
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/MathButton").Pressed += () => StartSubject("math");
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/ScienceButton").Pressed += () => StartSubject("science");
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/HistoryButton").Pressed += () => StartSubject("history");
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/SocialStudiesButton").Pressed += () => StartSubject("social_studies");
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/GeographyButton").Pressed += () => StartSubject("geography");
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/EnglishButton").Pressed += () => StartSubject("english");
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/ProfileButton").Pressed += () =>
         {
             AppState.PendingSceneAfterProfile = "res://Scenes/SubjectSelection.tscn";
             GetTree().ChangeSceneToFile("res://Scenes/ProfileSelection.tscn");
         };
-        GetNode<Button>("SafeArea/Center/Panel/VBox/GradeButton").Pressed += () =>
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/GradeButton").Pressed += () =>
             GetTree().ChangeSceneToFile("res://Scenes/GradeSelection.tscn");
-        GetNode<Button>("SafeArea/Center/Panel/VBox/BackButton").Pressed += () =>
-            GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+        GetNode<Button>("SafeArea/Center/Panel/Scroll/VBox/BackButton").Pressed += () =>
+            GetTree().ChangeSceneToFile("res://Scenes/PrairieTown.tscn");
     }
 
     private void StartSubject(string subjectKey)

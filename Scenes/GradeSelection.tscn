@@ -42,7 +42,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(700, 560)
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel" unique_id=1221801945]
+[node name="Scroll" type="ScrollContainer" parent="SafeArea/Center/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,33 +53,39 @@ offset_right = -36.0
 offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel/Scroll" unique_id=1221801945]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 14
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=2076294600]
+[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=2076294600]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Choose Grade"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="MessageLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=1588576060]
+[node name="MessageLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1588576060]
 layout_mode = 2
 text = "What grade are you in today?"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="GradeSpin" type="SpinBox" parent="SafeArea/Center/Panel/VBox" unique_id=216509325]
+[node name="GradeSpin" type="SpinBox" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=216509325]
 custom_minimum_size = Vector2(560, 64)
 layout_mode = 2
 min_value = 1.0
 max_value = 8.0
 value = 1.0
 
-[node name="StartButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=793002800]
+[node name="StartButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=793002800]
 layout_mode = 2
 text = "Start Learning"
 
-[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=147952849]
+[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=147952849]
 layout_mode = 2
-text = "Back"
+text = "Return to Town"

@@ -39,10 +39,10 @@ theme_override_constants/margin_bottom = 72
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="SafeArea/Center" unique_id=1227277475]
-custom_minimum_size = Vector2(720, 860)
+custom_minimum_size = Vector2(720, 600)
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel" unique_id=2053552773]
+[node name="Scroll" type="ScrollContainer" parent="SafeArea/Center/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,43 +53,49 @@ offset_right = -36.0
 offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel/Scroll" unique_id=2053552773]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=201980732]
+[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=201980732]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Local Learner Nicknames"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Profiles" type="ItemList" parent="SafeArea/Center/Panel/VBox" unique_id=142502127]
+[node name="Profiles" type="ItemList" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=142502127]
 custom_minimum_size = Vector2(560, 240)
 layout_mode = 2
 
-[node name="NewNameInput" type="LineEdit" parent="SafeArea/Center/Panel/VBox" unique_id=391137451]
+[node name="NewNameInput" type="LineEdit" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=391137451]
 custom_minimum_size = Vector2(560, 64)
 layout_mode = 2
 placeholder_text = "Enter a nickname"
 
-[node name="CreateButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=112919387]
+[node name="CreateButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=112919387]
 layout_mode = 2
 text = "Create Local Learner"
 
-[node name="SelectButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1807680390]
+[node name="SelectButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1807680390]
 layout_mode = 2
 text = "Use Selected Learner"
 
-[node name="DeleteButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=2035084721]
+[node name="DeleteButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=2035084721]
 layout_mode = 2
 text = "Delete Selected Learner"
 
-[node name="StatusLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=1787987832]
+[node name="StatusLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1787987832]
 layout_mode = 2
 text = "Current: none"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=2125994481]
+[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=2125994481]
 layout_mode = 2
 text = "Back"

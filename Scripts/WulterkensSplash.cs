@@ -13,7 +13,7 @@ public partial class WulterkensSplash : Control
 			_creditsImage.Modulate = new Color(1, 1, 1, 0);
 			if (AppState.Settings.ReducedMotion)
 			{
-				GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+				ContinueToHub();
 			}
 	}
 
@@ -27,7 +27,7 @@ public partial class WulterkensSplash : Control
 
 			if (_timer >= 2.0f)
 		{
-			GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+			ContinueToHub();
 		}
 	}
 
@@ -35,7 +35,14 @@ public partial class WulterkensSplash : Control
 	{
 		if (@event is InputEventKey || @event is InputEventMouseButton)
 		{
-			GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+			ContinueToHub();
 		}
+	}
+
+	private void ContinueToHub()
+	{
+		GetTree().ChangeSceneToFile(AppState.ActiveProfile == null
+			? "res://Scenes/MainMenu.tscn"
+			: "res://Scenes/PrairieTown.tscn");
 	}
 }

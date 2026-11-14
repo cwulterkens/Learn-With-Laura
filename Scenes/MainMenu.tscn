@@ -44,10 +44,10 @@ theme_override_constants/margin_bottom = 72
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="SafeArea/Center" unique_id=446535961]
-custom_minimum_size = Vector2(680, 760)
+custom_minimum_size = Vector2(680, 600)
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel" unique_id=813796644]
+[node name="Scroll" type="ScrollContainer" parent="SafeArea/Center/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,45 +58,47 @@ offset_right = -36.0
 offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel/Scroll" unique_id=813796644]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 14
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=470007360]
+[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=470007360]
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "Learn With Laura"
 horizontal_alignment = 1
 
-[node name="WelcomeLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=1282580854]
+[node name="WelcomeLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1282580854]
 layout_mode = 2
 text = "Welcome"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ContinueButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1148076694]
+[node name="TownButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox"]
+layout_mode = 2
+text = "Enter Prairie Town"
+
+[node name="ContinueButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1148076694]
 layout_mode = 2
 text = "Continue"
 
-[node name="LearnButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1080957362]
-layout_mode = 2
-text = "Start Learning"
-
-[node name="TrailButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=724591345]
-layout_mode = 2
-text = "Laura's Trail"
-
-[node name="ProgressButton" type="Button" parent="SafeArea/Center/Panel/VBox"]
+[node name="ProgressButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox"]
 layout_mode = 2
 text = "Local Progress & Backups"
 
-[node name="ProfilesButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=53846567]
+[node name="ProfilesButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=53846567]
 layout_mode = 2
 text = "Learner Nicknames"
 
-[node name="SettingsButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=550825575]
+[node name="SettingsButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=550825575]
 layout_mode = 2
 text = "Settings"
 
-[node name="ExitButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=496932134]
+[node name="ExitButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=496932134]
 layout_mode = 2
 text = "Exit"

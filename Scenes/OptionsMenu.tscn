@@ -39,10 +39,10 @@ theme_override_constants/margin_bottom = 72
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="SafeArea/Center" unique_id=179289562]
-custom_minimum_size = Vector2(760, 960)
+custom_minimum_size = Vector2(760, 600)
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel" unique_id=1339993551]
+[node name="Scroll" type="ScrollContainer" parent="SafeArea/Center/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,74 +53,86 @@ offset_right = -36.0
 offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/Center/Panel/Scroll" unique_id=1339993551]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=1468854488]
+[node name="TitleLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1468854488]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "Options"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="MusicLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=265187723]
+[node name="MusicLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=265187723]
 layout_mode = 2
 text = "Music Volume"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="MusicSlider" type="HSlider" parent="SafeArea/Center/Panel/VBox" unique_id=2084055758]
+[node name="MusicSlider" type="HSlider" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=2084055758]
 custom_minimum_size = Vector2(560, 48)
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 
-[node name="SfxLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=638257066]
+[node name="SfxLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=638257066]
 layout_mode = 2
 text = "Effects Volume"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="SfxSlider" type="HSlider" parent="SafeArea/Center/Panel/VBox" unique_id=1880569227]
+[node name="SfxSlider" type="HSlider" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1880569227]
 custom_minimum_size = Vector2(560, 48)
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 
-[node name="MuteToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox" unique_id=1935470665]
+[node name="MuteToggle" type="CheckBox" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1935470665]
 layout_mode = 2
 text = "Mute All Audio"
 
-[node name="LargeTextToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox" unique_id=1788966955]
+[node name="LargeTextToggle" type="CheckBox" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1788966955]
 layout_mode = 2
 text = "Larger Text"
 
-[node name="HighContrastToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox" unique_id=756788172]
+[node name="HighContrastToggle" type="CheckBox" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=756788172]
 layout_mode = 2
 text = "Higher Contrast"
 
-[node name="ReducedMotionToggle" type="CheckBox" parent="SafeArea/Center/Panel/VBox" unique_id=1660224613]
+[node name="ReducedMotionToggle" type="CheckBox" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1660224613]
 layout_mode = 2
-text = "Reduce Motion and Splash Delays"
+text = "Reduce Motion, Use Static Patterns, and Shorten Splash Delays"
 
-[node name="ResolutionLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=501900416]
+[node name="SystemAccessLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox"]
+layout_mode = 2
+text = "System contrast and reduced-motion preferences are also honored automatically."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ResolutionLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=501900416]
 layout_mode = 2
 text = "Resolution"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ResolutionSelect" type="OptionButton" parent="SafeArea/Center/Panel/VBox" unique_id=1430933023]
+[node name="ResolutionSelect" type="OptionButton" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1430933023]
 layout_mode = 2
 
-[node name="DisplayModeLabel" type="Label" parent="SafeArea/Center/Panel/VBox" unique_id=1912095967]
+[node name="DisplayModeLabel" type="Label" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1912095967]
 layout_mode = 2
 text = "Display Mode"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="DisplayModeSelect" type="OptionButton" parent="SafeArea/Center/Panel/VBox" unique_id=685661111]
+[node name="DisplayModeSelect" type="OptionButton" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=685661111]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/VBox" unique_id=1094473513]
+[node name="BackButton" type="Button" parent="SafeArea/Center/Panel/Scroll/VBox" unique_id=1094473513]
 layout_mode = 2
 text = "Back"

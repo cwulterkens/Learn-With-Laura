@@ -161,4 +161,4 @@ text = "Return To Lesson"
 
 [node name="HomeButton" type="Button" parent="Panel/Scroll/VBox/Footer" unique_id=1961292131]
 layout_mode = 2
-text = "Home"
+text = "Return to Town"

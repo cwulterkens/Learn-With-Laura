@@ -2,7 +2,7 @@
 
 ## Chosen visual direction
 
-Learn With Laura uses a warm, painterly storybook style grounded in late-19th-century Midwestern materials, light, and environments. The current 1536x1024 classroom, subject, menu, and Laura's Trail backgrounds establish the target look. Pixel art, flat geometric sprites, anime-influenced characters, photorealism, and direct imitation of television-production imagery are outside this direction.
+Learn With Laura uses a warm, painterly storybook style grounded in late-19th-century Midwestern materials, light, and environments. The current 1536x1024 classroom, subject, menu, and Laura's Trail backgrounds establish the target look. Prairie Town is a deliberate secondary mode with a cohesive top-down pixel-art treatment chosen for readable movement and exploration. Flat placeholders, anime-influenced characters, photorealism, and direct imitation of television-production imagery remain outside the direction.
 
 Artwork should feel inviting to a young learner without presenting invention as historical evidence. Educational labels, dates, equations, map names, and other factual text belong in authored UI, not inside generated images.
 
@@ -66,6 +66,18 @@ The following generated images match the chosen style and are used for subject-s
 - `assets/geography_map_bg.png`
 
 Their tool, date, output identifiers, reference image, and concise prompts are recorded in the manifest.
+
+### Active generated Prairie Town set
+
+- `assets/hunting_field_rendered.png` is the textured 3D-rendered gallery backdrop.
+- `assets/hunting_rabbit_rendered.png` and `assets/hunting_squirrel_rendered.png` are transparent rendered moving-target sprites.
+- `assets/prairie_town_map.png` is the walkable 1536x1024 town map.
+- `assets/prairie_player_sheet.png` contains the four directional player frames.
+- `assets/prairie_pa_field.png` is the fictional field-guide NPC for Hunting with Pa.
+- `assets/prairie_slingshot.png` is the isolated slingshot icon used beside the hunting field.
+- `assets/prairie_wagon.png` is the interactive vehicle used to enter Laura's world.
+
+These are original frontier-themed game assets rather than historical reconstructions. The hunting assets deliberately use a higher-detail 2.5D render style inside that mini-game while the town remains top-down pixel art. Their full generation prompts and output identifiers are recorded in the manifest.
 
 ### Active branded application icon
 

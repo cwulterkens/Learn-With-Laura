@@ -88,6 +88,8 @@ public class ChoiceQuestion
     public int CorrectIndex { get; set; }
     public string Hint { get; set; } = "";
     public string SuccessText { get; set; } = "";
+    public string HowTo { get; set; } = "";
+    public string Example { get; set; } = "";
     public string SourceTitle { get; set; } = "";
     public string SourceUrl { get; set; } = "";
 }
@@ -136,6 +138,15 @@ public class ProfileData
     public int LauraChapterReplays { get; set; }
     public List<string> MasteredLauraAreas { get; set; } = new();
     public int PrairieStars { get; set; }
+    public int PrairiePennies { get; set; }
+    public bool TownRewardInitialized { get; set; }
+    public int TownVisitCount { get; set; }
+    public List<string> TownInventory { get; set; } = new();
+    public List<string> TownDiscoveries { get; set; } = new();
+    public int HuntingTripsCompleted { get; set; }
+    public List<string> FieldJournalEntries { get; set; } = new();
+    public float TownPositionX { get; set; } = 170f;
+    public float TownPositionY { get; set; } = 900f;
     public int CurrentStreak { get; set; }
     public int BestStreak { get; set; }
     public JourneyProgress Journey { get; set; } = new();
@@ -197,6 +208,8 @@ public class RuntimeQuestion
     public int CorrectIndex { get; set; }
     public string Hint { get; set; } = "";
     public string SuccessText { get; set; } = "";
+    public string HowTo { get; set; } = "";
+    public string Example { get; set; } = "";
     public string SourceTitle { get; set; } = "";
     public string SourceUrl { get; set; } = "";
 }

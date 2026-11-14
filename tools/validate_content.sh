@@ -114,7 +114,7 @@ trap 'rm -f "$manifest_paths" "$source_asset_paths"' EXIT
 
 tail -n +2 assets/ASSET_MANIFEST.csv | cut -d, -f1 | tr -d '"' | sort > "$manifest_paths"
 {
-    find assets -type f ! -name '*.import' ! -name 'ASSET_MANIFEST.csv'
+    find assets -type f ! -name '*.import' ! -name '.DS_Store' ! -name 'ASSET_MANIFEST.csv'
     printf '%s\n' icon.svg
 } | sort > "$source_asset_paths"
 
@@ -129,4 +129,5 @@ if [[ -n "$missing_asset_files" ]]; then
     exit 1
 fi
 
-printf 'Validated JSON, 256 math questions, 180 subject questions, 40 Laura questions, badges, referenced backgrounds, and all 47 inventoried source assets.\n'
+asset_count="$(wc -l < "$manifest_paths" | tr -d ' ')"
+printf 'Validated JSON, 256 math questions, 180 subject questions, 40 Laura questions, badges, referenced backgrounds, and all %s inventoried source assets.\n' "$asset_count"
